@@ -706,6 +706,171 @@
             line-height: 1.6;
         }
 
+        /* ===== Market Data Section ===== */
+        .market-section {
+            background: var(--dark);
+            color: white;
+        }
+
+        .market-section .section-header h2 {
+            color: white;
+        }
+
+        .market-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .market-widgets {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .market-widget-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .market-widget-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .market-us-box {
+            padding: 0;
+        }
+
+        .market-us-grid {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            height: calc(100% - 50px);
+            min-height: 350px;
+        }
+
+        .market-us-grid .tradingview-widget-container {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .market-us-grid .tradingview-widget-container:last-child {
+            border-bottom: none;
+        }
+
+        .market-widget-box h3 {
+            padding: 1rem 1.5rem 0;
+            font-size: 1rem;
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        .market-ticker-tape {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .market-links-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .market-links-box h3 {
+            padding: 0 !important;
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            text-align: center;
+        }
+
+        .market-links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .market-link-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .market-link-card:hover {
+            background: rgba(201, 168, 76, 0.12);
+            border-color: var(--gold);
+            transform: translateX(6px);
+        }
+
+        .market-link-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201, 168, 76, 0.1);
+            border-radius: 50%;
+        }
+
+        .market-link-text {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .market-link-text strong {
+            font-size: 1.05rem;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .market-link-text span {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 2px;
+        }
+
+        .market-link-arrow {
+            font-size: 1.3rem;
+            color: var(--gold);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .market-link-card:hover .market-link-arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 768px) {
+            .market-widget-row {
+                grid-template-columns: 1fr;
+            }
+
+            .market-widget-box {
+                min-height: 400px;
+            }
+
+            .market-links-container {
+                max-width: 100%;
+            }
+        }
+
         /* ===== Partners Section ===== */
         .partners-section {
         }
@@ -1520,6 +1685,7 @@
                 <li><a href="#about" data-nav>회사소개</a></li>
                 <li><a href="#services" data-nav>서비스</a></li>
                 <li><a href="#process" data-nav>프로세스</a></li>
+                <li><a href="#market" data-nav>시장</a></li>
                 <li><a href="#partners" data-nav>파트너</a></li>
                 <li><a href="#achievements" data-nav>실적</a></li>
                 <li><a href="#sns" data-nav>SNS</a></li>
@@ -1529,6 +1695,7 @@
                 <li><a href="#about" data-nav>About</a></li>
                 <li><a href="#services" data-nav>Services</a></li>
                 <li><a href="#process" data-nav>Process</a></li>
+                <li><a href="#market" data-nav>Market</a></li>
                 <li><a href="#partners" data-nav>Partners</a></li>
                 <li><a href="#achievements" data-nav>Achievements</a></li>
                 <li><a href="#sns" data-nav>SNS</a></li>
@@ -1800,6 +1967,234 @@
                         <div class="step-number">4</div>
                         <h3>Facility Setup</h3>
                         <p>Support for establishing production and logistics facilities in the US</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Market Data Section -->
+    <div class="market-section section-full">
+        <section class="section" id="market">
+            <div class="lang-ko">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-label">Market</span>
+                    <h2>실시간 시장 정보</h2>
+                    <div class="gold-line"></div>
+                    <p class="section-subtitle">미국 및 한국 주요 주가 지수와 원달러 환율</p>
+                </div>
+            </div>
+            <div class="lang-en hidden">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-label">Market</span>
+                    <h2>Live Market Data</h2>
+                    <div class="gold-line"></div>
+                    <p class="section-subtitle">US & Korean stock indices and USD/KRW exchange rate</p>
+                </div>
+            </div>
+
+            <!-- Ticker Tape -->
+            <div class="market-ticker-tape animate-on-scroll">
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols": [
+                            {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+                            {"proName": "FOREXCOM:DJI", "title": "Dow Jones"},
+                            {"proName": "OANDA:NAS100USD", "title": "NASDAQ 100"},
+                            {"proName": "FX_IDC:USDKRW", "title": "USD/KRW"}
+                        ],
+                        "showSymbolLogo": true,
+                        "isTransparent": true,
+                        "displayMode": "adaptive",
+                        "colorTheme": "dark",
+                        "locale": "kr"
+                    }
+                    </script>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="market-widgets animate-on-scroll">
+                <div class="market-widget-row">
+                    <!-- US Market - 3 individual widgets -->
+                    <div class="market-widget-box market-us-box">
+                        <h3 class="lang-ko">미국 주요 지수</h3>
+                        <h3 class="lang-en hidden">US Major Indices</h3>
+                        <div class="market-us-grid">
+                            <!-- S&P 500 -->
+                            <div class="tradingview-widget-container">
+                                <div class="tradingview-widget-container__widget"></div>
+                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+                                {
+                                    "symbols": [["S&P 500", "FOREXCOM:SPXUSD|1D"]],
+                                    "chartOnly": false,
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "locale": "kr",
+                                    "colorTheme": "dark",
+                                    "autosize": true,
+                                    "showVolume": false,
+                                    "showMA": false,
+                                    "hideDateRanges": true,
+                                    "hideMarketStatus": false,
+                                    "hideSymbolLogo": false,
+                                    "scalePosition": "no",
+                                    "scaleMode": "Normal",
+                                    "fontFamily": "Montserrat, sans-serif",
+                                    "fontSize": "10",
+                                    "noTimeScale": true,
+                                    "valuesTracking": "0",
+                                    "changeMode": "price-and-percent",
+                                    "chartType": "area",
+                                    "lineWidth": 2,
+                                    "lineColor": "rgba(201, 168, 76, 1)",
+                                    "topColor": "rgba(201, 168, 76, 0.3)",
+                                    "bottomColor": "rgba(201, 168, 76, 0.0)",
+                                    "isTransparent": true
+                                }
+                                </script>
+                            </div>
+                            <!-- Dow Jones -->
+                            <div class="tradingview-widget-container">
+                                <div class="tradingview-widget-container__widget"></div>
+                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+                                {
+                                    "symbols": [["Dow Jones", "FOREXCOM:DJI|1D"]],
+                                    "chartOnly": false,
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "locale": "kr",
+                                    "colorTheme": "dark",
+                                    "autosize": true,
+                                    "showVolume": false,
+                                    "showMA": false,
+                                    "hideDateRanges": true,
+                                    "hideMarketStatus": false,
+                                    "hideSymbolLogo": false,
+                                    "scalePosition": "no",
+                                    "scaleMode": "Normal",
+                                    "fontFamily": "Montserrat, sans-serif",
+                                    "fontSize": "10",
+                                    "noTimeScale": true,
+                                    "valuesTracking": "0",
+                                    "changeMode": "price-and-percent",
+                                    "chartType": "area",
+                                    "lineWidth": 2,
+                                    "lineColor": "rgba(201, 168, 76, 1)",
+                                    "topColor": "rgba(201, 168, 76, 0.3)",
+                                    "bottomColor": "rgba(201, 168, 76, 0.0)",
+                                    "isTransparent": true
+                                }
+                                </script>
+                            </div>
+                            <!-- NASDAQ 100 -->
+                            <div class="tradingview-widget-container">
+                                <div class="tradingview-widget-container__widget"></div>
+                                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+                                {
+                                    "symbols": [["NASDAQ 100", "OANDA:NAS100USD|1D"]],
+                                    "chartOnly": false,
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "locale": "kr",
+                                    "colorTheme": "dark",
+                                    "autosize": true,
+                                    "showVolume": false,
+                                    "showMA": false,
+                                    "hideDateRanges": true,
+                                    "hideMarketStatus": false,
+                                    "hideSymbolLogo": false,
+                                    "scalePosition": "no",
+                                    "scaleMode": "Normal",
+                                    "fontFamily": "Montserrat, sans-serif",
+                                    "fontSize": "10",
+                                    "noTimeScale": true,
+                                    "valuesTracking": "0",
+                                    "changeMode": "price-and-percent",
+                                    "chartType": "area",
+                                    "lineWidth": 2,
+                                    "lineColor": "rgba(201, 168, 76, 1)",
+                                    "topColor": "rgba(201, 168, 76, 0.3)",
+                                    "bottomColor": "rgba(201, 168, 76, 0.0)",
+                                    "isTransparent": true
+                                }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Korean Market Links -->
+                    <div class="market-widget-box market-links-box">
+                        <h3 class="lang-ko">한국 주요 지수</h3>
+                        <h3 class="lang-en hidden">Korean Major Indices</h3>
+                        <div class="market-links-container">
+                            <a href="https://www.tradingview.com/symbols/KRX-KOSPI/" target="_blank" rel="noopener" class="market-link-card">
+                                <div class="market-link-icon">
+                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                                </div>
+                                <div class="market-link-text">
+                                    <strong>KOSPI</strong>
+                                    <span class="lang-ko">코스피 종합지수</span>
+                                    <span class="lang-en hidden">Korea Composite Index</span>
+                                </div>
+                                <div class="market-link-arrow">→</div>
+                            </a>
+                            <a href="https://www.tradingview.com/symbols/KRX-KOSDAQ/" target="_blank" rel="noopener" class="market-link-card">
+                                <div class="market-link-icon">
+                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                                </div>
+                                <div class="market-link-text">
+                                    <strong>KOSDAQ</strong>
+                                    <span class="lang-ko">코스닥 종합지수</span>
+                                    <span class="lang-en hidden">KOSDAQ Composite Index</span>
+                                </div>
+                                <div class="market-link-arrow">→</div>
+                            </a>
+                            <a href="https://www.tradingview.com/symbols/KRX-KOSPI200/" target="_blank" rel="noopener" class="market-link-card">
+                                <div class="market-link-icon">
+                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                                </div>
+                                <div class="market-link-text">
+                                    <strong>KOSPI 200</strong>
+                                    <span class="lang-ko">코스피 200</span>
+                                    <span class="lang-en hidden">KOSPI 200 Index</span>
+                                </div>
+                                <div class="market-link-arrow">→</div>
+                            </a>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.4); font-size: 0.75rem; margin-top: 1.5rem;">Powered by TradingView</p>
+                    </div>
+                </div>
+
+                <!-- Exchange Rate -->
+                <div class="market-widget-row">
+                    <div class="market-widget-box" style="grid-column: 1 / -1;">
+                        <h3 class="lang-ko">원달러 환율 (USD/KRW)</h3>
+                        <h3 class="lang-en hidden">Exchange Rate (USD/KRW)</h3>
+                        <div class="tradingview-widget-container" style="height:370px;">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {
+                                "symbol": "FX_IDC:USDKRW",
+                                "interval": "D",
+                                "timezone": "Asia/Seoul",
+                                "theme": "dark",
+                                "style": "1",
+                                "locale": "kr",
+                                "backgroundColor": "rgba(0, 0, 0, 0)",
+                                "gridColor": "rgba(255, 255, 255, 0.06)",
+                                "hide_top_toolbar": false,
+                                "hide_legend": false,
+                                "save_image": false,
+                                "calendar": false,
+                                "support_host": "https://www.tradingview.com",
+                                "width": "100%",
+                                "height": "100%"
+                            }
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
