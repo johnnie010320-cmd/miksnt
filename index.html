@@ -1704,8 +1704,8 @@
 
             <div class="nav-right">
                 <div class="language-toggle">
-                    <button class="lang-btn active" data-lang="ko">KO</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ko">KO</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
                 </div>
                 <div class="login-trigger" id="loginTrigger">
                     <span class="lang-ko">LOGIN</span>
@@ -2213,12 +2213,7 @@
                 </div>
 
                 <div class="partners-grid animate-on-scroll">
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 1</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 2</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 3</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 4</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 5</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 6</div></div>
+                    <div class="partner-logo"><a href="https://www.translink.kr" target="_blank" rel="noopener"><img src="partner-translink.jpg" alt="Translink Investment"></a></div>
                 </div>
 
                 <div class="partners-note animate-on-scroll">
@@ -2235,12 +2230,7 @@
                 </div>
 
                 <div class="partners-grid animate-on-scroll">
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 1</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 2</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 3</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 4</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 5</div></div>
-                    <div class="partner-logo"><div class="partner-placeholder">Partner Logo 6</div></div>
+                    <div class="partner-logo"><a href="https://www.translink.kr" target="_blank" rel="noopener"><img src="partner-translink.jpg" alt="Translink Investment"></a></div>
                 </div>
 
                 <div class="partners-note animate-on-scroll">
@@ -2726,7 +2716,11 @@
         <p>Made in Korea Solution & Technology</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+        // ===== EmailJS Init =====
+        emailjs.init('vfOjbJFcrJf4o0zXP');
+
         // ===== Scroll Animations (Intersection Observer) =====
         const observerOptions = {
             threshold: 0.1,
@@ -2773,6 +2767,10 @@
         });
 
         // ===== Language Toggle =====
+        // Set default language to English
+        document.querySelectorAll('.lang-ko').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.lang-en').forEach(el => el.classList.remove('hidden'));
+
         const langButtons = document.querySelectorAll('.lang-btn');
 
         langButtons.forEach(button => {
@@ -2822,17 +2820,46 @@
                 });
 
                 if (isValid) {
-                    // Hide form, show success
-                    form.style.display = 'none';
-                    const successEl = form.parentElement.querySelector('.form-success');
-                    successEl.classList.add('show');
+                    const submitBtn = form.querySelector('.form-submit-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
 
-                    // Reset after 5 seconds
-                    setTimeout(() => {
-                        form.reset();
-                        form.style.display = '';
-                        successEl.classList.remove('show');
-                    }, 5000);
+                    // Gather form data
+                    const formData = new FormData(form);
+                    const typeSelect = form.querySelector('select[name="type"]');
+                    const typeText = typeSelect ? typeSelect.options[typeSelect.selectedIndex].text : 'N/A';
+
+                    const templateParams = {
+                        name: formData.get('name'),
+                        company: formData.get('company') || 'N/A',
+                        email: formData.get('email'),
+                        type: typeText,
+                        message: formData.get('message')
+                    };
+
+                    emailjs.send('service_fid6vrp', 'template_qszzueu', templateParams)
+                        .then(() => {
+                            form.style.display = 'none';
+                            const successEl = form.parentElement.querySelector('.form-success');
+                            successEl.classList.add('show');
+
+                            setTimeout(() => {
+                                form.reset();
+                                form.style.display = '';
+                                successEl.classList.remove('show');
+                                submitBtn.textContent = originalText;
+                                submitBtn.disabled = false;
+                            }, 5000);
+                        })
+                        .catch((error) => {
+                            console.error('EmailJS Error:', error);
+                            alert(form.id === 'inquiryFormKo'
+                                ? '이메일 전송에 실패했습니다. 잠시 후 다시 시도해주세요.'
+                                : 'Failed to send email. Please try again later.');
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        });
                 }
             });
         });
