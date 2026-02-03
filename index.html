@@ -704,6 +704,135 @@
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
+            white-space: nowrap;
+        }
+
+        .step-clickable {
+            cursor: pointer;
+        }
+
+        .step-clickable:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+        }
+
+        .step-image {
+            width: 100%;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            object-fit: cover;
+            height: 120px;
+        }
+
+        .step-click-hint {
+            font-size: 0.7rem;
+            color: var(--gold);
+            margin-top: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* ===== Process Detail Modal ===== */
+        .process-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .process-modal-overlay.active {
+            display: flex;
+        }
+
+        .process-modal {
+            background: var(--dark);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-radius: var(--radius-lg);
+            max-width: 640px;
+            width: 100%;
+            overflow: hidden;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .process-modal-header {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .process-modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .process-modal-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, var(--dark), transparent);
+        }
+
+        .process-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .process-modal-close:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .process-modal-body {
+            padding: 2rem;
+        }
+
+        .process-modal-body h3 {
+            color: var(--gold-light);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .process-modal-body p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 2;
+            word-break: keep-all;
+        }
+
+        @media (max-width: 480px) {
+            .process-modal-header {
+                height: 150px;
+            }
+            .process-modal-body {
+                padding: 1.5rem;
+            }
         }
 
         /* ===== Market Data Section ===== */
@@ -2003,10 +2132,12 @@
                     <p class="section-subtitle">체계적인 4단계 프로세스로 성공적인 진출을 지원합니다</p>
                 </div>
                 <div class="process-steps">
-                    <div class="step animate-on-scroll animate-delay-1">
+                    <div class="step step-clickable animate-on-scroll animate-delay-1" onclick="document.getElementById('processModal').classList.add('active')">
+                        <img src="market-analysis.jpg" alt="시장 분석" class="step-image">
                         <div class="step-number">1</div>
                         <h3>시장 분석</h3>
                         <p>미국 시장 동향 분석 및 진출 전략 수립</p>
+                        <div class="step-click-hint">Click for details</div>
                     </div>
                     <div class="step animate-on-scroll animate-delay-2">
                         <div class="step-number">2</div>
@@ -2033,10 +2164,12 @@
                     <p class="section-subtitle">We support successful market entry through a systematic 4-step process</p>
                 </div>
                 <div class="process-steps">
-                    <div class="step animate-on-scroll animate-delay-1">
+                    <div class="step step-clickable animate-on-scroll animate-delay-1" onclick="document.getElementById('processModal').classList.add('active')">
+                        <img src="market-analysis.jpg" alt="Market Analysis" class="step-image">
                         <div class="step-number">1</div>
                         <h3>Market Analysis</h3>
                         <p>US market trend analysis and entry strategy development</p>
+                        <div class="step-click-hint">Click for details</div>
                     </div>
                     <div class="step animate-on-scroll animate-delay-2">
                         <div class="step-number">2</div>
@@ -2722,6 +2855,32 @@
         </section>
     </div>
 
+    <!-- Process Detail Modal -->
+    <div class="process-modal-overlay" id="processModal">
+        <div class="process-modal">
+            <div class="process-modal-header">
+                <button class="process-modal-close" onclick="document.getElementById('processModal').classList.remove('active')">&times;</button>
+                <img src="market-analysis.jpg" alt="Market Analysis">
+            </div>
+            <div class="process-modal-body">
+                <h3 class="lang-ko">시장 분석</h3>
+                <h3 class="lang-en hidden">Market Analysis</h3>
+                <p class="lang-ko">
+                    당사는 품목별로 미국 시장의 규모와 최신 기술 동향을 체계적으로 분석하고 있습니다.<br><br>
+                    또한 주요 고객군을 파악하고, 효과적인 시장 접근 전략을 수립하는 데 주력하고 있습니다.<br><br>
+                    이와 함께 경쟁 제품과 경쟁 업체에 대한 정밀한 비교·분석을 통해 시장 내 경쟁 환경을 면밀히 진단하고 있으며,<br><br>
+                    이를 바탕으로 미국 시장 진출을 위한 중·장기 전략을 수립하고 있습니다.
+                </p>
+                <p class="lang-en hidden">
+                    We systematically analyze the size and latest technology trends of the US market by product category.<br><br>
+                    We focus on identifying key customer segments and establishing effective market approach strategies.<br><br>
+                    We also conduct precise comparative analysis of competing products and companies to thoroughly diagnose the competitive landscape,<br><br>
+                    and based on this, we develop mid- to long-term strategies for US market entry.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Auth Modal -->
     <div id="authModal" class="modal">
         <div class="modal-content">
@@ -2958,6 +3117,14 @@
                     }
                 });
             });
+        });
+
+        // ===== Process Modal =====
+        const processModal = document.getElementById('processModal');
+        processModal.addEventListener('click', (e) => {
+            if (e.target === processModal) {
+                processModal.classList.remove('active');
+            }
         });
 
         // ===== Contact Form Validation =====
