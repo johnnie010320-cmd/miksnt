@@ -3586,10 +3586,10 @@
             document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
         }
 
-        // Open modal
+        // Open modal / Logout
         loginTrigger.addEventListener('click', () => {
             if (auth.currentUser) {
-                projectStatus.scrollIntoView({ behavior: 'smooth' });
+                doLogout();
             } else {
                 showStep('loginStep');
                 authModal.classList.add('active');
@@ -3737,22 +3737,20 @@
         logoutBtnEn.addEventListener('click', doLogout);
 
         async function doLogout() {
-            if (confirm('Are you sure you want to logout?')) {
-                await auth.signOut();
-                projectStatus.classList.remove('visible');
-                currentUserRole = null;
-                loginTrigger.querySelector('.lang-ko').textContent = 'LOGIN';
-                loginTrigger.querySelector('.lang-en').textContent = 'LOGIN';
-                // Remove admin button if exists
-                document.querySelectorAll('.admin-btn-nav').forEach(el => el.remove());
-            }
+            await auth.signOut();
+            projectStatus.classList.remove('visible');
+            currentUserRole = null;
+            loginTrigger.querySelector('.lang-ko').textContent = 'LOGIN';
+            loginTrigger.querySelector('.lang-en').textContent = 'LOGIN';
+            // Remove admin button if exists
+            document.querySelectorAll('.admin-btn-nav').forEach(el => el.remove());
         }
 
         // ===== LOGIN SUCCESS HANDLER =====
         async function handleLoginSuccess(user) {
             projectStatus.classList.add('visible');
-            loginTrigger.querySelector('.lang-ko').textContent = '프로젝트';
-            loginTrigger.querySelector('.lang-en').textContent = 'Projects';
+            loginTrigger.querySelector('.lang-ko').textContent = 'Log Out';
+            loginTrigger.querySelector('.lang-en').textContent = 'Log Out';
 
             // Check admin role
             try {
@@ -3772,14 +3770,8 @@
             btn.className = 'admin-btn-nav';
             btn.textContent = 'Admin';
             btn.addEventListener('click', openAdminPanel);
-            document.querySelector('.project-header').appendChild(btn);
-            // English version too
-            const headers = document.querySelectorAll('.project-header');
-            if (headers.length > 1) {
-                const btn2 = btn.cloneNode(true);
-                btn2.addEventListener('click', openAdminPanel);
-                headers[1].appendChild(btn2);
-            }
+            // Insert in nav-right, before loginTrigger
+            loginTrigger.parentElement.insertBefore(btn, loginTrigger);
         }
 
         // ===== ADMIN PANEL =====
