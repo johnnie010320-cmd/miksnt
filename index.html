@@ -1637,6 +1637,162 @@
             text-align: center;
         }
 
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 42px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray-400);
+            padding: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-toggle:hover {
+            color: var(--navy);
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        .auth-switch a {
+            color: var(--navy);
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 4px;
+        }
+
+        .auth-switch a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-modal-secondary {
+            background: white;
+            color: var(--navy);
+            border: 1px solid var(--gray-200);
+            margin-top: 0.5rem;
+        }
+
+        .btn-modal-secondary:hover {
+            background: var(--gray-100);
+            box-shadow: none;
+        }
+
+        /* Admin Panel */
+        .admin-stats {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .admin-stat-card {
+            flex: 1;
+            background: var(--gray-100);
+            border-radius: var(--radius);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .admin-stat-card .stat-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .admin-stat-card .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .admin-table-wrap {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .admin-table th {
+            background: var(--navy);
+            color: white;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        .admin-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .admin-table tr:hover td {
+            background: #f8f9ff;
+        }
+
+        .admin-btn {
+            padding: 4px 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .admin-btn-reset {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .admin-btn-reset:hover {
+            background: #ffe0b2;
+        }
+
+        .admin-btn-delete {
+            background: #ffebee;
+            color: #c62828;
+            margin-left: 4px;
+        }
+
+        .admin-btn-delete:hover {
+            background: #ffcdd2;
+        }
+
+        .admin-btn-nav {
+            padding: 6px 14px;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-left: 8px;
+        }
+
+        .admin-btn-nav:hover {
+            background: var(--gold-light);
+        }
+
         /* ===== Project Status ===== */
         .project-status {
             display: none;
@@ -2970,61 +3126,140 @@
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
 
-            <div id="emailStep">
-                <h2 class="lang-ko">회원 가입</h2>
-                <h2 class="lang-en hidden">Sign Up</h2>
-                <div class="info-message lang-ko">이메일을 입력하시면 인증 코드를 발송해드립니다.</div>
-                <div class="info-message lang-en hidden">Enter your email to receive a verification code.</div>
+            <!-- LOGIN STEP -->
+            <div id="loginStep">
+                <h2>Login</h2>
+                <div id="loginError" class="error-message hidden"></div>
                 <div class="form-group">
-                    <label class="lang-ko">이메일</label>
-                    <label class="lang-en hidden">Email</label>
-                    <input type="email" id="emailInput" placeholder="example@email.com">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="example@email.com">
                 </div>
-                <button class="btn-modal" id="sendCodeBtn">
-                    <span class="lang-ko">인증 코드 받기</span>
-                    <span class="lang-en hidden">Send Verification Code</span>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="loginPassword" placeholder="Enter password">
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword', this)">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn-modal" id="loginBtn">Login</button>
+                <div class="auth-switch">
+                    <span class="lang-ko">계정이 없으신가요?</span>
+                    <span class="lang-en hidden">Don't have an account?</span>
+                    <a href="#" id="goToSignup">Sign Up</a>
+                </div>
+                <div class="auth-switch">
+                    <a href="#" id="goToForgotPw" style="font-size: 0.75rem;">
+                        <span class="lang-ko">비밀번호를 잊으셨나요?</span>
+                        <span class="lang-en hidden">Forgot password?</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SIGNUP STEP -->
+            <div id="signupStep" class="hidden">
+                <h2>Sign Up</h2>
+                <div id="signupError" class="error-message hidden"></div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="signupEmail" placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="signupPassword" placeholder="6+ characters">
+                        <button type="button" class="password-toggle" onclick="togglePassword('signupPassword', this)">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="signupPasswordConfirm" placeholder="Confirm password">
+                        <button type="button" class="password-toggle" onclick="togglePassword('signupPasswordConfirm', this)">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn-modal" id="signupBtn">Sign Up</button>
+                <div class="auth-switch">
+                    <span class="lang-ko">이미 계정이 있으신가요?</span>
+                    <span class="lang-en hidden">Already have an account?</span>
+                    <a href="#" id="goToLogin">Login</a>
+                </div>
+            </div>
+
+            <!-- VERIFICATION STEP -->
+            <div id="verifyStep" class="hidden">
+                <h2>Email Verification</h2>
+                <div class="info-message">
+                    <span class="lang-ko">인증 이메일을 발송했습니다. 이메일을 확인하고 인증 링크를 클릭한 후, 아래 버튼을 눌러주세요.</span>
+                    <span class="lang-en hidden">A verification email has been sent. Please check your inbox, click the verification link, then press the button below.</span>
+                </div>
+                <button class="btn-modal" id="checkVerifyBtn">
+                    <span class="lang-ko">인증 완료 확인</span>
+                    <span class="lang-en hidden">I've Verified My Email</span>
+                </button>
+                <button class="btn-modal btn-modal-secondary" id="resendVerifyBtn">
+                    <span class="lang-ko">인증 이메일 재발송</span>
+                    <span class="lang-en hidden">Resend Verification Email</span>
                 </button>
             </div>
 
-            <div id="codeStep" class="hidden">
-                <h2 class="lang-ko">인증 코드 입력</h2>
-                <h2 class="lang-en hidden">Enter Verification Code</h2>
-                <div class="success-message lang-ko">
-                    <span id="sentEmail"></span>로 인증 코드를 발송했습니다.<br>
-                    <strong>데모용 코드: 123456</strong>
+            <!-- FORGOT PASSWORD STEP -->
+            <div id="forgotPwStep" class="hidden">
+                <h2>Reset Password</h2>
+                <div class="info-message">
+                    <span class="lang-ko">이메일을 입력하면 비밀번호 재설정 링크를 보내드립니다.</span>
+                    <span class="lang-en hidden">Enter your email to receive a password reset link.</span>
                 </div>
-                <div class="success-message lang-en hidden">
-                    Verification code sent to <span id="sentEmailEn"></span>.<br>
-                    <strong>Demo code: 123456</strong>
-                </div>
+                <div id="forgotPwMsg" class="hidden"></div>
                 <div class="form-group">
-                    <label class="lang-ko">인증 코드 (4-6자리)</label>
-                    <label class="lang-en hidden">Verification Code (4-6 digits)</label>
-                    <input type="text" id="codeInput" placeholder="123456" maxlength="6">
+                    <label>Email</label>
+                    <input type="email" id="forgotPwEmail" placeholder="example@email.com">
                 </div>
-                <div id="errorMsg" class="error-message hidden">
-                    <span class="lang-ko">인증 코드가 올바르지 않습니다.</span>
-                    <span class="lang-en hidden">Invalid verification code.</span>
-                </div>
-                <button class="btn-modal" id="verifyCodeBtn">
-                    <span class="lang-ko">인증하기</span>
-                    <span class="lang-en hidden">Verify</span>
+                <button class="btn-modal" id="sendResetBtn">
+                    <span class="lang-ko">재설정 링크 보내기</span>
+                    <span class="lang-en hidden">Send Reset Link</span>
                 </button>
+                <div class="auth-switch">
+                    <a href="#" id="backToLogin">← Back to Login</a>
+                </div>
             </div>
 
+            <!-- SUCCESS STEP -->
             <div id="successStep" class="hidden">
-                <h2 class="lang-ko">가입 완료!</h2>
-                <h2 class="lang-en hidden">Registration Complete!</h2>
-                <div class="success-message lang-ko">
-                    회원 가입이 완료되었습니다.<br>이제 프로젝트 진행 상황을 확인하실 수 있습니다.
+                <h2 class="lang-ko">완료!</h2>
+                <h2 class="lang-en hidden">Complete!</h2>
+                <div class="success-message">
+                    <span class="lang-ko">로그인되었습니다.</span>
+                    <span class="lang-en hidden">You are now logged in.</span>
                 </div>
-                <div class="success-message lang-en hidden">
-                    Registration completed successfully.<br>You can now view project status updates.
-                </div>
-                <button class="btn-modal" id="closeSuccessBtn">
-                    <span class="lang-ko">확인</span>
-                    <span class="lang-en hidden">OK</span>
-                </button>
+                <button class="btn-modal" id="closeSuccessBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content" style="max-width: 640px;">
+            <button class="modal-close" onclick="document.getElementById('adminModal').classList.remove('active')">&times;</button>
+            <h2>Admin Panel</h2>
+            <div class="admin-stats" id="adminStats"></div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminUserList"></tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -3123,7 +3358,24 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
     <script>
+        // ===== Firebase Init =====
+        const firebaseConfig = {
+            apiKey: "AIzaSyCnJcOR2Up0Kt1jFCjubnqepZHW7h4wO48",
+            authDomain: "miks-def1e.firebaseapp.com",
+            projectId: "miks-def1e",
+            storageBucket: "miks-def1e.firebasestorage.app",
+            messagingSenderId: "607535742143",
+            appId: "1:607535742143:web:0f1c7e7d2ccdb7549cda0a",
+            measurementId: "G-X7YE5S8G2S"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
         // ===== EmailJS Init =====
         emailjs.init('vfOjbJFcrJf4o0zXP');
 
@@ -3279,110 +3531,332 @@
             });
         });
 
-        // ===== Authentication System =====
+        // ===== Password Toggle =====
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"></path><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>';
+            } else {
+                input.type = 'password';
+                btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>';
+            }
+        }
+
+        // ===== Authentication System (Firebase) =====
         const authModal = document.getElementById('authModal');
+        const adminModal = document.getElementById('adminModal');
         const loginTrigger = document.getElementById('loginTrigger');
         const closeModal = document.getElementById('closeModal');
-        const emailStep = document.getElementById('emailStep');
-        const codeStep = document.getElementById('codeStep');
-        const successStep = document.getElementById('successStep');
-        const emailInput = document.getElementById('emailInput');
-        const codeInput = document.getElementById('codeInput');
-        const sendCodeBtn = document.getElementById('sendCodeBtn');
-        const verifyCodeBtn = document.getElementById('verifyCodeBtn');
-        const closeSuccessBtn = document.getElementById('closeSuccessBtn');
-        const errorMsg = document.getElementById('errorMsg');
         const projectStatus = document.getElementById('projectStatus');
         const logoutBtn = document.getElementById('logoutBtn');
         const logoutBtnEn = document.getElementById('logoutBtnEn');
 
-        if (localStorage.getItem('isLoggedIn') === 'true') {
-            showProjectStatus();
+        // Steps
+        const loginStep = document.getElementById('loginStep');
+        const signupStep = document.getElementById('signupStep');
+        const verifyStep = document.getElementById('verifyStep');
+        const forgotPwStep = document.getElementById('forgotPwStep');
+        const successStep = document.getElementById('successStep');
+
+        let currentUserRole = null;
+
+        // Modal navigation
+        document.getElementById('goToSignup').addEventListener('click', (e) => {
+            e.preventDefault();
+            showStep('signupStep');
+        });
+        document.getElementById('goToLogin').addEventListener('click', (e) => {
+            e.preventDefault();
+            showStep('loginStep');
+        });
+        document.getElementById('goToForgotPw').addEventListener('click', (e) => {
+            e.preventDefault();
+            showStep('forgotPwStep');
+        });
+        document.getElementById('backToLogin').addEventListener('click', (e) => {
+            e.preventDefault();
+            showStep('loginStep');
+        });
+
+        function showStep(stepId) {
+            [loginStep, signupStep, verifyStep, forgotPwStep, successStep].forEach(s => s.classList.add('hidden'));
+            document.getElementById(stepId).classList.remove('hidden');
+            // Clear errors
+            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
         }
 
+        // Open modal
         loginTrigger.addEventListener('click', () => {
-            if (localStorage.getItem('isLoggedIn') === 'true') {
+            if (auth.currentUser) {
                 projectStatus.scrollIntoView({ behavior: 'smooth' });
             } else {
+                showStep('loginStep');
                 authModal.classList.add('active');
             }
         });
 
-        closeModal.addEventListener('click', () => {
-            authModal.classList.remove('active');
-            resetModal();
-        });
+        // Close modal
+        closeModal.addEventListener('click', () => { authModal.classList.remove('active'); });
+        authModal.addEventListener('click', (e) => { if (e.target === authModal) authModal.classList.remove('active'); });
 
-        authModal.addEventListener('click', (e) => {
-            if (e.target === authModal) {
-                authModal.classList.remove('active');
-                resetModal();
-            }
-        });
+        // ===== LOGIN =====
+        document.getElementById('loginBtn').addEventListener('click', async () => {
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const errorEl = document.getElementById('loginError');
+            errorEl.classList.add('hidden');
 
-        sendCodeBtn.addEventListener('click', () => {
-            const email = emailInput.value.trim();
-            if (!email || !email.includes('@')) {
-                alert('올바른 이메일을 입력해주세요. / Please enter a valid email.');
+            if (!email || !password) {
+                errorEl.textContent = 'Please enter email and password.';
+                errorEl.classList.remove('hidden');
                 return;
             }
-            localStorage.setItem('userEmail', email);
-            document.getElementById('sentEmail').textContent = email;
-            document.getElementById('sentEmailEn').textContent = email;
-            emailStep.classList.add('hidden');
-            codeStep.classList.remove('hidden');
+
+            document.getElementById('loginBtn').disabled = true;
+            document.getElementById('loginBtn').textContent = 'Logging in...';
+
+            try {
+                const cred = await auth.signInWithEmailAndPassword(email, password);
+                if (!cred.user.emailVerified) {
+                    showStep('verifyStep');
+                    document.getElementById('loginBtn').disabled = false;
+                    document.getElementById('loginBtn').textContent = 'Login';
+                    return;
+                }
+                showStep('successStep');
+                setTimeout(() => {
+                    authModal.classList.remove('active');
+                    handleLoginSuccess(cred.user);
+                }, 1500);
+            } catch (err) {
+                errorEl.textContent = getAuthErrorMessage(err.code);
+                errorEl.classList.remove('hidden');
+            }
+            document.getElementById('loginBtn').disabled = false;
+            document.getElementById('loginBtn').textContent = 'Login';
         });
 
-        verifyCodeBtn.addEventListener('click', () => {
-            const code = codeInput.value.trim();
-            if (code === '123456') {
-                localStorage.setItem('isLoggedIn', 'true');
-                codeStep.classList.add('hidden');
-                successStep.classList.remove('hidden');
-            } else {
-                errorMsg.classList.remove('hidden');
-                codeInput.value = '';
-                codeInput.focus();
+        // ===== SIGNUP =====
+        document.getElementById('signupBtn').addEventListener('click', async () => {
+            const email = document.getElementById('signupEmail').value.trim();
+            const pw = document.getElementById('signupPassword').value;
+            const pwConfirm = document.getElementById('signupPasswordConfirm').value;
+            const errorEl = document.getElementById('signupError');
+            errorEl.classList.add('hidden');
+
+            if (!email || !pw) {
+                errorEl.textContent = 'Please fill in all fields.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            if (pw.length < 6) {
+                errorEl.textContent = 'Password must be at least 6 characters.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+            if (pw !== pwConfirm) {
+                errorEl.textContent = 'Passwords do not match.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('signupBtn').disabled = true;
+            document.getElementById('signupBtn').textContent = 'Creating account...';
+
+            try {
+                const cred = await auth.createUserWithEmailAndPassword(email, pw);
+                await cred.user.sendEmailVerification();
+                // Save user to Firestore
+                await db.collection('users').doc(cred.user.uid).set({
+                    email: email,
+                    role: 'user',
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                showStep('verifyStep');
+            } catch (err) {
+                errorEl.textContent = getAuthErrorMessage(err.code);
+                errorEl.classList.remove('hidden');
+            }
+            document.getElementById('signupBtn').disabled = false;
+            document.getElementById('signupBtn').textContent = 'Sign Up';
+        });
+
+        // ===== VERIFY EMAIL =====
+        document.getElementById('checkVerifyBtn').addEventListener('click', async () => {
+            const user = auth.currentUser;
+            if (user) {
+                await user.reload();
+                if (user.emailVerified) {
+                    showStep('successStep');
+                    setTimeout(() => {
+                        authModal.classList.remove('active');
+                        handleLoginSuccess(user);
+                    }, 1500);
+                } else {
+                    alert('Email not verified yet. Please check your inbox.');
+                }
             }
         });
 
-        closeSuccessBtn.addEventListener('click', () => {
-            authModal.classList.remove('active');
-            resetModal();
-            showProjectStatus();
-            projectStatus.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('resendVerifyBtn').addEventListener('click', async () => {
+            const user = auth.currentUser;
+            if (user) {
+                await user.sendEmailVerification();
+                alert('Verification email resent.');
+            }
         });
 
-        logoutBtn.addEventListener('click', logout);
-        logoutBtnEn.addEventListener('click', logout);
+        // ===== FORGOT PASSWORD =====
+        document.getElementById('sendResetBtn').addEventListener('click', async () => {
+            const email = document.getElementById('forgotPwEmail').value.trim();
+            const msgEl = document.getElementById('forgotPwMsg');
+            if (!email) {
+                msgEl.className = 'error-message';
+                msgEl.textContent = 'Please enter your email.';
+                return;
+            }
+            try {
+                await auth.sendPasswordResetEmail(email);
+                msgEl.className = 'success-message';
+                msgEl.textContent = 'Password reset email sent. Check your inbox.';
+            } catch (err) {
+                msgEl.className = 'error-message';
+                msgEl.textContent = getAuthErrorMessage(err.code);
+            }
+        });
 
-        function logout() {
-            if (confirm('로그아웃 하시겠습니까? / Are you sure you want to logout?')) {
-                localStorage.removeItem('isLoggedIn');
-                localStorage.removeItem('userEmail');
+        // ===== SUCCESS CLOSE =====
+        document.getElementById('closeSuccessBtn').addEventListener('click', () => {
+            authModal.classList.remove('active');
+            if (auth.currentUser) handleLoginSuccess(auth.currentUser);
+        });
+
+        // ===== LOGOUT =====
+        logoutBtn.addEventListener('click', doLogout);
+        logoutBtnEn.addEventListener('click', doLogout);
+
+        async function doLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                await auth.signOut();
                 projectStatus.classList.remove('visible');
+                currentUserRole = null;
                 loginTrigger.querySelector('.lang-ko').textContent = 'LOGIN';
                 loginTrigger.querySelector('.lang-en').textContent = 'LOGIN';
+                // Remove admin button if exists
+                document.querySelectorAll('.admin-btn-nav').forEach(el => el.remove());
             }
         }
 
-        function showProjectStatus() {
+        // ===== LOGIN SUCCESS HANDLER =====
+        async function handleLoginSuccess(user) {
             projectStatus.classList.add('visible');
-            const currentLang = document.querySelector('.lang-btn.active').dataset.lang;
-            if (currentLang === 'ko') {
-                loginTrigger.querySelector('.lang-ko').textContent = '프로젝트';
-            } else {
-                loginTrigger.querySelector('.lang-en').textContent = 'Projects';
+            loginTrigger.querySelector('.lang-ko').textContent = '프로젝트';
+            loginTrigger.querySelector('.lang-en').textContent = 'Projects';
+
+            // Check admin role
+            try {
+                const doc = await db.collection('users').doc(user.uid).get();
+                if (doc.exists && doc.data().role === 'admin') {
+                    currentUserRole = 'admin';
+                    addAdminButton();
+                }
+            } catch (e) {
+                console.error('Role check error:', e);
             }
         }
 
-        function resetModal() {
-            emailStep.classList.remove('hidden');
-            codeStep.classList.add('hidden');
-            successStep.classList.add('hidden');
-            errorMsg.classList.add('hidden');
-            emailInput.value = '';
-            codeInput.value = '';
+        function addAdminButton() {
+            if (document.querySelector('.admin-btn-nav')) return;
+            const btn = document.createElement('button');
+            btn.className = 'admin-btn-nav';
+            btn.textContent = 'Admin';
+            btn.addEventListener('click', openAdminPanel);
+            document.querySelector('.project-header').appendChild(btn);
+            // English version too
+            const headers = document.querySelectorAll('.project-header');
+            if (headers.length > 1) {
+                const btn2 = btn.cloneNode(true);
+                btn2.addEventListener('click', openAdminPanel);
+                headers[1].appendChild(btn2);
+            }
+        }
+
+        // ===== ADMIN PANEL =====
+        async function openAdminPanel() {
+            adminModal.classList.add('active');
+            const snapshot = await db.collection('users').orderBy('createdAt', 'desc').get();
+            const users = [];
+            snapshot.forEach(doc => users.push({ id: doc.id, ...doc.data() }));
+
+            document.getElementById('adminStats').innerHTML = `
+                <div class="admin-stat-card">
+                    <div class="stat-num">${users.length}</div>
+                    <div class="stat-label">Total Users</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="stat-num">${users.filter(u => u.role === 'admin').length}</div>
+                    <div class="stat-label">Admins</div>
+                </div>
+            `;
+
+            const tbody = document.getElementById('adminUserList');
+            tbody.innerHTML = users.map(u => `
+                <tr>
+                    <td>${u.email || 'N/A'}</td>
+                    <td>${u.role || 'user'}</td>
+                    <td>${u.createdAt ? new Date(u.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}</td>
+                    <td>
+                        <button class="admin-btn admin-btn-reset" onclick="adminResetPassword('${u.email}')">Reset PW</button>
+                        ${u.role !== 'admin' ? `<button class="admin-btn admin-btn-delete" onclick="adminDeleteUser('${u.id}', '${u.email}')">Delete</button>` : ''}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function adminResetPassword(email) {
+            if (confirm(`Send password reset email to ${email}?`)) {
+                try {
+                    await auth.sendPasswordResetEmail(email);
+                    alert('Password reset email sent to ' + email);
+                } catch (err) {
+                    alert('Error: ' + err.message);
+                }
+            }
+        }
+
+        async function adminDeleteUser(uid, email) {
+            if (confirm(`Delete user ${email}? This will remove their data.`)) {
+                try {
+                    await db.collection('users').doc(uid).delete();
+                    alert('User data deleted.');
+                    openAdminPanel(); // Refresh
+                } catch (err) {
+                    alert('Error: ' + err.message);
+                }
+            }
+        }
+
+        // ===== AUTH STATE LISTENER =====
+        auth.onAuthStateChanged(async (user) => {
+            if (user && user.emailVerified) {
+                handleLoginSuccess(user);
+            }
+        });
+
+        // ===== ERROR MESSAGES =====
+        function getAuthErrorMessage(code) {
+            const messages = {
+                'auth/user-not-found': 'No account found with this email.',
+                'auth/wrong-password': 'Incorrect password.',
+                'auth/invalid-credential': 'Invalid email or password.',
+                'auth/email-already-in-use': 'This email is already registered.',
+                'auth/weak-password': 'Password must be at least 6 characters.',
+                'auth/invalid-email': 'Invalid email format.',
+                'auth/too-many-requests': 'Too many attempts. Please try again later.',
+                'auth/network-request-failed': 'Network error. Please check your connection.'
+            };
+            return messages[code] || 'An error occurred. Please try again.';
         }
     </script>
 </body>
