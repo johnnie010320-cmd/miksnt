@@ -279,59 +279,57 @@
         .hero-clouds {
             position: absolute;
             inset: 0;
-            z-index: 1;
+            z-index: 2;
             overflow: hidden;
             pointer-events: none;
         }
 
         .hero-cloud {
             position: absolute;
-            width: 200%;
+            top: 0;
+            left: -100%;
+            width: 300%;
             height: 100%;
-            background-repeat: repeat-x;
-            background-size: 50% auto;
-            opacity: 0.15;
         }
 
         .hero-cloud-1 {
-            background-image:
-                radial-gradient(ellipse 300px 80px at 10% 40%, rgba(255,255,255,0.6) 0%, transparent 70%),
-                radial-gradient(ellipse 250px 60px at 30% 55%, rgba(255,255,255,0.5) 0%, transparent 70%),
-                radial-gradient(ellipse 350px 90px at 55% 35%, rgba(255,255,255,0.55) 0%, transparent 70%),
-                radial-gradient(ellipse 200px 50px at 75% 50%, rgba(255,255,255,0.45) 0%, transparent 70%),
-                radial-gradient(ellipse 280px 70px at 90% 45%, rgba(255,255,255,0.5) 0%, transparent 70%);
-            animation: cloudDrift 40s linear infinite;
+            background:
+                radial-gradient(ellipse 400px 100px at 5% 40%, rgba(255,255,255,0.35) 0%, transparent 70%),
+                radial-gradient(ellipse 350px 80px at 20% 55%, rgba(255,255,255,0.3) 0%, transparent 70%),
+                radial-gradient(ellipse 500px 120px at 38% 35%, rgba(255,255,255,0.32) 0%, transparent 70%),
+                radial-gradient(ellipse 300px 70px at 55% 50%, rgba(255,255,255,0.28) 0%, transparent 70%),
+                radial-gradient(ellipse 450px 100px at 72% 42%, rgba(255,255,255,0.3) 0%, transparent 70%),
+                radial-gradient(ellipse 380px 90px at 90% 48%, rgba(255,255,255,0.32) 0%, transparent 70%);
+            animation: cloudMove 35s linear infinite;
         }
 
         .hero-cloud-2 {
-            background-image:
-                radial-gradient(ellipse 320px 85px at 15% 60%, rgba(255,255,255,0.5) 0%, transparent 70%),
-                radial-gradient(ellipse 220px 55px at 40% 40%, rgba(255,255,255,0.45) 0%, transparent 70%),
-                radial-gradient(ellipse 280px 75px at 65% 55%, rgba(255,255,255,0.5) 0%, transparent 70%),
-                radial-gradient(ellipse 240px 65px at 85% 35%, rgba(255,255,255,0.4) 0%, transparent 70%);
-            opacity: 0.1;
-            animation: cloudDrift 60s linear infinite;
-            animation-delay: -20s;
+            background:
+                radial-gradient(ellipse 450px 110px at 8% 60%, rgba(255,255,255,0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 320px 75px at 28% 38%, rgba(255,255,255,0.22) 0%, transparent 70%),
+                radial-gradient(ellipse 400px 95px at 50% 58%, rgba(255,255,255,0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 350px 85px at 70% 32%, rgba(255,255,255,0.2) 0%, transparent 70%),
+                radial-gradient(ellipse 420px 100px at 88% 52%, rgba(255,255,255,0.23) 0%, transparent 70%);
+            animation: cloudMove 55s linear infinite;
         }
 
         .hero-cloud-3 {
-            background-image:
-                radial-gradient(ellipse 180px 45px at 20% 30%, rgba(201,168,76,0.3) 0%, transparent 70%),
-                radial-gradient(ellipse 260px 65px at 50% 65%, rgba(201,168,76,0.25) 0%, transparent 70%),
-                radial-gradient(ellipse 200px 50px at 80% 40%, rgba(201,168,76,0.3) 0%, transparent 70%);
-            opacity: 0.08;
-            animation: cloudDrift 80s linear infinite;
-            animation-delay: -40s;
+            background:
+                radial-gradient(ellipse 300px 60px at 12% 30%, rgba(201,168,76,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 380px 80px at 42% 65%, rgba(201,168,76,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 280px 65px at 68% 38%, rgba(201,168,76,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 340px 75px at 92% 55%, rgba(201,168,76,0.12) 0%, transparent 70%);
+            animation: cloudMove 75s linear infinite;
         }
 
-        @keyframes cloudDrift {
+        @keyframes cloudMove {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(33.33%); }
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 800px;
             padding: 0 2rem;
         }
@@ -425,7 +423,7 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 2;
+            z-index: 3;
             animation: bounce 2s infinite;
         }
 
