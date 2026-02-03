@@ -2159,10 +2159,12 @@
                         <p>통관/보관/운송 시스템 설계 및 운영</p>
                         <div class="step-click-hint">Click for details</div>
                     </div>
-                    <div class="step animate-on-scroll animate-delay-4">
+                    <div class="step step-clickable animate-on-scroll animate-delay-4" onclick="document.getElementById('facilityModal').classList.add('active')">
+                        <img src="facility-step.jpg" alt="시설 구축" class="step-image">
                         <div class="step-number">4</div>
                         <h3>시설 구축</h3>
                         <p>미국 내 생산 및 물류 시설 구축 지원</p>
+                        <div class="step-click-hint">Click for details</div>
                     </div>
                 </div>
             </div>
@@ -2195,10 +2197,12 @@
                         <p>Design and operation of customs/warehousing/transportation system</p>
                         <div class="step-click-hint">Click for details</div>
                     </div>
-                    <div class="step animate-on-scroll animate-delay-4">
+                    <div class="step step-clickable animate-on-scroll animate-delay-4" onclick="document.getElementById('facilityModal').classList.add('active')">
+                        <img src="facility-step.jpg" alt="Facility Setup" class="step-image">
                         <div class="step-number">4</div>
                         <h3>Facility Setup</h3>
                         <p>Support for establishing production and logistics facilities in the US</p>
+                        <div class="step-click-hint">Click for details</div>
                     </div>
                 </div>
             </div>
@@ -2934,6 +2938,28 @@
                 <p class="lang-en hidden">
                     When requested by clients, we provide end-to-end support from customs clearance to warehousing and transportation.<br><br>
                     Through business agreements with specialized customs, warehousing, and transportation companies, we maximize cost efficiency and strive to deliver services that prioritize customer satisfaction above all.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Facility Detail Modal -->
+    <div class="process-modal-overlay" id="facilityModal">
+        <div class="process-modal">
+            <div class="process-modal-header">
+                <button class="process-modal-close" onclick="document.getElementById('facilityModal').classList.remove('active')">&times;</button>
+                <img src="facility-step.jpg" alt="Facility Setup">
+            </div>
+            <div class="process-modal-body">
+                <h3 class="lang-ko">시설 구축</h3>
+                <h3 class="lang-en hidden">Facility Setup</h3>
+                <p class="lang-ko">
+                    비즈니스가 본격적으로 시작되면, 운송비 절감과 관세 문제 해결, 그리고 현지 기술 지원과 시장 확대를 위한 현지 생산을 검토하게 됩니다.<br><br>
+                    이에 따라 공장 또는 물류 시설 구축이 필요한 경우, 공장 소재지 주정부와 연방 정부의 각종 혜택을 분석하고, 투자 유치와 금융 연계 업무까지 종합적으로 지원하고 있습니다.
+                </p>
+                <p class="lang-en hidden">
+                    As business operations scale up, companies begin to consider local production to reduce shipping costs, resolve tariff issues, and expand market presence with local technical support.<br><br>
+                    When factory or logistics facility construction is needed, we analyze various incentives from state and federal governments, and provide comprehensive support including investment attraction and financial coordination.
                 </p>
             </div>
         </div>
