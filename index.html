@@ -705,6 +705,12 @@
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .step {
+            min-width: 0;
         }
 
         .step-clickable {
@@ -2146,10 +2152,12 @@
                         <p>영업망 구축 및 마케팅 전략 실행</p>
                         <div class="step-click-hint">Click for details</div>
                     </div>
-                    <div class="step animate-on-scroll animate-delay-3">
+                    <div class="step step-clickable animate-on-scroll animate-delay-3" onclick="document.getElementById('logisticsModal').classList.add('active')">
+                        <img src="logistics-step.jpg" alt="물류 구축" class="step-image">
                         <div class="step-number">3</div>
                         <h3>물류 구축</h3>
                         <p>통관/보관/운송 시스템 설계 및 운영</p>
+                        <div class="step-click-hint">Click for details</div>
                     </div>
                     <div class="step animate-on-scroll animate-delay-4">
                         <div class="step-number">4</div>
@@ -2180,10 +2188,12 @@
                         <p>Sales network establishment and marketing strategy execution</p>
                         <div class="step-click-hint">Click for details</div>
                     </div>
-                    <div class="step animate-on-scroll animate-delay-3">
+                    <div class="step step-clickable animate-on-scroll animate-delay-3" onclick="document.getElementById('logisticsModal').classList.add('active')">
+                        <img src="logistics-step.jpg" alt="Logistics Setup" class="step-image">
                         <div class="step-number">3</div>
                         <h3>Logistics Setup</h3>
                         <p>Design and operation of customs/warehousing/transportation system</p>
+                        <div class="step-click-hint">Click for details</div>
                     </div>
                     <div class="step animate-on-scroll animate-delay-4">
                         <div class="step-number">4</div>
@@ -2902,6 +2912,28 @@
                     We provide support for participation in major trade shows and offer diverse marketing strategies for market penetration.<br><br>
                     We also clearly define target customers and systematically carry out primary sales activities.<br><br>
                     Furthermore, we directly introduce products to key decision-makers at client companies and create meeting opportunities that can lead to final purchasing decisions.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logistics Detail Modal -->
+    <div class="process-modal-overlay" id="logisticsModal">
+        <div class="process-modal">
+            <div class="process-modal-header">
+                <button class="process-modal-close" onclick="document.getElementById('logisticsModal').classList.remove('active')">&times;</button>
+                <img src="logistics-step.jpg" alt="Logistics Setup">
+            </div>
+            <div class="process-modal-body">
+                <h3 class="lang-ko">물류 구축</h3>
+                <h3 class="lang-en hidden">Logistics Setup</h3>
+                <p class="lang-ko">
+                    고객의 요구가 있을 경우, 통관을 시작으로 보관과 운송에 이르기까지 전 과정을 지원하고 있습니다.<br><br>
+                    또한 전문 통관·보관·운송 업체와의 업무 협약을 통해 비용 효율성을 높이고, 고객 만족을 최우선으로 한 서비스를 제공하기 위해 최선을 다하고 있습니다.
+                </p>
+                <p class="lang-en hidden">
+                    When requested by clients, we provide end-to-end support from customs clearance to warehousing and transportation.<br><br>
+                    Through business agreements with specialized customs, warehousing, and transportation companies, we maximize cost efficiency and strive to deliver services that prioritize customer satisfaction above all.
                 </p>
             </div>
         </div>
