@@ -623,7 +623,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 1.5rem;
         }
 
@@ -761,9 +761,6 @@
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .step {
@@ -1079,7 +1076,7 @@
 
         .media-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
             gap: 1.5rem;
         }
 
@@ -1210,7 +1207,7 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
@@ -1310,7 +1307,7 @@
 
         .sns-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
             gap: 1.5rem;
         }
 
@@ -1391,7 +1388,7 @@
         }
         .youtube-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
             gap: 1.5rem;
         }
         .youtube-list-item {
@@ -1987,7 +1984,7 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 1.5rem;
         }
 
@@ -2251,6 +2248,33 @@
                 width: 150px;
                 padding: 1rem;
             }
+
+            .step p {
+                white-space: normal;
+                overflow: visible;
+                text-overflow: unset;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sns-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2343,6 +2367,34 @@
 
             .process-modal-body p {
                 font-size: 0.88rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.85rem;
+            }
+
+            .step {
+                padding: 1.2rem;
+            }
+
+            .step h3 {
+                font-size: 0.95rem;
+            }
+
+            .step p {
+                font-size: 0.82rem;
+            }
+
+            .service-card {
+                padding: 0;
+            }
+
+            .footer-content {
+                padding: 2rem 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
