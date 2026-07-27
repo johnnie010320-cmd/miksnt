@@ -2495,8 +2495,26 @@
         .cms-btn-del { background: #e5484d; color: #fff; }
         .cms-btn-move { background: var(--gray-100); color: var(--gray-700); }
         .cms-add { margin-top: 0.5rem; }
-        .cms-field-label { font-size: 0.72rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: .03em; }
+        .cms-field-label { font-size: 0.72rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: .03em; display: block; margin-bottom: 2px; }
+        .cms-vis { font-size: 0.82rem; color: var(--gray-700); display: inline-flex; align-items: center; gap: 0.3rem; margin-right: auto; }
+        .cms-up-status { font-size: 0.75rem; color: var(--gray-500); }
+        .cms-preview { margin-top: 0.2rem; }
+        .cms-item input[type="file"] { font-size: 0.78rem; margin-top: 0.35rem; }
+        .cms-item input[type="checkbox"] { width: auto; }
         .partner-logo .partner-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--navy); }
+
+        /* ===== Downloads Section ===== */
+        .downloads-section { background: var(--gray-100); }
+        .downloads-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.1rem; max-width: 960px; margin: 0 auto; }
+        .downloads-empty { text-align: center; color: var(--gray-500); grid-column: 1 / -1; }
+        .download-card { display: flex; align-items: center; gap: 1rem; background: var(--white); border: 1px solid #e6e9ef; border-radius: var(--radius); padding: 1.1rem 1.3rem; text-decoration: none; color: var(--gray-900); transition: transform .25s, box-shadow .25s; }
+        .download-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+        .download-ico { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, var(--navy), var(--navy-light)); display: flex; align-items: center; justify-content: center; color: #fff; }
+        .download-ico svg { width: 22px; height: 22px; }
+        .download-meta { min-width: 0; }
+        .download-meta h3 { font-size: 1rem; color: var(--navy); margin-bottom: 0.15rem; }
+        .download-meta p { font-size: 0.83rem; color: var(--gray-700); }
+        .download-cta { margin-left: auto; flex: 0 0 auto; font-size: 0.8rem; font-weight: 700; color: var(--gold); }
     </style>
 </head>
 <body>
@@ -2561,7 +2579,7 @@
             <div class="hero-badge">SINCE 2020</div>
             <h1>MIKS&T, INC</h1>
             <p class="subtitle">Made in Korea Solution & Technology</p>
-            <p class="tagline">성공적인 미국 시장 진출 파트너</p>
+            <p class="tagline" id="heroTaglineKo">성공적인 미국 시장 진출 파트너</p>
             <div class="hero-cta">
                 <a href="#services" class="btn-gold">서비스 보기</a>
                 <a href="#contact" class="btn-glass">문의하기</a>
@@ -2571,7 +2589,7 @@
             <div class="hero-badge">SINCE 2020</div>
             <h1>MIKS&T, INC</h1>
             <p class="subtitle">Made in Korea Solution & Technology</p>
-            <p class="tagline">Your Partner for Successful US Market Entry</p>
+            <p class="tagline" id="heroTaglineEn">Your Partner for Successful US Market Entry</p>
             <div class="hero-cta">
                 <a href="#services" class="btn-gold">Our Services</a>
                 <a href="#contact" class="btn-glass">Contact Us</a>
@@ -2590,9 +2608,9 @@
                     <span class="section-label">About Us</span>
                     <h2>회사 소개</h2>
                     <div class="gold-line"></div>
-                    <p class="section-subtitle">Operating Model · Capital Structure · Talent Structure의 동시 전환 파트너</p>
+                    <p class="section-subtitle" id="aboutSubtitleKo">Operating Model · Capital Structure · Talent Structure의 동시 전환 파트너</p>
                 </div>
-                <div class="about-content animate-on-scroll">
+                <div class="about-content animate-on-scroll" id="aboutBodyKo">
                     <p>
                         <strong>MIKS&T, INC</strong>는 한국 중견 제조·유통 기업의 미국 Reshoring 대응을 지원하는 전문 기업입니다.
                         미국의 제조업 정책은 단순 보호무역이 아니라 <strong>기술·안보·공급망 재편의 장기 전략</strong>입니다.
@@ -2602,6 +2620,11 @@
                         이제 미국 진출은 <strong>매출 확대가 아니라 "공급망 신뢰도 확보"</strong> 문제입니다.
                         기술력만으로는 부족하며, Operating Model + Compliance + Capital Structure가 함께 갖춰져야 합니다.
                         MIKS&T는 "공장 이전"이 아닌 <strong>"Operating System 이전"</strong>을 지원합니다.
+                    </p>
+                    <p>
+                        나아가 MIKS&T는 제조 AI 전환(AX) 실행 컨소시엄 <strong>AXMOS의 미국 사업 대행사</strong>로서,
+                        투자·진단·교육·제조AI·실행까지 이어지는 AX 전환을 미국 현지에서 지원합니다.
+                        한국의 제조 역량과 미국의 AI·자본을 연결해 "Operating System 이전" 다음 단계인 <strong>AI 기반 실행</strong>까지 함께합니다.
                     </p>
                     <p>
                         당사는 <strong>정책–산업–투자금융 3축</strong>의 통합 프레임워크를 바탕으로,
@@ -2614,9 +2637,9 @@
                     <span class="section-label">About Us</span>
                     <h2>About Us</h2>
                     <div class="gold-line"></div>
-                    <p class="section-subtitle">Your Partner for Operating Model · Capital Structure · Talent Structure Transformation</p>
+                    <p class="section-subtitle" id="aboutSubtitleEn">Your Partner for Operating Model · Capital Structure · Talent Structure Transformation</p>
                 </div>
-                <div class="about-content animate-on-scroll">
+                <div class="about-content animate-on-scroll" id="aboutBodyEn">
                     <p>
                         <strong>MIKS&T, INC</strong> specializes in supporting Korean mid-sized manufacturing and distribution companies
                         with their US Reshoring response. US manufacturing policy is not simple protectionism—it's a
@@ -2627,6 +2650,11 @@
                         US market entry is now about <strong>"securing supply chain trust"</strong>, not just revenue expansion.
                         Technology alone is insufficient—Operating Model + Compliance + Capital Structure must be aligned.
                         MIKS&T supports not "factory relocation" but <strong>"Operating System transfer."</strong>
+                    </p>
+                    <p>
+                        MIKS&T is also the <strong>US business agent for AXMOS</strong>, the manufacturing AI-transformation (AX) execution consortium —
+                        supporting the full AX journey (investment, diagnosis, education, manufacturing AI, execution) on the ground in the US.
+                        We connect Korea's manufacturing strength with US AI and capital, delivering <strong>AI-based execution</strong> as the step beyond "Operating System transfer."
                     </p>
                     <p>
                         Based on our integrated <strong>Policy–Industry–Investment Finance 3-axis framework</strong>,
@@ -2652,7 +2680,7 @@
                     <img src="sales-marketing.webp" alt="영업 & 마케팅 지원" loading="lazy">
                 </div>
 
-                <div class="services-grid">
+                <div class="services-grid" id="servicesGridKo">
                     <div class="service-card animate-on-scroll animate-delay-1">
                         <div class="service-card-image">
                             <img src="sales-marketing-card.webp" alt="Operating Standard 구축" loading="lazy">
@@ -2709,7 +2737,7 @@
                     <img src="sales-marketing.webp" alt="Sales & Marketing Support" loading="lazy">
                 </div>
 
-                <div class="services-grid">
+                <div class="services-grid" id="servicesGridEn">
                     <div class="service-card animate-on-scroll animate-delay-1">
                         <div class="service-card-image">
                             <img src="sales-marketing-card.webp" alt="Operating Standard Setup" loading="lazy">
@@ -3010,6 +3038,34 @@
                     <div class="media-card-desc lang-en hidden">Korean companies' US investment share surged from 18% in 2019 to over 50%, making Korea the top investor in the United States.</div>
                     <span class="media-card-date">2024.09</span>
                 </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Downloads Section -->
+    <div class="downloads-section">
+        <section class="section" id="downloads">
+            <div class="lang-ko">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-label">Downloads</span>
+                    <h2>자료실</h2>
+                    <div class="gold-line"></div>
+                    <p class="section-subtitle">회사 소개서 · AXMOS 브로슈어 등 자료를 다운로드하실 수 있습니다</p>
+                </div>
+                <div class="downloads-grid animate-on-scroll" id="downloadsGridKo">
+                    <p class="downloads-empty">등록된 자료가 없습니다. 곧 업데이트될 예정입니다.</p>
+                </div>
+            </div>
+            <div class="lang-en hidden">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-label">Downloads</span>
+                    <h2>Downloads</h2>
+                    <div class="gold-line"></div>
+                    <p class="section-subtitle">Company profile, AXMOS brochure and more — available to download</p>
+                </div>
+                <div class="downloads-grid animate-on-scroll" id="downloadsGridEn">
+                    <p class="downloads-empty">No files available yet. Coming soon.</p>
+                </div>
             </div>
         </section>
     </div>
@@ -3871,19 +3927,14 @@
 
     <!-- Admin Panel Modal -->
     <div id="adminModal" class="modal">
-        <div class="modal-content" style="max-width: 720px;">
+        <div class="modal-content" style="max-width: 760px;">
             <button class="modal-close" onclick="document.getElementById('adminModal').classList.remove('active')">&times;</button>
             <h2>Admin Panel</h2>
 
-            <div class="admin-tabs">
-                <button class="admin-tab active" data-tab="users" onclick="switchAdminTab('users')">Users</button>
-                <button class="admin-tab" data-tab="axmos" onclick="switchAdminTab('axmos')">AXMOS</button>
-                <button class="admin-tab" data-tab="partners" onclick="switchAdminTab('partners')">Partners</button>
-                <button class="admin-tab" data-tab="achievements" onclick="switchAdminTab('achievements')">Achievements</button>
-            </div>
+            <div class="admin-tabs" id="adminTabs"></div>
 
-            <!-- Users tab -->
-            <div class="admin-panel active" id="adminPanel-users">
+            <!-- Users panel (static) -->
+            <div class="admin-panel" id="adminPanel-users">
                 <div class="admin-stats" id="adminStats"></div>
                 <div class="admin-table-wrap">
                     <table class="admin-table">
@@ -3895,26 +3946,8 @@
                 </div>
             </div>
 
-            <!-- AXMOS consortium tab -->
-            <div class="admin-panel" id="adminPanel-axmos">
-                <p class="cms-hint">AXMOS 컨소시엄 카드 (비어 있으면 사이트 기본값 표시). Role / 이름 / 설명(KO·EN)</p>
-                <div class="cms-list" id="cmsList-axmos"></div>
-                <div class="cms-item-row"><button class="btn-modal cms-add" onclick="cmsAdd('axmos')">+ 항목 추가</button><button class="btn-modal" style="background:var(--gold);color:#1a1a2e;" onclick="cmsSave('axmos')">저장</button></div>
-            </div>
-
-            <!-- Partners tab -->
-            <div class="admin-panel" id="adminPanel-partners">
-                <p class="cms-hint">파트너 카드 (비어 있으면 사이트 기본값 표시). 이름 / 링크 URL / 로고 이미지 URL(선택)</p>
-                <div class="cms-list" id="cmsList-partners"></div>
-                <div class="cms-item-row"><button class="btn-modal cms-add" onclick="cmsAdd('partners')">+ 항목 추가</button><button class="btn-modal" style="background:var(--gold);color:#1a1a2e;" onclick="cmsSave('partners')">저장</button></div>
-            </div>
-
-            <!-- Achievements tab -->
-            <div class="admin-panel" id="adminPanel-achievements">
-                <p class="cms-hint">성공 사례 리스트 (비어 있으면 사이트 기본값 표시). 제목 / 설명(KO·EN)</p>
-                <div class="cms-list" id="cmsList-achievements"></div>
-                <div class="cms-item-row"><button class="btn-modal cms-add" onclick="cmsAdd('achievements')">+ 항목 추가</button><button class="btn-modal" style="background:var(--gold);color:#1a1a2e;" onclick="cmsSave('achievements')">저장</button></div>
-            </div>
+            <!-- CMS panels are generated dynamically here -->
+            <div id="adminCmsPanels"></div>
         </div>
     </div>
 
@@ -4015,6 +4048,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
     <script>
         // ===== Firebase Init =====
         const firebaseConfig = {
@@ -4029,6 +4063,7 @@
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
+        const storage = firebase.storage();
 
         // ===== EmailJS Init =====
         emailjs.init('vfOjbJFcrJf4o0zXP');
@@ -4431,6 +4466,8 @@
         // ===== ADMIN PANEL =====
         async function openAdminPanel() {
             adminModal.classList.add('active');
+            buildAdminTabs();
+            switchAdminTab('users');
             const snapshot = await db.collection('users').orderBy('createdAt', 'desc').get();
             const users = [];
             snapshot.forEach(doc => users.push({ id: doc.id, ...doc.data() }));
@@ -4505,67 +4542,144 @@
             return messages[code] || 'An error occurred. Please try again.';
         }
 
-        // ===== SITE CONTENT (CMS) — public read with HTML fallback =====
+        // ===== SITE CONTENT (CMS) — generic engine, public read with HTML fallback =====
         function cmsEsc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
         function cmsSetHtml(id, html){ const el = document.getElementById(id); if (el) el.innerHTML = html; }
+        function cmsVisible(it){ return it && it.visible !== false; }
 
+        // ---- Defaults (used when Firestore has no doc; also seed the editor) ----
+        const DEFAULT_NAV = [
+            { labelKo:'회사소개', labelEn:'About',        target:'#about',        visible:true },
+            { labelKo:'서비스',   labelEn:'Services',     target:'#services',     visible:true },
+            { labelKo:'AXMOS',    labelEn:'AXMOS',        target:'#axmos',        visible:true },
+            { labelKo:'미디어',   labelEn:'Media',        target:'#media',        visible:true },
+            { labelKo:'자료실',   labelEn:'Downloads',    target:'#downloads',    visible:true },
+            { labelKo:'문의',     labelEn:'Contact',      target:'#contact',      visible:true },
+            { labelKo:'프로세스', labelEn:'Process',      target:'#process',      visible:false },
+            { labelKo:'파트너',   labelEn:'Partners',     target:'#partners',     visible:false },
+            { labelKo:'실적',     labelEn:'Achievements', target:'#achievements', visible:false },
+            { labelKo:'시장',     labelEn:'Market',       target:'#market',       visible:false },
+            { labelKo:'SNS',      labelEn:'SNS',          target:'#sns',          visible:false }
+        ];
+
+        // ---- Renderers (public site) ----
+        function renderNav(items){
+            if (!items || !items.length) items = DEFAULT_NAV;
+            const vis = items.filter(cmsVisible);
+            cmsSetHtml('navMenu',   vis.map(i => `<li><a href="${cmsEsc(i.target)}" data-nav>${cmsEsc(i.labelKo)}</a></li>`).join(''));
+            cmsSetHtml('navMenuEn', vis.map(i => `<li><a href="${cmsEsc(i.target)}" data-nav>${cmsEsc(i.labelEn)}</a></li>`).join(''));
+        }
+        function renderHero(d){
+            if (!d) return;
+            if (d.heroImage){
+                let st = document.getElementById('cmsHeroStyle');
+                if (!st){ st = document.createElement('style'); st.id = 'cmsHeroStyle'; document.head.appendChild(st); }
+                st.textContent = `.hero::before{background-image:url('${String(d.heroImage).replace(/'/g,'%27')}')!important;}`;
+            }
+            if (d.taglineKo){ const e = document.getElementById('heroTaglineKo'); if (e) e.textContent = d.taglineKo; }
+            if (d.taglineEn){ const e = document.getElementById('heroTaglineEn'); if (e) e.textContent = d.taglineEn; }
+        }
+        function cmsParas(txt){ return String(txt||'').split(/\n{2,}/).map(p => p.trim()).filter(Boolean).map(p => `<p>${cmsEsc(p).replace(/\n/g,'<br>')}</p>`).join(''); }
+        function renderAbout(d){
+            if (!d) return;
+            if (d.subtitleKo){ const e = document.getElementById('aboutSubtitleKo'); if (e) e.textContent = d.subtitleKo; }
+            if (d.subtitleEn){ const e = document.getElementById('aboutSubtitleEn'); if (e) e.textContent = d.subtitleEn; }
+            if (d.bodyKo){ const e = document.getElementById('aboutBodyKo'); if (e) e.innerHTML = cmsParas(d.bodyKo); }
+            if (d.bodyEn){ const e = document.getElementById('aboutBodyEn'); if (e) e.innerHTML = cmsParas(d.bodyEn); }
+        }
+        function renderServices(items){
+            if (!items || !items.length) return;
+            const card = (i, lang) => cmsVisible(i) ? `<div class="service-card animate-on-scroll">${i.image?`<div class="service-card-image"><img src="${cmsEsc(i.image)}" alt="${cmsEsc(lang==='ko'?i.titleKo:i.titleEn)}" loading="lazy"></div>`:''}<h3>${cmsEsc(lang==='ko'?i.titleKo:i.titleEn)}</h3><p>${cmsEsc(lang==='ko'?i.descKo:i.descEn)}</p></div>` : '';
+            cmsSetHtml('servicesGridKo', items.map(i => card(i,'ko')).join(''));
+            cmsSetHtml('servicesGridEn', items.map(i => card(i,'en')).join(''));
+        }
         function renderAxmos(items){
             if (!items || !items.length) return;
-            const card = (i, lang) => `<div class="ax-card"><div class="ax-card-role">${cmsEsc(lang==='ko'?i.roleKo:i.roleEn)}</div><h4>${cmsEsc(i.name)}</h4><p>${cmsEsc(lang==='ko'?i.descKo:i.descEn)}</p></div>`;
+            const card = (i, lang) => cmsVisible(i) ? `<div class="ax-card"><div class="ax-card-role">${cmsEsc(lang==='ko'?i.roleKo:i.roleEn)}</div><h4>${cmsEsc(i.name)}</h4><p>${cmsEsc(lang==='ko'?i.descKo:i.descEn)}</p></div>` : '';
             cmsSetHtml('axmosGridKo', items.map(i => card(i,'ko')).join(''));
             cmsSetHtml('axmosGridEn', items.map(i => card(i,'en')).join(''));
         }
         function renderPartners(items){
             if (!items || !items.length) return;
-            const card = (i) => {
-                const inner = i.logoUrl ? `<img src="${cmsEsc(i.logoUrl)}" alt="${cmsEsc(i.name)}" loading="lazy">` : `<span class="partner-name">${cmsEsc(i.name)}</span>`;
-                return i.url ? `<div class="partner-logo"><a href="${cmsEsc(i.url)}" target="_blank" rel="noopener">${inner}</a></div>` : `<div class="partner-logo">${inner}</div>`;
-            };
+            const card = (i) => { if (!cmsVisible(i)) return ''; const inner = i.logoUrl ? `<img src="${cmsEsc(i.logoUrl)}" alt="${cmsEsc(i.name)}" loading="lazy">` : `<span class="partner-name">${cmsEsc(i.name)}</span>`; return i.url ? `<div class="partner-logo"><a href="${cmsEsc(i.url)}" target="_blank" rel="noopener">${inner}</a></div>` : `<div class="partner-logo">${inner}</div>`; };
             const html = items.map(card).join('');
-            cmsSetHtml('partnersGridKo', html);
-            cmsSetHtml('partnersGridEn', html);
+            cmsSetHtml('partnersGridKo', html); cmsSetHtml('partnersGridEn', html);
         }
         function renderAchievements(items){
             if (!items || !items.length) return;
-            const item = (i, lang) => { const t = lang==='ko'?i.titleKo:i.titleEn; const d = lang==='ko'?i.descKo:i.descEn; return `<div class="achievement-item"><h3>${cmsEsc(t)}</h3>${d?`<p>${cmsEsc(d)}</p>`:''}</div>`; };
-            cmsSetHtml('achievementsListKo', items.map(i => item(i,'ko')).join(''));
-            cmsSetHtml('achievementsListEn', items.map(i => item(i,'en')).join(''));
+            const it = (i, lang) => { if (!cmsVisible(i)) return ''; const t = lang==='ko'?i.titleKo:i.titleEn; const d = lang==='ko'?i.descKo:i.descEn; return `<div class="achievement-item"><h3>${cmsEsc(t)}</h3>${d?`<p>${cmsEsc(d)}</p>`:''}</div>`; };
+            cmsSetHtml('achievementsListKo', items.map(i => it(i,'ko')).join(''));
+            cmsSetHtml('achievementsListEn', items.map(i => it(i,'en')).join(''));
         }
-        const CMS_RENDERERS = { axmos: renderAxmos, partners: renderPartners, achievements: renderAchievements };
+        const DL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
+        function renderDownloads(items){
+            const vis = (items || []).filter(cmsVisible);
+            const card = (i, lang) => { const t = cmsEsc((lang==='ko'?i.titleKo:i.titleEn) || i.titleEn || i.titleKo); const d = cmsEsc(lang==='ko'?i.descKo:i.descEn); const cta = lang==='ko' ? '다운로드' : 'Download'; return i.file ? `<a class="download-card" href="${cmsEsc(i.file)}" target="_blank" rel="noopener" download><span class="download-ico">${DL_ICON}</span><span class="download-meta"><h3>${t}</h3>${d?`<p>${d}</p>`:''}</span><span class="download-cta">${cta} &darr;</span></a>` : ''; };
+            const empty = { ko:'<p class="downloads-empty">등록된 자료가 없습니다. 곧 업데이트될 예정입니다.</p>', en:'<p class="downloads-empty">No files available yet. Coming soon.</p>' };
+            cmsSetHtml('downloadsGridKo', vis.length ? vis.map(i => card(i,'ko')).join('') : empty.ko);
+            cmsSetHtml('downloadsGridEn', vis.length ? vis.map(i => card(i,'en')).join('') : empty.en);
+        }
 
+        // ---- CMS schema config (single source of truth for editor + render) ----
+        const CMS_CONFIG = {
+            nav:          { label:'메뉴',    type:'list',   render:renderNav,          seed:() => JSON.parse(JSON.stringify(DEFAULT_NAV)),
+                            fields:[ {k:'labelKo',label:'라벨(KO)',type:'text'}, {k:'labelEn',label:'라벨(EN)',type:'text'}, {k:'target',label:'이동 대상 (#about 또는 URL)',type:'text'} ] },
+            hero:         { label:'메인',    type:'single', render:renderHero,
+                            fields:[ {k:'heroImage',label:'메인 배경 이미지',type:'image'}, {k:'taglineKo',label:'태그라인(KO)',type:'text'}, {k:'taglineEn',label:'태그라인(EN)',type:'text'} ] },
+            about:        { label:'회사소개', type:'single', render:renderAbout,
+                            fields:[ {k:'subtitleKo',label:'부제(KO)',type:'text'}, {k:'subtitleEn',label:'부제(EN)',type:'text'}, {k:'bodyKo',label:'본문(KO) — 빈 줄로 문단 구분',type:'textarea'}, {k:'bodyEn',label:'본문(EN) — 빈 줄로 문단 구분',type:'textarea'} ] },
+            services:     { label:'서비스',  type:'list',   render:renderServices,
+                            fields:[ {k:'image',label:'이미지',type:'image'}, {k:'titleKo',label:'제목(KO)',type:'text'}, {k:'titleEn',label:'제목(EN)',type:'text'}, {k:'descKo',label:'설명(KO)',type:'textarea'}, {k:'descEn',label:'설명(EN)',type:'textarea'} ] },
+            axmos:        { label:'AXMOS',   type:'list',   render:renderAxmos,
+                            fields:[ {k:'name',label:'이름',type:'text'}, {k:'roleKo',label:'역할(KO)',type:'text'}, {k:'roleEn',label:'역할(EN)',type:'text'}, {k:'descKo',label:'설명(KO)',type:'textarea'}, {k:'descEn',label:'설명(EN)',type:'textarea'} ] },
+            partners:     { label:'파트너',  type:'list',   render:renderPartners,
+                            fields:[ {k:'name',label:'이름',type:'text'}, {k:'url',label:'링크 URL',type:'text'}, {k:'logoUrl',label:'로고 이미지',type:'image'} ] },
+            achievements: { label:'실적',    type:'list',   render:renderAchievements,
+                            fields:[ {k:'titleKo',label:'제목(KO)',type:'text'}, {k:'titleEn',label:'제목(EN)',type:'text'}, {k:'descKo',label:'설명(KO)',type:'textarea'}, {k:'descEn',label:'설명(EN)',type:'textarea'} ] },
+            downloads:    { label:'자료실',  type:'list',   render:renderDownloads,
+                            fields:[ {k:'titleKo',label:'제목(KO)',type:'text'}, {k:'titleEn',label:'제목(EN)',type:'text'}, {k:'descKo',label:'설명(KO)',type:'text'}, {k:'descEn',label:'설명(EN)',type:'text'}, {k:'file',label:'파일 (업로드 또는 URL)',type:'file'} ] }
+        };
+        const CMS_ORDER = ['nav','hero','about','services','axmos','partners','achievements','downloads'];
+
+        // ---- Public hydration on load ----
         async function loadSiteContent(){
-            const sections = ['axmos','partners','achievements'];
-            await Promise.all(sections.map(async (s) => {
+            renderNav(DEFAULT_NAV); // clean menu immediately, even before network
+            await Promise.all(CMS_ORDER.map(async (s) => {
                 try {
                     const doc = await db.collection('siteContent').doc(s).get();
-                    if (doc.exists) { const items = doc.data().items || []; if (items.length) CMS_RENDERERS[s](items); }
+                    if (!doc.exists) return;
+                    const data = doc.data() || {};
+                    if (CMS_CONFIG[s].type === 'list') CMS_CONFIG[s].render(data.items || []);
+                    else CMS_CONFIG[s].render(data);
                 } catch (e) { console.warn('CMS load failed: ' + s, e); }
             }));
         }
 
-        // ===== ADMIN CMS EDITOR =====
-        const CMS_SCHEMA = {
-            axmos: [
-                { k:'name',   label:'Name',        type:'input' },
-                { k:'roleKo', label:'Role (KO)',   type:'input' },
-                { k:'roleEn', label:'Role (EN)',   type:'input' },
-                { k:'descKo', label:'Desc (KO)',   type:'textarea' },
-                { k:'descEn', label:'Desc (EN)',   type:'textarea' }
-            ],
-            partners: [
-                { k:'name',    label:'Name',                     type:'input' },
-                { k:'url',     label:'Link URL',                 type:'input' },
-                { k:'logoUrl', label:'Logo image URL (optional)',type:'input' }
-            ],
-            achievements: [
-                { k:'titleKo', label:'Title (KO)', type:'input' },
-                { k:'titleEn', label:'Title (EN)', type:'input' },
-                { k:'descKo',  label:'Desc (KO)',  type:'textarea' },
-                { k:'descEn',  label:'Desc (EN)',  type:'textarea' }
-            ]
-        };
-        const cmsData = { axmos: [], partners: [], achievements: [] };
-        const cmsLoaded = { axmos: false, partners: false, achievements: false };
+        // ===== ADMIN CMS EDITOR (schema-driven) =====
+        const cmsData = {};
+        const cmsLoaded = {};
+        let adminTabsBuilt = false;
+
+        function buildAdminTabs(){
+            if (adminTabsBuilt) return;
+            const tabs = document.getElementById('adminTabs');
+            const panels = document.getElementById('adminCmsPanels');
+            if (!tabs || !panels) return;
+            tabs.innerHTML = `<button class="admin-tab active" data-tab="users" onclick="switchAdminTab('users')">Users</button>`
+                + CMS_ORDER.map(s => `<button class="admin-tab" data-tab="${s}" onclick="switchAdminTab('${s}')">${CMS_CONFIG[s].label}</button>`).join('');
+            panels.innerHTML = CMS_ORDER.map(s => {
+                const isList = CMS_CONFIG[s].type === 'list';
+                return `<div class="admin-panel" id="adminPanel-${s}">
+                    <p class="cms-hint">${isList ? '항목 추가·수정·순서변경·공개/숨김 후 <b>저장</b>. (저장 전까지 사이트는 기본값 표시)' : '내용 수정 후 <b>저장</b>.'}</p>
+                    <div class="cms-list" id="cmsList-${s}"></div>
+                    <div class="cms-item-row">
+                        ${isList ? `<button class="btn-modal cms-add" onclick="cmsAdd('${s}')">+ 항목 추가</button>` : ''}
+                        <button class="btn-modal" style="background:var(--gold);color:#1a1a2e;" onclick="cmsSave('${s}')">저장</button>
+                    </div>
+                </div>`;
+            }).join('');
+            adminTabsBuilt = true;
+        }
 
         function switchAdminTab(tab){
             document.querySelectorAll('.admin-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
@@ -4576,30 +4690,55 @@
         }
 
         async function loadCmsEditor(section){
+            const cfg = CMS_CONFIG[section];
             try {
                 const doc = await db.collection('siteContent').doc(section).get();
-                cmsData[section] = (doc.exists && doc.data().items) ? doc.data().items : [];
-            } catch (e) { cmsData[section] = []; }
+                if (cfg.type === 'list') {
+                    cmsData[section] = (doc.exists && doc.data().items && doc.data().items.length) ? doc.data().items : (cfg.seed ? cfg.seed() : []);
+                } else {
+                    cmsData[section] = (doc.exists ? doc.data() : {}) || {};
+                }
+            } catch (e) { cmsData[section] = (cfg.type === 'list') ? (cfg.seed ? cfg.seed() : []) : {}; }
             cmsLoaded[section] = true;
             renderCmsEditor(section);
         }
 
+        function cmsFieldInput(section, ref, f, val){
+            const idAttr = `id="fld-${section}-${ref}-${f.k}"`;
+            const oninput = `oninput="cmsField('${section}','${ref}','${f.k}',this.value)"`;
+            if (f.type === 'textarea') return `<textarea ${idAttr} ${oninput}>${cmsEsc(val)}</textarea>`;
+            if (f.type === 'image' || f.type === 'file') {
+                const accept = f.type === 'image' ? 'image/*' : '*/*';
+                const prev = val ? (f.type === 'image'
+                        ? `<img src="${cmsEsc(val)}" style="max-height:56px;border-radius:6px;margin-top:6px">`
+                        : `<a href="${cmsEsc(val)}" target="_blank" rel="noopener" style="font-size:.8rem;color:var(--navy)">${cmsEsc(String(val).split('/').pop())}</a>`)
+                    : '';
+                return `<input type="text" ${idAttr} value="${cmsEsc(val)}" ${oninput} placeholder="URL 직접 입력 또는 아래에서 파일 선택">
+                    <input type="file" accept="${accept}" onchange="cmsUploadField('${section}','${ref}','${f.k}',this)">
+                    <span class="cms-up-status" id="up-${section}-${ref}-${f.k}"></span>
+                    <div class="cms-preview">${prev}</div>`;
+            }
+            return `<input type="text" ${idAttr} value="${cmsEsc(val)}" ${oninput}>`;
+        }
+
         function renderCmsEditor(section){
+            const cfg = CMS_CONFIG[section];
             const list = document.getElementById('cmsList-' + section);
             if (!list) return;
+            if (cfg.type === 'single') {
+                const d = cmsData[section] || {};
+                list.innerHTML = `<div class="cms-item">` + cfg.fields.map(f =>
+                    `<div><span class="cms-field-label">${f.label}</span>${cmsFieldInput(section, 'single', f, d[f.k] || '')}</div>`).join('') + `</div>`;
+                return;
+            }
             const items = cmsData[section];
-            if (!items.length) { list.innerHTML = '<p class="cms-hint">항목이 없습니다. 아래 &ldquo;+ 항목 추가&rdquo;로 시작하세요. (저장 전까지 사이트는 기본값을 표시합니다)</p>'; return; }
+            if (!items.length) { list.innerHTML = '<p class="cms-hint">항목이 없습니다. 아래 &ldquo;+ 항목 추가&rdquo;로 시작하세요.</p>'; return; }
             list.innerHTML = items.map((it, idx) => {
-                const fields = CMS_SCHEMA[section].map(f => {
-                    const val = cmsEsc(it[f.k] || '');
-                    const oninput = `oninput="cmsField('${section}',${idx},'${f.k}',this.value)"`;
-                    const input = f.type === 'textarea'
-                        ? `<textarea ${oninput}>${val}</textarea>`
-                        : `<input type="text" value="${val}" ${oninput}>`;
-                    return `<div><span class="cms-field-label">${f.label}</span>${input}</div>`;
-                }).join('');
+                const fields = cfg.fields.map(f => `<div><span class="cms-field-label">${f.label}</span>${cmsFieldInput(section, idx, f, it[f.k] || '')}</div>`).join('');
+                const checked = (it.visible === false) ? '' : 'checked';
                 return `<div class="cms-item">${fields}
                     <div class="cms-item-actions">
+                        <label class="cms-vis"><input type="checkbox" ${checked} onchange="cmsToggleVisible('${section}',${idx},this.checked)"> 공개</label>
                         <div class="cms-move">
                             <button class="cms-btn cms-btn-move" onclick="cmsMove('${section}',${idx},-1)">▲</button>
                             <button class="cms-btn cms-btn-move" onclick="cmsMove('${section}',${idx},1)">▼</button>
@@ -4609,30 +4748,71 @@
             }).join('');
         }
 
-        function cmsField(section, idx, key, value){ if (cmsData[section][idx]) cmsData[section][idx][key] = value; }
+        function cmsTarget(section, ref){
+            if (ref === 'single') { cmsData[section] = cmsData[section] || {}; return cmsData[section]; }
+            return cmsData[section][ref];
+        }
+        function cmsField(section, ref, key, value){ const t = cmsTarget(section, ref); if (t) t[key] = value; }
+        function cmsToggleVisible(section, idx, checked){ if (cmsData[section][idx]) cmsData[section][idx].visible = checked; }
         function cmsAdd(section){
             if (!cmsLoaded[section]) { alert('로딩 중입니다. 잠시 후 다시 시도하세요.'); return; }
-            const blank = {}; CMS_SCHEMA[section].forEach(f => blank[f.k] = '');
+            const blank = { visible: true }; CMS_CONFIG[section].fields.forEach(f => blank[f.k] = '');
             cmsData[section].push(blank); renderCmsEditor(section);
         }
-        function cmsDeleteItem(section, idx){ cmsData[section].splice(idx, 1); renderCmsEditor(section); }
-        function cmsMove(section, idx, dir){
-            const arr = cmsData[section]; const j = idx + dir;
-            if (j < 0 || j >= arr.length) return;
-            [arr[idx], arr[j]] = [arr[j], arr[idx]]; renderCmsEditor(section);
-        }
-        async function cmsSave(section){
+        function cmsDeleteItem(section, idx){ if (confirm('이 항목을 삭제할까요?')) { cmsData[section].splice(idx, 1); renderCmsEditor(section); } }
+        function cmsMove(section, idx, dir){ const a = cmsData[section]; const j = idx + dir; if (j < 0 || j >= a.length) return; [a[idx], a[j]] = [a[j], a[idx]]; renderCmsEditor(section); }
+
+        async function cmsUploadField(section, ref, key, inputEl){
+            const file = inputEl.files && inputEl.files[0];
+            if (!file) return;
+            const status = document.getElementById(`up-${section}-${ref}-${key}`);
+            if (status) status.textContent = ' 업로드 중…';
             try {
-                const items = cmsData[section].filter(it => Object.values(it).some(v => String(v || '').trim() !== ''));
-                await db.collection('siteContent').doc(section).set({
-                    items: items,
-                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-                });
-                cmsData[section] = items;
-                if (items.length) CMS_RENDERERS[section](items);
-                alert('저장되었습니다.' + (items.length ? '' : ' (모두 비어 사이트는 기본값으로 표시됩니다 — 새로고침 시 반영)'));
+                const safe = file.name.replace(/[^\w.\-]/g, '_');
+                const sref = storage.ref().child(`uploads/${section}/${Date.now()}_${safe}`);
+                const snap = await sref.put(file);
+                const url = await snap.ref.getDownloadURL();
+                const t = cmsTarget(section, ref); if (t) t[key] = url;
+                if (status) status.textContent = ' ✓ 완료';
+                renderCmsEditor(section);
+            } catch (e) {
+                if (status) status.textContent = ' ✗ 실패';
+                alert('업로드 실패: ' + e.message + '\n\nStorage 미활성 시 URL 직접 입력란을 사용하세요.');
+            }
+        }
+
+        async function cmsSave(section){
+            const cfg = CMS_CONFIG[section];
+            try {
+                let payload;
+                if (cfg.type === 'list') {
+                    const keys = cfg.fields.map(f => f.k);
+                    const items = cmsData[section].filter(it => keys.some(k => String(it[k] || '').trim() !== ''));
+                    payload = { items };
+                } else {
+                    payload = {}; cfg.fields.forEach(f => payload[f.k] = cmsData[section][f.k] || '');
+                }
+                payload.updatedAt = firebase.firestore.FieldValue.serverTimestamp();
+                await db.collection('siteContent').doc(section).set(payload);
+                if (cfg.type === 'list') cfg.render(payload.items); else cfg.render(payload);
+                if (section === 'nav') bindNavCloseOnce();
+                alert('저장되었습니다.');
             } catch (e) { alert('저장 오류: ' + e.message); }
         }
+
+        // ---- Mobile-menu close via event delegation (works for dynamic nav links) ----
+        let navCloseBound = false;
+        function bindNavCloseOnce(){
+            if (navCloseBound) return;
+            document.addEventListener('click', (e) => {
+                const link = e.target && e.target.closest ? e.target.closest('[data-nav]') : null;
+                if (!link) return;
+                const h = document.getElementById('hamburger'); if (h) h.classList.remove('active');
+                document.querySelectorAll('.nav-menu').forEach(m => m.classList.remove('active'));
+            });
+            navCloseBound = true;
+        }
+        bindNavCloseOnce();
 
         // Hydrate public sections on load
         loadSiteContent();
