@@ -7,12 +7,12 @@
 - **순수 HTML / CSS / JavaScript** (프레임워크 없음)
 - **배포**: Netlify (GitHub 연동 자동 배포)
 - **도메인**: `www.miksnt.com`
-- **GitHub**: `johnnie010320-cmd/miksnt` (master 브랜치)
+- **GitHub**: `johnnie010320-cmd/miksnt` (main 브랜치)
 
 ## 개발 워크플로우
 1. 코드 변경 (`index.html`, 이미지 등)
 2. 브라우저에서 로컬 확인
-3. 커밋 & 푸시: `git add` → `git commit` → `git push origin master`
+3. 커밋 & 푸시: `git add` → `git commit` → `git push origin main`
 4. Netlify 자동 배포 (push 시 자동)
 
 > **별도 빌드 명령어 없음** — push 하면 Netlify가 자동 배포
@@ -20,7 +20,9 @@
 ## 프로젝트 구조
 ```
 mikst-website/
-├── index.html          # 메인 (단일 페이지)
+├── index.html          # 메인 (단일 페이지, AXMOS 섹션 + admin CMS 포함)
+├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반)
+├── FIRESTORE_RULES.md  # CMS용 Firestore 보안규칙 + 관리자 지정 안내
 ├── netlify.toml        # Netlify 빌드 설정
 ├── CNAME               # 도메인 설정 (www.miksnt.com)
 ├── _headers            # HTTP 헤더 설정 (캐싱, 보안)

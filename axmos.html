@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXMOS — Manufacturing AI Transformation | MIKS&T, INC</title>
+    <meta name="description" content="AXMOS: The AI Transformation Manufacturing Operating System. MIKS&T is the US business agent for the AXMOS Alliance — connecting Korea's manufacturing with US AI and capital.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1A237E; --navy-light: #3949AB; --gold: #C9A84C; --gold-light: #E8D48B;
+            --teal: #2dd4bf; --dark: #0D1117; --gray-900: #1a1a2e; --gray-700: #4a4a5a;
+            --gray-500: #8892a4; --gray-300: #c8cdd5; --gray-100: #f0f2f5; --white: #ffffff;
+            --glass: rgba(255,255,255,0.06); --glass-border: rgba(255,255,255,0.12);
+            --radius: 12px; --radius-lg: 20px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat','Noto Sans KR',sans-serif; background: var(--dark); color: var(--gray-300); line-height: 1.7; }
+        .hidden { display: none !important; }
+        a { color: inherit; }
+        img { max-width: 100%; }
+
+        /* Header */
+        header { position: sticky; top: 0; z-index: 50; background: rgba(13,17,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border); }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .logo-img { height: 34px; }
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        .back-link { font-size: 0.85rem; font-weight: 600; color: var(--gray-300); text-decoration: none; }
+        .back-link:hover { color: var(--gold); }
+        .language-toggle { display: inline-flex; border: 1px solid var(--glass-border); border-radius: 999px; overflow: hidden; }
+        .lang-btn { background: none; border: none; color: var(--gray-500); padding: 0.35rem 0.8rem; cursor: pointer; font-weight: 600; font-size: 0.8rem; font-family: inherit; }
+        .lang-btn.active { background: var(--gold); color: #1a1a2e; }
+
+        /* Layout */
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+        section.block { padding: 4.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .eyebrow { color: var(--teal); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+        h1 { font-weight: 800; font-size: clamp(2rem, 5vw, 3.4rem); color: var(--white); line-height: 1.15; }
+        h2 { font-weight: 800; font-size: clamp(1.6rem, 3.5vw, 2.4rem); color: var(--white); margin: 0.4rem 0 1.2rem; }
+        h3 { font-weight: 700; font-size: 1.15rem; color: var(--white); }
+        .gold-line { width: 64px; height: 3px; background: linear-gradient(90deg,var(--gold),var(--teal)); border-radius: 2px; margin: 0.8rem 0 1.5rem; }
+        p.lead { font-size: 1.05rem; max-width: 820px; }
+        p + p { margin-top: 0.9rem; }
+        strong { color: var(--gold-light); }
+
+        /* Hero */
+        .hero { padding: 5.5rem 0 4.5rem; background: radial-gradient(1000px 460px at 78% -10%, rgba(45,212,191,0.14), transparent 60%), linear-gradient(180deg, #0b1533 0%, #0d1117 100%); }
+        .brand { font-weight: 800; font-size: clamp(2.6rem,8vw,5rem); letter-spacing: 0.02em; background: linear-gradient(100deg, #1a2a6c 0%, #2f4bbf 40%, #2dd4bf 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .brand-sub { color: var(--gray-300); font-weight: 600; margin-top: 0.4rem; }
+        .agent-badge { display: inline-block; margin-bottom: 1.4rem; padding: 0.4rem 1rem; border: 1px solid rgba(45,212,191,0.4); border-radius: 999px; color: var(--teal); font-size: 0.82rem; font-weight: 600; }
+
+        /* Grids & cards */
+        .grid { display: grid; gap: 1.1rem; }
+        .g2 { grid-template-columns: repeat(2, 1fr); }
+        .g3 { grid-template-columns: repeat(3, 1fr); }
+        .g4 { grid-template-columns: repeat(4, 1fr); }
+        .g5 { grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
+        .card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1.4rem; }
+        .card h3 { margin-bottom: 0.5rem; }
+        .card p { font-size: 0.9rem; color: var(--gray-300); }
+        .role-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--teal); border: 1px solid rgba(45,212,191,0.35); border-radius: 999px; padding: 0.2rem 0.6rem; margin-bottom: 0.7rem; }
+        ul.clean { list-style: none; }
+        ul.clean li { position: relative; padding-left: 1.1rem; margin: 0.35rem 0; font-size: 0.9rem; }
+        ul.clean li::before { content: '▪'; position: absolute; left: 0; color: var(--teal); }
+
+        /* Stat tiles */
+        .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; max-width: 760px; }
+        .stat { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1.6rem 1rem; text-align: center; }
+        .stat .num { font-weight: 800; font-size: 2.6rem; line-height: 1; background: linear-gradient(135deg,var(--teal),var(--navy-light)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat .lbl { color: var(--gray-300); font-size: 0.85rem; margin-top: 0.5rem; }
+
+        /* Layers */
+        .layers { display: grid; gap: 0.7rem; }
+        .layer { background: rgba(26,35,126,0.35); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem 1.4rem; font-size: 0.92rem; }
+        .layer b { color: var(--teal); margin-right: 0.6rem; }
+
+        /* Steps */
+        .steps { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .step { flex: 1; min-width: 150px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius); padding: 1rem; }
+        .step .n { color: var(--teal); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; }
+        .step h3 { font-size: 0.98rem; margin-top: 0.25rem; }
+
+        /* Quote */
+        .quote { background: rgba(26,35,126,0.35); border-left: 3px solid var(--teal); border-radius: var(--radius); padding: 1.6rem 1.8rem; font-size: 1.05rem; color: var(--white); max-width: 900px; }
+        .quote .who { display: block; margin-top: 0.8rem; color: var(--gray-500); font-size: 0.85rem; font-weight: 600; }
+
+        /* CTA buttons */
+        .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
+        .btn { display: inline-block; padding: 0.85rem 1.8rem; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 0.95rem; }
+        .btn-gold { background: linear-gradient(135deg,var(--gold),var(--gold-light)); color: #1a1a2e; }
+        .btn-glass { background: var(--glass); border: 1px solid var(--glass-border); color: var(--white); }
+        .btn:hover { transform: translateY(-2px); }
+        .btn { transition: transform .25s; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 999px; padding: 0.35rem 0.85rem; font-size: 0.82rem; color: var(--gray-300); }
+
+        footer { padding: 2.5rem 1.5rem; text-align: center; color: var(--gray-500); font-size: 0.85rem; }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 820px) {
+            .g2,.g3,.g4 { grid-template-columns: 1fr 1fr; }
+            .stats { grid-template-columns: 1fr; max-width: 340px; }
+        }
+        @media (max-width: 560px) {
+            .g2,.g3,.g4 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><img src="logo.webp" alt="MIKS&T Logo" class="logo-img"></a>
+            <div class="nav-right">
+                <a href="index.html#axmos" class="back-link lang-en">&larr; Back to MIKS&amp;T</a>
+                <a href="index.html#axmos" class="back-link lang-ko hidden">&larr; MIKS&amp;T로 돌아가기</a>
+                <div class="language-toggle">
+                    <button class="lang-btn" data-lang="ko">KO</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap">
+            <div class="brand">AXMOS</div>
+            <div class="lang-en">
+                <p class="brand-sub">AI Transformation · Manufacturing · Operating System</p>
+                <div style="height:1.6rem"></div>
+                <span class="agent-badge">MIKS&amp;T, INC — US Business Agent for AXMOS</span>
+                <h1>The AI Operating System<br>for Manufacturing AX</h1>
+                <p class="lead" style="margin-top:1rem">Investment · Diagnosis · Education · Manufacturing AI · Execution — a five-company execution consortium covering the entire AX transformation journey.</p>
+                <div class="cta-row">
+                    <a href="index.html#contact" class="btn btn-gold">Inquire (US)</a>
+                    <a href="https://axmos.ai" target="_blank" rel="noopener" class="btn btn-glass">axmos.ai &nearr;</a>
+                </div>
+            </div>
+            <div class="lang-ko hidden">
+                <p class="brand-sub">AI Transformation · Manufacturing · Operating System</p>
+                <div style="height:1.6rem"></div>
+                <span class="agent-badge">MIKS&amp;T, INC — AXMOS 미국 사업 대행사</span>
+                <h1>제조 기반 AX를 실행하는<br>AI Operating System</h1>
+                <p class="lead" style="margin-top:1rem">투자 · 진단 · 교육 · 제조AI · 실행까지, AX 전환 전 과정을 담당하는 5개사 실행 컨소시엄입니다.</p>
+                <div class="cta-row">
+                    <a href="index.html#contact" class="btn btn-gold">미국 도입 문의</a>
+                    <a href="https://axmos.ai" target="_blank" rel="noopener" class="btn btn-glass">axmos.ai &nearr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY KOREA -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Why Korea</span>
+        <div class="lang-en">
+            <h2>Korea, a Manufacturing Powerhouse</h2>
+            <div class="gold-line"></div>
+            <p class="lead">Emerging as a manufacturing-AI hub capable of large-scale collection of shop-floor equipment data plus the know-how of skilled workers — spanning shipbuilding, automotive, semiconductors, energy, and defense, all the way to K-Contents and F&amp;B.</p>
+            <ul class="clean" style="margin-top:1rem">
+                <li>Korea's Great Leap Forward: 3 mega-projects, KRW 800 trillion total investment</li>
+                <li>Samsung Electronics &amp; SK Hynix building 4 fabs in the southwestern region</li>
+            </ul>
+            <div class="quote" style="margin-top:1.6rem">"Who will apply AI to real industry to create productivity and profitability?"</div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>제조강국 한국</h2>
+            <div class="gold-line"></div>
+            <p class="lead">제조 현장 설비 데이터 + 숙련된 인력의 노하우 데이터를 대규모로 수집할 수 있는 제조 AI 거점으로 부상 — 조선, 자동차, 반도체, 에너지, 방위산업부터 K-Contents, F&amp;B까지 폭넓은 제조 분야.</p>
+            <ul class="clean" style="margin-top:1rem">
+                <li>대한민국 대도약 3대 메가프로젝트, 총 800조원 투자</li>
+                <li>삼성전자·SK하이닉스 팹 총 4기 서남권 구축</li>
+            </ul>
+            <div class="quote" style="margin-top:1.6rem">"누가 AI를 실제 산업에 적용해 생산성과 수익성을 만들어낼 수 있는가?"</div>
+        </div>
+    </div></section>
+
+    <!-- REDEFINITION + LAYERS -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Consortium Architecture</span>
+        <div class="lang-en">
+            <h2>The AI Era: An Expanded Redefinition of Manufacturing</h2>
+            <div class="gold-line"></div>
+            <p class="lead">In the AI era, manufacturing is not simply factory automation — it is every act of creation that begins with an individual's idea. AXMOS diagnoses and deploys AX workflows spanning beyond factories to small businesses and independent makers, connecting the value chain of capital, strategy, technology, education, and service.</p>
+            <div class="grid g5" style="margin:1.6rem 0">
+                <div class="card"><div class="role-tag">Capital</div><h3>Translink</h3><p>Investment</p></div>
+                <div class="card"><div class="role-tag">Strategy · PMO</div><h3>WVB</h3><p>Strategy</p></div>
+                <div class="card"><div class="role-tag">Education</div><h3>Codepresso</h3><p>Certification</p></div>
+                <div class="card"><div class="role-tag">Infra Agent</div><h3>Popup</h3><p>FDE</p></div>
+                <div class="card"><div class="role-tag">Manufacturing AI</div><h3>Drimaes</h3><p>Robot AI</p></div>
+            </div>
+            <div class="layers">
+                <div class="layer"><b>LAYER 3 · Culture</b> Spreading industry standards and a new way of working (Community · Standard · Empowerment)</div>
+                <div class="layer"><b>LAYER 2 · Platform</b> The execution layer connecting workflows and agents (API)</div>
+                <div class="layer"><b>LAYER 1 · Product</b> AI Infra, Coding Tools — Core Tools</div>
+            </div>
+            <p style="margin-top:1rem"><strong>AI Model + AI Work OS</strong> becomes the new standard for a redefined manufacturing industry.</p>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>AI시대, 제조의 확장적 재정의</h2>
+            <div class="gold-line"></div>
+            <p class="lead">AI시대 제조란 단순한 공장 자동화가 아니라, 개개인의 아이디어에서 출발해 무언가를 만들어내는 모든 행위입니다. AXMOS는 공장을 넘어 소상공인과 메이커까지 아우르는 AX 워크플로우를 진단·전개하며, 자본·전략·기술·교육·서비스의 가치 사슬을 연결합니다.</p>
+            <div class="grid g5" style="margin:1.6rem 0">
+                <div class="card"><div class="role-tag">자본 투자</div><h3>Translink</h3><p>투자</p></div>
+                <div class="card"><div class="role-tag">전략 · PMO</div><h3>WVB</h3><p>전략</p></div>
+                <div class="card"><div class="role-tag">교육 · 인증</div><h3>Codepresso</h3><p>인증</p></div>
+                <div class="card"><div class="role-tag">인프라 에이전트</div><h3>Popup</h3><p>FDE</p></div>
+                <div class="card"><div class="role-tag">제조 AI</div><h3>Drimaes</h3><p>로봇 AI</p></div>
+            </div>
+            <div class="layers">
+                <div class="layer"><b>LAYER 3 · Culture</b> 산업 표준·일하는 문화 확산 (Community · Standard · Empowerment)</div>
+                <div class="layer"><b>LAYER 2 · Platform</b> 워크플로우·에이전트를 잇는 실행 계층 (API)</div>
+                <div class="layer"><b>LAYER 1 · Product</b> AI Infra, Coding Tools — 핵심 도구</div>
+            </div>
+            <p style="margin-top:1rem"><strong>AI Model + AI Work OS</strong>가 새롭게 정의된 제조 산업의 표준이 됩니다.</p>
+        </div>
+    </div></section>
+
+    <!-- CONSORTIUM 5 -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Consortium · 2026.03</span>
+        <div class="lang-en">
+            <h2>AX-Specialized 5 Companies — AXMOS Consortium</h2>
+            <div class="gold-line"></div>
+            <div class="grid g3">
+                <div class="card"><div class="role-tag">Translink</div><h3>Investment &amp; Global Growth</h3><p>Silicon Valley, US · Financial support / reference expansion</p></div>
+                <div class="card"><div class="role-tag">WVB</div><h3>Global Commercialization &amp; Strategy</h3><p>Singapore · Overall strategy · roadmap / synergy coordination</p></div>
+                <div class="card"><div class="role-tag">Codepresso</div><h3>AI Education · HR Certification</h3><p>AX·FDE training / competency certification / AI talent matching</p></div>
+                <div class="card"><div class="role-tag">Popup</div><h3>AI Infrastructure FDE</h3><p>Development · supply / technical standards / FDE model</p></div>
+                <div class="card"><div class="role-tag">Drimaes</div><h3>Manufacturing Robot AI</h3><p>Manufacturing AI development / field cases / SDV · Manufacturing OS</p></div>
+            </div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>AX 특화 5개사 — AXMOS 컨소시엄</h2>
+            <div class="gold-line"></div>
+            <div class="grid g3">
+                <div class="card"><div class="role-tag">Translink</div><h3>투자 및 글로벌 성장 전략</h3><p>Silicon Valley, US · 재무 지원 / 레퍼런스 확장</p></div>
+                <div class="card"><div class="role-tag">WVB</div><h3>글로벌 사업화 · 전략</h3><p>Singapore · 전체 전략·로드맵 / 시너지 조율</p></div>
+                <div class="card"><div class="role-tag">Codepresso</div><h3>AI 교육 · HR 역량 인증</h3><p>AX·FDE 교육 / 역량 인증 / AI 인재 매칭</p></div>
+                <div class="card"><div class="role-tag">Popup</div><h3>AI 인프라 전방 배치(FDE)</h3><p>개발·공급 / 기술 표준 / FDE 모델</p></div>
+                <div class="card"><div class="role-tag">Drimaes</div><h3>제조 로봇 AI 솔루션</h3><p>제조 AI 개발 / 현장 케이스 / SDV · 제조 OS</p></div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- ALLIANCE ECOSYSTEM -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Alliance · 2026.07~</span>
+        <div class="lang-en">
+            <h2>Expanding the Ecosystem with the AXMOS Alliance</h2>
+            <div class="gold-line"></div>
+            <p class="lead">Moving beyond a consortium, we join forces with AI-tech specialist companies and Korea's leading AX ecosystem hub institutions on AX projects.</p>
+            <h3 style="margin:1.4rem 0 0.6rem">AI Tech Companies</h3>
+            <div class="tags"><span class="tag">CTRL-M</span><span class="tag">Nuldam</span><span class="tag">ND Market</span><span class="tag">Habit Factory</span><span class="tag">Korea Deep Learning</span><span class="tag">SHIN STARR</span><span class="tag">nextlab</span><span class="tag">AFTO₃</span></div>
+            <h3 style="margin:1.4rem 0 0.6rem">Ecosystem Hub Institutions</h3>
+            <div class="tags"><span class="tag">Seoul CCEI</span><span class="tag">Busan CCEI</span><span class="tag">Kakao Impact</span><span class="tag">dcamp</span><span class="tag">KETI</span><span class="tag">KOICA</span><span class="tag">Busan IT Industry Promotion Agency</span><span class="tag">BUVA</span><span class="tag">Busan Port Authority</span></div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>AXMOS Alliance로 생태계 확장</h2>
+            <div class="gold-line"></div>
+            <p class="lead">컨소시엄 연합체에서 나아가, AI Tech 특화기업 및 한국의 주요 AX 생태계 거점기관과 AX 프로젝트로 협업을 진화시키고 있습니다.</p>
+            <h3 style="margin:1.4rem 0 0.6rem">AI Tech 특화기업</h3>
+            <div class="tags"><span class="tag">CTRL-M</span><span class="tag">Nuldam</span><span class="tag">ND Market</span><span class="tag">Habit Factory</span><span class="tag">Korea Deep Learning</span><span class="tag">SHIN STARR</span><span class="tag">nextlab</span><span class="tag">AFTO₃</span></div>
+            <h3 style="margin:1.4rem 0 0.6rem">AX 생태계 거점기관</h3>
+            <div class="tags"><span class="tag">서울창조경제혁신센터</span><span class="tag">부산창조경제혁신센터</span><span class="tag">카카오임팩트</span><span class="tag">dcamp</span><span class="tag">KETI</span><span class="tag">KOICA</span><span class="tag">부산정보산업진흥원</span><span class="tag">BUVA</span><span class="tag">부산항만공사</span></div>
+        </div>
+    </div></section>
+
+    <!-- 4 FOCUS AREAS -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Focus Areas</span>
+        <div class="lang-en">
+            <h2>Four Manufacturing-Based Focus Areas</h2>
+            <div class="gold-line"></div>
+            <div class="grid g4">
+                <div class="card"><h3>Manufacturing</h3><p>AI transformation of regional manufacturing · Quality · SW development · Process automation</p></div>
+                <div class="card"><h3>Public Institutions</h3><p>Administration · Civil petitions · Reporting · Automation POC · On-site consulting</p></div>
+                <div class="card"><h3>Regional Businesses</h3><p>Small merchants · Strong SMEs · On-site customized work automation</p></div>
+                <div class="card"><h3>Talent Development</h3><p>AI competency training · Assessment · Certification · Job matching for youth startups &amp; employment</p></div>
+            </div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>AXMOS가 견인하는 제조 기반 4대 영역</h2>
+            <div class="gold-line"></div>
+            <div class="grid g4">
+                <div class="card"><h3>제조업</h3><p>지역 제조업의 AI 전환 · 품질 · SW개발 · 공정 자동화</p></div>
+                <div class="card"><h3>공공기관</h3><p>행정 · 민원 · 보고 · 자동화 실증 · 현장 컨설팅</p></div>
+                <div class="card"><h3>지역기업</h3><p>소상공인 · 강소기업 · 현장 맞춤 업무 자동화</p></div>
+                <div class="card"><h3>인재양성</h3><p>AI 역량 교육 · 평가 · 인증 · 청년 창업/취업 직무 매칭</p></div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- EXECUTION FLOW -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Execution Flow</span>
+        <div class="lang-en">
+            <h2>From Participation to Scaling AX Outcomes as Assets</h2>
+            <div class="gold-line"></div>
+            <div class="steps">
+                <div class="step"><div class="n">STEP 1</div><h3>Company Participation</h3></div>
+                <div class="step"><div class="n">STEP 2</div><h3>AI Capability Assessment</h3></div>
+                <div class="step"><div class="n">STEP 3</div><h3>Workflow Analysis</h3></div>
+                <div class="step"><div class="n">STEP 4</div><h3>AI Agent Development</h3></div>
+                <div class="step"><div class="n">STEP 5</div><h3>Measure &amp; Scale</h3></div>
+            </div>
+            <ul class="clean" style="margin-top:1.4rem">
+                <li>Regional manufacturing AX transformation centered on hubs like Busan, Gyeongnam, Gyeongbuk, Jeonbuk</li>
+                <li>Youth AI talent development — training, assessment, certification (including non-developers)</li>
+                <li>Turning work-automation pilot results into assets → business scaling model</li>
+                <li>Participating in AI standardization — measuring ROI vs. budget, including work-hour reduction rate</li>
+            </ul>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>기업 참여부터 AX 성과 자산화 확장</h2>
+            <div class="gold-line"></div>
+            <div class="steps">
+                <div class="step"><div class="n">STEP 1</div><h3>기업 참여</h3></div>
+                <div class="step"><div class="n">STEP 2</div><h3>AI 역량 진단</h3></div>
+                <div class="step"><div class="n">STEP 3</div><h3>워크플로우 분석</h3></div>
+                <div class="step"><div class="n">STEP 4</div><h3>AI Agent 구축</h3></div>
+                <div class="step"><div class="n">STEP 5</div><h3>성과 측정·확산</h3></div>
+            </div>
+            <ul class="clean" style="margin-top:1.4rem">
+                <li>부산·경남·경북·전북 등 제조 거점 중심의 지역 제조업 AX 전환</li>
+                <li>청년 AI 인재 양성 — 교육·평가·인증 (비개발자 포함)</li>
+                <li>업무 자동화 실증 성과 자산화 → 사업 확산 모델</li>
+                <li>AI 표준화 참여 — 업무시간 절감률 등 예산 대비 효과 측정</li>
+            </ul>
+        </div>
+    </div></section>
+
+    <!-- AI NATIVE ORG + STATS -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">AI Native Organization</span>
+        <div class="lang-en">
+            <h2>Realizing an AI-Native Agentic Organization</h2>
+            <div class="gold-line"></div>
+            <div class="quote">"AI agents, by default, make judgments based on the 'world average' that LLMs converge toward. By injecting a CEO judgment lens (ceo_lens) into the agent, we align priorities to the decision-maker's standards for more rational judgment."<span class="who">— Wilt Venture Builder, 2026.5 · CEO SUITE® (Agent Package)</span></div>
+            <p style="margin-top:1.4rem">Companies redesigned AI-first show a <strong>44% advantage</strong> in AI use cases — <strong>2× revenue with half the capital and headcount</strong> <span style="color:var(--gray-500)">(515 high-growth startups / YC W20–F24 cohort analysis)</span>.</p>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>AI Native Agentic 조직 구현</h2>
+            <div class="gold-line"></div>
+            <div class="quote">"AI 에이전트는 기본적으로 LLM에 수렴한 '세상 평균'으로 판단합니다. CEO 판단 렌즈(ceo_lens)를 에이전트에 주입해 의사결정권자 기준으로 우선순위를 정렬하고 합리적 판단을 돕습니다."<span class="who">— Wilt Venture Builder, 2026.5 · CEO SUITE® (Agent Package)</span></div>
+            <p style="margin-top:1.4rem">AI 전제로 재설계한 기업은 AI 활용에서 <strong>44% 우위</strong> — <strong>절반의 자본과 인력으로 2배 매출</strong> <span style="color:var(--gray-500)">(고성장 스타트업 515곳 / YC W20–F24 코호트 분석)</span>.</p>
+        </div>
+    </div></section>
+
+    <!-- CASES / OUTCOME -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Cases · Business Outcome</span>
+        <div class="lang-en">
+            <h2>Real Execution Results Across 12 Industries</h2>
+            <div class="gold-line"></div>
+            <div class="stats" style="margin-bottom:1.6rem">
+                <div class="stat"><div class="num">12</div><div class="lbl">Industries</div></div>
+                <div class="stat"><div class="num">90%+</div><div class="lbl">Avg. Time Reduction</div></div>
+                <div class="stat"><div class="num">600h</div><div class="lbl">Monthly Saved</div></div>
+            </div>
+            <div class="quote">"A task that used to take 3–5 days — processing due-diligence requests for 100 partner companies — now finishes in just 1 hour after adopting AXMOS. It's not just a time saving; the speed of decision-making itself has changed."<span class="who">— CEO, Translink Investment</span></div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>12개 산업에서 만든 실행 성과</h2>
+            <div class="gold-line"></div>
+            <div class="stats" style="margin-bottom:1.6rem">
+                <div class="stat"><div class="num">12</div><div class="lbl">산업 카테고리</div></div>
+                <div class="stat"><div class="num">90%+</div><div class="lbl">평균 업무시간 절감</div></div>
+                <div class="stat"><div class="num">600h</div><div class="lbl">월간 절감 시간</div></div>
+            </div>
+            <div class="quote">"100개사 거래처 실사 요청을 처리하는 데 3~5일 걸리던 작업이 AXMOS 도입 후 1시간 만에 끝납니다. 단순한 시간 절감이 아니라, 의사결정 속도 자체가 달라졌습니다."<span class="who">— CEO, Translink Investment</span></div>
+        </div>
+    </div></section>
+
+    <!-- BUILD GROW LEARN -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Engagement Models</span>
+        <div class="lang-en">
+            <h2>AXMOS "Build – Grow – Learn"</h2>
+            <div class="gold-line"></div>
+            <p class="lead">Realized through the FDE (Forward Deployed Engineer) — a single change partner responsible for diagnosis, implementation, and self-reliance.</p>
+            <div class="grid g3" style="margin-top:1.4rem">
+                <div class="card"><div class="role-tag">For Speed · 20d</div><h3>AX Build</h3><p>Done-for-you. The AXMOS team redesigns core processes and builds custom AI — when you need results fastest.</p></div>
+                <div class="card"><div class="role-tag">For Capability · 16d</div><h3>AX Grow</h3><p>Co-build. Built together with your team to internalize AI capability so it keeps running after we leave.</p></div>
+                <div class="card"><div class="role-tag">AI Literacy</div><h3>AX Learn</h3><p>Hands-on training that lets non-developers use AI directly in their own work — change from the people up.</p></div>
+            </div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>AXMOS "Build – Grow – Learn"</h2>
+            <div class="gold-line"></div>
+            <p class="lead">FDE(Forward Deployed Engineer, 현장 배치형 엔지니어) — 진단·구현·자립을 한 사람이 책임지는 변화 파트너를 통해 구현됩니다.</p>
+            <div class="grid g3" style="margin-top:1.4rem">
+                <div class="card"><div class="role-tag">For Speed · 20일</div><h3>AX Build</h3><p>Done-for-you. AXMOS 팀이 핵심 프로세스를 다시 설계하고 맞춤 AI를 구축합니다. 가장 빠르게 결과가 필요할 때.</p></div>
+                <div class="card"><div class="role-tag">For Capability · 16일</div><h3>AX Grow</h3><p>Co-build. 현업과 함께 만들며 AI 역량을 조직에 내재화합니다. 끝난 뒤에도 스스로 굴러가게.</p></div>
+                <div class="card"><div class="role-tag">AI Literacy</div><h3>AX Learn</h3><p>코드 없이 비개발자가 자기 업무에 AI를 직접 쓰도록 만드는 실무 교육. 전환의 토대를 사람에서부터.</p></div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- AX BUILD 37 workflows -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">AX Build</span>
+        <div class="lang-en">
+            <h2>37 Field-Proven Workflows (AX Kit)</h2>
+            <div class="gold-line"></div>
+            <p class="lead">A 6-stage FDE process from diagnosis to scaling: Discover → Structure → Build → Capture → Learn → Scale.</p>
+            <div class="grid g5" style="margin-top:1.4rem">
+                <div class="card"><div class="role-tag">Common · 07</div><ul class="clean"><li>Meeting minutes</li><li>Task management</li><li>Multilingual translation</li><li>Email classification</li><li>Internal Q&amp;A</li></ul></div>
+                <div class="card"><div class="role-tag">Marketing · 07</div><ul class="clean"><li>Content generation</li><li>Landing pages</li><li>SEO · calendar</li><li>Social distribution</li><li>Reputation monitoring</li></ul></div>
+                <div class="card"><div class="role-tag">Sales · 07</div><ul class="clean"><li>CRM</li><li>Lead generation</li><li>Proposals &amp; quotes</li><li>Contract review</li><li>Call analysis</li></ul></div>
+                <div class="card"><div class="role-tag">Management · 08</div><ul class="clean"><li>Expenses (OCR)</li><li>Attendance &amp; leave</li><li>Recruiting</li><li>Onboarding</li><li>Contract management</li></ul></div>
+                <div class="card"><div class="role-tag">R&amp;D · 08</div><ul class="clean"><li>Writing PRDs</li><li>Code review</li><li>Release notes</li><li>Technical docs</li><li>Feedback → backlog</li></ul></div>
+            </div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>현장에서 작동하는 37개 업무흐름 (AX Kit)</h2>
+            <div class="gold-line"></div>
+            <p class="lead">진단부터 확산까지 6단계 FDE 프로세스: Discover → Structure → Build → Capture → Learn → Scale.</p>
+            <div class="grid g5" style="margin-top:1.4rem">
+                <div class="card"><div class="role-tag">공통 · 07</div><ul class="clean"><li>회의록 자동작성</li><li>태스크 관리</li><li>다국어 번역</li><li>이메일 분류·응답</li><li>사내 Q&amp;A</li></ul></div>
+                <div class="card"><div class="role-tag">마케팅 · 07</div><ul class="clean"><li>콘텐츠 생성</li><li>랜딩페이지 생성</li><li>SEO · 캘린더</li><li>소셜 배포</li><li>평판 모니터링</li></ul></div>
+                <div class="card"><div class="role-tag">영업 · 07</div><ul class="clean"><li>CRM</li><li>잠재고객 발굴</li><li>제안·견적</li><li>계약 리뷰</li><li>통화 분석</li></ul></div>
+                <div class="card"><div class="role-tag">경영관리 · 08</div><ul class="clean"><li>경비·정산(OCR)</li><li>근태·휴가</li><li>채용</li><li>온보딩</li><li>계약 관리</li></ul></div>
+                <div class="card"><div class="role-tag">R&amp;D · 08</div><ul class="clean"><li>PRD 작성</li><li>코드리뷰</li><li>릴리스노트</li><li>기술문서</li><li>피드백 → 백로그</li></ul></div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- AX GROW stats -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">AX Grow</span>
+        <div class="lang-en">
+            <h2>Driving AI Internalization Through Your Own People</h2>
+            <div class="gold-line"></div>
+            <div class="grid g3">
+                <div class="card"><h3>354% Integrated ROI</h3><p>Global-benchmark ROI from adopting an integrated model that optimizes manufacturing data and human capital (Skill Graph).</p></div>
+                <div class="card"><h3>$3.9M Cost Savings</h3><p>Real-time expert matching (Dynamic Scheduling) sharply cuts annual equipment-downtime loss on breakdowns/errors.</p></div>
+                <div class="card"><h3>3.5× Flexibility</h3><p>Strategic upskilling and AI-assist tools raise internal cross-role mobility 3.5×, pre-empting workforce shortages.</p></div>
+            </div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>조직 구성원이 직접 AI를 내재화하는 조직</h2>
+            <div class="gold-line"></div>
+            <div class="grid g3">
+                <div class="card"><h3>354% 통합 ROI</h3><p>제조 데이터와 인적 자원(Skill Graph) 최적화를 통합 모델로 도입 시 발생하는 글로벌 벤치마크 기준 투자 수익률.</p></div>
+                <div class="card"><h3>$3.9M 비용 절감</h3><p>현장 고장/오류 시 실시간 적임자 매칭(Dynamic Scheduling)으로 연평균 설비 다운타임 손실 비용을 대폭 절감.</p></div>
+                <div class="card"><h3>유연성 3.5× 향상</h3><p>전략적 업스킬링과 AI 보조 도구로 조직 내부 인력의 업무간 이동성을 3.5배 높여 인구 감소·구인난에 선제 대응.</p></div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- AX LEARN -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">AX Learn</span>
+        <div class="lang-en">
+            <h2>Boosting AX Literacy — Even for Non-Developers</h2>
+            <div class="gold-line"></div>
+            <div class="grid g4">
+                <div class="card"><div class="role-tag">Diagnosis</div><h3>AI Fluent</h3><p>AI-utilization competency diagnosis across all job roles.</p></div>
+                <div class="card"><div class="role-tag">Education</div><h3>SkillCamp</h3><p>Offline hands-on training.</p></div>
+                <div class="card"><div class="role-tag">Education</div><h3>SkillPath</h3><p>Practice-based e-learning platform.</p></div>
+                <div class="card"><div class="role-tag">Education</div><h3>SkillFit</h3><p>AI adaptive learning.</p></div>
+            </div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>비개발자까지 — AX Literacy 증진</h2>
+            <div class="gold-line"></div>
+            <div class="grid g4">
+                <div class="card"><div class="role-tag">진단</div><h3>AI Fluent</h3><p>전 직무 대상 AI 활용역량 진단.</p></div>
+                <div class="card"><div class="role-tag">교육</div><h3>SkillCamp</h3><p>오프라인 실전 훈련.</p></div>
+                <div class="card"><div class="role-tag">교육</div><h3>SkillPath</h3><p>실습형 이러닝 플랫폼.</p></div>
+                <div class="card"><div class="role-tag">교육</div><h3>SkillFit</h3><p>AI Adaptive Learning.</p></div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- GLOBAL PROGRAMS -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Global Programs</span>
+        <div class="lang-en">
+            <h2>Global Entrepreneur &amp; Builder Community</h2>
+            <div class="gold-line"></div>
+            <div class="grid g2">
+                <div class="card"><h3>Global Entrepreneur (0to100)</h3><p>Running the &lt;Zero100&gt; entrepreneurship program (2024–present). AI Builderthon with Singapore's top-3 universities — SMU, NUS, NTU (Aug 22–29, 2026, Singapore).</p></div>
+                <div class="card"><h3>Woman in Vibe Coding (WiV)</h3><p>A 4-week program that turns anyone into a Builder without dev knowledge. Global Cohort 2 across Luxembourg, Singapore, Seoul &amp; Vietnam — expanding to 10 countries by year-end.</p></div>
+            </div>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>글로벌 창업 &amp; 빌더 커뮤니티</h2>
+            <div class="gold-line"></div>
+            <div class="grid g2">
+                <div class="card"><h3>Global Entrepreneur (0to100)</h3><p>&lt;Zero100&gt; 창업 육성 프로그램 진행(2024~현재). 싱가포르 Top 3 대학 SMU·NUS·NTU 연합 AI Builderthon 개최(2026.8.22~29, 싱가포르).</p></div>
+                <div class="card"><h3>Woman in Vibe Coding (WiV)</h3><p>개발 지식 없이 4주 프로그램으로 누구나 Builder로. Global Cohort 2 — 룩셈부르크·싱가포르·서울·베트남 진행, 연말까지 10개국으로 확대.</p></div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- ROADMAP -->
+    <section class="block"><div class="wrap">
+        <span class="eyebrow">Roadmap</span>
+        <div class="lang-en">
+            <h2>AXMOS Roadmap</h2>
+            <div class="gold-line"></div>
+            <div class="grid g4">
+                <div class="card"><div class="role-tag">2026 H1</div><p>Launch AXMOS &amp; FDE training system. Singapore global HQ. ~30 domestic reference projects &amp; partnerships completed.</p></div>
+                <div class="card"><div class="role-tag">2026 H2</div><p>Secure large-enterprise use cases (manufacturing, mobility). Campaigns &amp; scaling around regional hubs like Busan/Gyeongnam.</p></div>
+                <div class="card"><div class="role-tag">2027</div><p>200–300 FDE Academy graduates. AX Execution OS internalization &amp; revenue diversification across 500 domestic SMEs.</p></div>
+                <div class="card"><div class="role-tag">2028+</div><p>Leap to a global Manufacturing AI Work OS standard. From the Singapore HQ, enter the $300–500M US manufacturing reshoring market.</p></div>
+            </div>
+            <p style="margin-top:1.2rem"><strong>Global footprint:</strong> San Francisco · Luxembourg · Seoul · Tokyo · Singapore · Hanoi.</p>
+        </div>
+        <div class="lang-ko hidden">
+            <h2>AXMOS 로드맵</h2>
+            <div class="gold-line"></div>
+            <div class="grid g4">
+                <div class="card"><div class="role-tag">2026 상반기</div><p>AXMOS 출범 및 FDE 훈련 체계 론칭. 싱가포르 글로벌 HQ 설립. 국내 30여 개 실증 레퍼런스·파트너십 구축 완료.</p></div>
+                <div class="card"><div class="role-tag">2026 하반기</div><p>대형 엔터프라이즈 Use Case 확보(제조·모빌리티 등). 부산/경남 등 지역 제조 거점 중심 캠페인·확산 본격화.</p></div>
+                <div class="card"><div class="role-tag">2027</div><p>FDE Academy 수료생 200~300명 배출. 국내 중견중소 500개사 대상 AX Execution OS 내재화 및 수익 다각화.</p></div>
+                <div class="card"><div class="role-tag">2028+</div><p>Global AI Work OS 글로벌 산업 표준으로 도약. 싱가포르 HQ를 거점으로 $3~5억 규모 미국 제조업 리쇼어링 시장 진출.</p></div>
+            </div>
+            <p style="margin-top:1.2rem"><strong>글로벌 거점:</strong> 샌프란시스코 · 룩셈부르크 · 서울 · 도쿄 · 싱가포르 · 하노이.</p>
+        </div>
+    </div></section>
+
+    <!-- CLOSING -->
+    <section class="hero" style="padding:4.5rem 0;"><div class="wrap">
+        <div class="lang-en">
+            <span class="eyebrow">We are the AXMOS Alliance</span>
+            <h2>"AXMOS Alliance is an Execution Platform"</h2>
+            <p class="lead">Korea has world-class manufacturing and industrial sites; the US has AI technology, capital, and global platform strength. By connecting both, we aim to seize new opportunities in the era of Physical AI. As the US business agent for AXMOS, <strong>MIKS&amp;T</strong> is your entry point.</p>
+            <p style="margin-top:0.8rem;color:var(--white);font-weight:600">Singularity is nearer when we merge with AI.</p>
+            <div class="cta-row">
+                <a href="index.html#contact" class="btn btn-gold">Contact MIKS&amp;T (US)</a>
+                <a href="https://axmos.ai" target="_blank" rel="noopener" class="btn btn-glass">axmos.ai &nearr;</a>
+            </div>
+        </div>
+        <div class="lang-ko hidden">
+            <span class="eyebrow">We are the AXMOS Alliance</span>
+            <h2>"AXMOS Alliance is an Execution Platform"</h2>
+            <p class="lead">한국은 세계적인 제조 역량과 산업 현장을, 미국은 AI 기술·자본·글로벌 플랫폼 경쟁력을 갖추고 있습니다. 양국의 강점을 연결해 Physical AI 시대의 새로운 기회를 선점합니다. AXMOS의 미국 사업 대행사인 <strong>MIKS&amp;T</strong>가 그 진입점입니다.</p>
+            <p style="margin-top:0.8rem;color:var(--white);font-weight:600">Singularity is nearer when we merge with AI.</p>
+            <div class="cta-row">
+                <a href="index.html#contact" class="btn btn-gold">MIKS&amp;T 미국 문의</a>
+                <a href="https://axmos.ai" target="_blank" rel="noopener" class="btn btn-glass">axmos.ai &nearr;</a>
+            </div>
+        </div>
+    </div></section>
+
+    <footer>
+        <p>&copy; 2026 MIKS&amp;T, INC. All rights reserved. · US Business Agent for the AXMOS Alliance</p>
+        <p><a href="index.html">MIKS&amp;T Home</a> · <a href="https://axmos.ai" target="_blank" rel="noopener">axmos.ai</a></p>
+    </footer>
+
+    <script>
+        // Language toggle (default EN), mirrors index.html
+        document.querySelectorAll('.lang-ko').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.lang-en').forEach(el => el.classList.remove('hidden'));
+        const langButtons = document.querySelectorAll('.lang-btn');
+        function applyLang(lang){
+            langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+            document.querySelectorAll('.lang-ko, .lang-en').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+            try { localStorage.setItem('miks_lang', lang); } catch(e){}
+        }
+        langButtons.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+        // Restore saved language (shared with index if same origin)
+        try { const saved = localStorage.getItem('miks_lang'); if (saved === 'ko' || saved === 'en') applyLang(saved); } catch(e){}
+    </script>
+</body>
+</html>
