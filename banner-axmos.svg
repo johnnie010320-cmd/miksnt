@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 680" width="1600" height="680" role="img" aria-label="AXMOS">
+  <defs>
+    <linearGradient id="bgx" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1437"/><stop offset="1" stop-color="#132258"/>
+    </linearGradient>
+    <linearGradient id="scrimx" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0B1437" stop-opacity="0.96"/>
+      <stop offset="0.5" stop-color="#0B1437" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#0B1437" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glowx" cx="0.76" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#C9A84C" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#C9A84C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="680" fill="url(#bgx)"/>
+  <rect width="1600" height="680" fill="url(#glowx)"/>
+  <g stroke="#2a3566" stroke-width="1" opacity="0.3">
+    <path d="M1000 0V680M1180 0V680M1360 0V680M1540 0V680"/>
+    <path d="M900 130H1600M900 340H1600M900 550H1600"/>
+  </g>
+
+  <!-- consortium members orbiting AXMOS core -->
+  <g stroke="#3d4a80" stroke-width="1.6">
+    <path d="M1250 340 L1090 190 M1250 340 L1430 210 M1250 340 L1110 500 M1250 340 L1430 470"/>
+  </g>
+  <g>
+    <circle cx="1090" cy="190" r="13" fill="#2DD4BF"/>
+    <circle cx="1430" cy="210" r="13" fill="#2DD4BF"/>
+    <circle cx="1110" cy="500" r="13" fill="#2DD4BF"/>
+    <circle cx="1430" cy="470" r="15" fill="#C9A84C"/>
+    <circle cx="1430" cy="470" r="26" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.65"/>
+  </g>
+
+  <!-- gear (manufacturing) -->
+  <g>
+    <g fill="#0d1a3f" stroke="#2DD4BF" stroke-width="3">
+      <g transform="rotate(0 1250 340)"><rect x="1234" y="216" width="32" height="34" rx="6"/></g>
+      <g transform="rotate(45 1250 340)"><rect x="1234" y="216" width="32" height="34" rx="6"/></g>
+      <g transform="rotate(90 1250 340)"><rect x="1234" y="216" width="32" height="34" rx="6"/></g>
+      <g transform="rotate(135 1250 340)"><rect x="1234" y="216" width="32" height="34" rx="6"/></g>
+      <g transform="rotate(180 1250 340)"><rect x="1234" y="216" width="32" height="34" rx="6"/></g>
+      <g transform="rotate(225 1250 340)"><rect x="1234" y="216" width="32" height="34" rx="6"/></g>
+      <g transform="rotate(270 1250 340)"><rect x="1234" y="216" width="32" height="34" rx="6"/></g>
+      <g transform="rotate(315 1250 340)"><rect x="1234" y="216" width="32" height="34" rx="6"/></g>
+    </g>
+    <circle cx="1250" cy="340" r="100" fill="#0d1a3f" stroke="#2DD4BF" stroke-width="3.5"/>
+    <circle cx="1250" cy="340" r="66" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.6"/>
+    <!-- AI chip core -->
+    <g>
+      <rect x="1216" y="306" width="68" height="68" rx="10" fill="#0B1437" stroke="#2DD4BF" stroke-width="2.5"/>
+      <g stroke="#2DD4BF" stroke-width="3" stroke-linecap="round">
+        <path d="M1230 306 V294 M1250 306 V294 M1270 306 V294"/>
+        <path d="M1230 374 V386 M1250 374 V386 M1270 374 V386"/>
+        <path d="M1216 324 H1204 M1216 344 H1204 M1216 364 H1204"/>
+        <path d="M1284 324 H1296 M1284 344 H1296 M1284 364 H1296"/>
+      </g>
+      <circle cx="1250" cy="340" r="13" fill="#C9A84C"/>
+    </g>
+  </g>
+
+  <!-- AX transformation arrow -->
+  <g stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1070 470 V300 M1035 335 L1070 300 L1105 335"/>
+  </g>
+  <text x="1030" y="520" font-family="'Space Grotesk',monospace" font-size="30" font-weight="700" fill="#C9A84C" opacity="0.9">AX</text>
+
+  <rect width="960" height="680" fill="url(#scrimx)"/>
+</svg>
