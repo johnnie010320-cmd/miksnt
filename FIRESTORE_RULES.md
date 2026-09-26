@@ -10,7 +10,6 @@ admin CMS(AXMOS / Partners / Achievements)는 `siteContent` 컬렉션을 사용�
 
 ```
 siteContent (collection)
- ├─ banner         { interval, slides: [ {img, tagKo, tagEn, titleKo, titleEn, subKo, subEn, ctaKo, ctaEn, link, visible}, ... ], updatedAt }  # ★ 메인 배너 캐러셀(admin.html에서 관리, johnnie@miksnt.com)
  ├─ nav            { items: [ {labelKo, labelEn, target, visible}, ... ], updatedAt }   # 상단 메뉴(순서=배열순서)
  ├─ hero           { heroImage, taglineKo, taglineEn, updatedAt }                        # 메인 배경/문구
  ├─ about          { subtitleKo, subtitleEn, bodyKo, bodyEn, updatedAt }                 # 회사소개(문단=빈 줄 구분)
@@ -40,13 +39,9 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     function isAdmin() {
-      return request.auth != null && (
-        // 이메일 기반 관리자(콘솔 역할 편집 불필요) — 배너 관리 admin.html
-        request.auth.token.email == 'johnnie@miksnt.com'
-        // 또는 users/{uid}.role == 'admin' (기존 방식)
-        || (exists(/databases/$(database)/documents/users/$(request.auth.uid))
-            && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
-      );
+      return request.auth != null
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
     }
 
     // 사이트 콘텐츠(CMS): 공개 읽기, 관리자만 쓰기

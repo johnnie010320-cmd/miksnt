@@ -26,8 +26,7 @@ MIKS&T, INC — **AI·클라우드 솔루션 전문 기업** 홈페이지.
 ## 프로젝트 구조
 ```
 mikst-website/
-├── index.html          # www.miksnt.com — AI+Cloud 기업 (신규 디자인: 배너 캐러셀 + CloudBridge/VeriDash 상세)
-├── admin.html          # ★ 배너 관리 전용 페이지 (johnnie@miksnt.com 로그인 → siteContent/banner 편집)
+├── index.html          # www.miksnt.com — AI+Cloud 기업 (배너 캐러셀 + CloudBridge/VeriDash 상세). Firebase 미사용
 ├── banner-ai.svg / banner-cloud.svg / banner-cloudbridge.svg / banner-veridash.svg  # 배너 슬라이드 아트워크(벡터)
 ├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반) — /axmos/에도 복제본
 ├── axmos/              # ★ axmos.miksnt.com 별도 사이트 (구 메인 콘텐츠 자립형 복사본)
@@ -42,6 +41,8 @@ mikst-website/
 ├── *.png               # 로고, 배경 이미지
 └── README.md
 ```
+
+> **배너 수정**: `index.html` 안의 `const BANNER={...}` slides 배열만 편집 후 `git push`. 런타임 CMS/로그인/콘솔 없음(정적 마케팅 사이트라 의도적으로 단순화, 2026-09-26 죠니 확정). Firestore CMS(`FIRESTORE_RULES.md`)는 이제 `/axmos` 사이트에만 해당.
 
 > **배포 구조**: 같은 repo, 두 Netlify 사이트. ① 기존 사이트=루트 → www.miksnt.com. ② 신규 사이트=base/publish `axmos/` → axmos.miksnt.com (DNS: axmos CNAME → Netlify).
 
