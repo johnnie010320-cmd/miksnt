@@ -42,6 +42,8 @@ mikst-website/
 └── README.md
 ```
 
+> **⚠️ CF 캐시 함정(신규 자산)**: www는 Cloudflare(miksnt.com zone)→Netlify. **배포 완료 전에 신규 파일 URL을 요청하면 CF가 404를 4시간(max-age=14400) 캐싱**해 방문자에게도 깨져 보인다. 신규 이미지/자산은 **참조에 `?v=N` 쿼리를 붙여** 새 캐시키로 내보낼 것(예: `miks-logo.png?v=2`, `banner-axmos.svg?v=1`). 검증도 HTML 반영 확인 후에 자산 URL을 찌를 것(바레 URL 사전 요청 금지).
+
 > **배너 수정**: `index.html` 안의 `const BANNER={...}` slides 배열만 편집 후 `git push`. 런타임 CMS/로그인/콘솔 없음(정적 마케팅 사이트라 의도적으로 단순화, 2026-09-26 죠니 확정). Firestore CMS(`FIRESTORE_RULES.md`)는 이제 `/axmos` 사이트에만 해당.
 
 > **배포 구조**: 같은 repo, 두 Netlify 사이트. ① 기존 사이트=루트 → www.miksnt.com. ② 신규 사이트=base/publish `axmos/` → axmos.miksnt.com (DNS: axmos CNAME → Netlify).
