@@ -29,6 +29,8 @@ mikst-website/
 ├── index.html          # www.miksnt.com — AI+Cloud 기업 (배너 캐러셀 + CloudBridge/VeriDash 상세). Firebase 미사용
 ├── banner-ai.svg / banner-cloud.svg / banner-cloudbridge.svg / banner-veridash.svg  # 배너 슬라이드 아트워크(벡터)
 ├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반) — /axmos/에도 복제본
+├── jp/                 # ★ www.miksnet.jp 별도 사이트 (JA/EN 포팅, AXMOS 전면 제거). 자립형(index.html + 로고 + 배너SVG 4종)
+│   └── CNAME=www.miksnet.jp · Noto Sans JP · 기본언어=JA · titleKo/subKo 키에 일본어 저장
 ├── axmos/              # ★ axmos.miksnt.com 별도 사이트 (구 메인 콘텐츠 자립형 복사본)
 │   ├── index.html      #   구 AXMOS 주력 홈페이지 (그대로 보존)
 │   ├── axmos.html, *.webp/jpg/png, _headers
