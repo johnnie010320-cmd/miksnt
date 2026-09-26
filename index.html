@@ -26,13 +26,15 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--t-body);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--body);color:var(--t-body);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
 .hidden{display:none !important}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-h1,h2,h3{font-family:var(--disp);color:var(--t-strong);line-height:1.12;letter-spacing:-0.01em}
+h1,h2,h3{font-family:var(--disp);color:var(--t-strong);line-height:1.12;letter-spacing:-0.01em;word-break:keep-all}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
 .mono{font-family:var(--mono)}
+/* 라인브레이크 보정: 짧은 라벨·버튼은 줄바꿈 금지 */
+.brand,.nav-links a,.slide-tag,.slide-cta,.pcta,.c-mail,.c-link,.hblock,.hseal,.metric .n,.prod-kicker,.s-no,.step h5{white-space:nowrap}
 
 /* ===== Header ===== */
 header{position:sticky;top:0;z-index:100;background:rgba(11,20,55,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
@@ -134,10 +136,14 @@ section{padding:96px 0}
 .c-mail{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-weight:600;padding:14px 28px;border-radius:10px;font-family:var(--mono)}
 .c-link{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);color:#fff;padding:14px 22px;border-radius:10px}
 .c-link:hover{border-color:var(--gold);color:var(--gold)}
-footer{background:var(--ink);color:#8b93b3;padding:34px 0;border-top:1px solid rgba(255,255,255,.06)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;font-size:.86rem}
-.foot a{color:#aab3d0}.foot a:hover{color:var(--gold)}
-.foot .links{display:flex;gap:20px;flex-wrap:wrap}
+footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
+.foot-main{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.foot-co .co-name{font-family:var(--disp);color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:8px}
+.foot-co .co-line{font-size:.9rem;color:#aab3d0;margin-bottom:3px}
+.foot-co .co-line a{color:#aab3d0}.foot-co .co-line a:hover{color:var(--gold)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;height:fit-content}
+.foot-links a{color:#aab3d0;font-size:.9rem}.foot-links a:hover{color:var(--gold)}
+.foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06);font-size:.82rem;color:#767e9c}
 
 @media(max-width:860px){
   .nav-links,.admin-link{display:none}
@@ -274,7 +280,7 @@ footer{background:var(--ink);color:#8b93b3;padding:34px 0;border-top:1px solid r
     <h2><span class="lang-ko">함께 만들 솔루션이 있으신가요?</span><span class="lang-en hidden">Have a solution to build together?</span></h2>
     <p><span class="lang-ko">AI·클라우드 개발, CloudBridge·VeriDash 도입, 파트너십 문의를 환영합니다.</span><span class="lang-en hidden">We welcome inquiries on AI &amp; cloud development, adopting CloudBridge or VeriDash, and partnerships.</span></p>
     <div class="c-actions">
-      <a class="c-mail" href="mailto:johnnie@miksnt.com">johnnie@miksnt.com</a>
+      <a class="c-mail" href="mailto:info@miksnt.com">info@miksnt.com</a>
       <a class="c-link" href="https://cloudbridge.miksnt.com" target="_blank" rel="noopener">CloudBridge &#8599;</a>
       <a class="c-link" href="https://veridash.miksnt.com" target="_blank" rel="noopener">VeriDash &#8599;</a>
       <a class="c-link" href="https://axmos.miksnt.com" target="_blank" rel="noopener">AXMOS &#8599;</a>
@@ -283,13 +289,21 @@ footer{background:var(--ink);color:#8b93b3;padding:34px 0;border-top:1px solid r
 </section>
 
 <footer>
-  <div class="wrap foot">
-    <div>&copy; <span id="yr"></span> MIKS&amp;T, INC — Made in Korea Solution &amp; Technology</div>
-    <div class="links">
-      <a href="#cloudbridge">CloudBridge</a>
-      <a href="#veridash">VeriDash</a>
-      <a href="https://axmos.miksnt.com">AXMOS</a>
+  <div class="wrap">
+    <div class="foot-main">
+      <div class="foot-co">
+        <div class="co-name">MIKS&amp;T, INC</div>
+        <div class="co-line">261 E Imperial Hwy, Ste 520, Fullerton, CA 92835, USA</div>
+        <div class="co-line"><a href="mailto:info@miksnt.com">info@miksnt.com</a></div>
+      </div>
+      <div class="foot-links">
+        <a href="#cloudbridge">CloudBridge</a>
+        <a href="#veridash">VeriDash</a>
+        <a href="https://axmos.miksnt.com">AXMOS</a>
+        <a href="#contact"><span class="lang-ko">문의</span><span class="lang-en hidden">Contact</span></a>
+      </div>
     </div>
+    <div class="foot-bottom">&copy; <span id="yr"></span> MIKS&amp;T, INC — Made in Korea Solution &amp; Technology</div>
   </div>
 </footer>
 
