@@ -37,24 +37,23 @@ h1,h2,h3{font-family:var(--disp);color:var(--t-strong);line-height:1.12;letter-s
 .brand,.nav-links a,.slide-tag,.slide-cta,.pcta,.c-mail,.c-link,.hblock,.hseal,.metric .n,.prod-kicker,.s-no,.step h5{white-space:nowrap}
 
 /* ===== Header ===== */
-header{position:sticky;top:0;z-index:100;background:rgba(11,20,55,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 1px 12px rgba(11,20,55,.05)}
 .nav{max-width:var(--wrap);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:28px}
-.brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--disp);font-weight:700;font-size:1.15rem;letter-spacing:-0.02em}
-.brand img{height:30px;width:auto}
-.brand .amp{color:var(--gold)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:40px;width:auto}
 .nav-links{display:flex;gap:26px;margin-left:auto}
-.nav-links a{color:#c7cee6;font-size:.94rem;font-weight:500;padding:4px 0;position:relative}
-.nav-links a:hover{color:#fff}
+.nav-links a{color:var(--t-body);font-size:.94rem;font-weight:500;padding:4px 0;position:relative}
+.nav-links a:hover{color:var(--ink)}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--gold);transition:width .25s}
 .nav-links a:hover::after{width:100%}
 .nav-tools{display:flex;align-items:center;gap:14px}
-.lang{display:flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;overflow:hidden}
-.lang button{background:none;border:0;color:#aab3d0;font-family:var(--body);font-size:.8rem;font-weight:600;padding:5px 12px;cursor:pointer}
+.lang{display:flex;border:1px solid #cfd5e6;border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--t-mut);font-family:var(--body);font-size:.8rem;font-weight:600;padding:5px 12px;cursor:pointer}
 .lang button.on{background:var(--gold);color:var(--ink)}
 .admin-link{color:#8b93b3;font-size:.82rem}
 .admin-link:hover{color:var(--gold)}
 .burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
-.burger span{width:24px;height:2px;background:#fff;display:block}
+.burger span{width:24px;height:2px;background:var(--ink);display:block}
 
 /* ===== Banner ===== */
 .banner{position:relative;background:var(--ink);overflow:hidden}
@@ -62,10 +61,10 @@ header{position:sticky;top:0;z-index:100;background:rgba(11,20,55,.9);backdrop-f
 .slide{position:relative;min-width:100%;height:min(74vh,600px)}
 .slide-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .slide-inner{position:relative;max-width:var(--wrap);margin:0 auto;height:100%;padding:0 24px;display:flex;flex-direction:column;justify-content:center;max-width:min(var(--wrap),100%)}
-.slide-inner>div{max-width:620px}
+.slide-inner>div{max-width:820px}
 .slide-tag{display:inline-block;font-size:.8rem;font-weight:600;color:var(--ink);background:var(--gold);padding:5px 13px;border-radius:999px;margin-bottom:20px;width:fit-content}
 .slide-title{font-size:clamp(2.4rem,5.5vw,4rem);color:#fff;font-weight:700;margin-bottom:18px}
-.slide-sub{font-size:clamp(1.05rem,1.7vw,1.32rem);color:#cdd5ee;max-width:34ch;margin-bottom:30px}
+.slide-sub{font-size:clamp(1.02rem,1.6vw,1.28rem);color:#cdd5ee;max-width:min(90vw,820px);margin-bottom:30px;line-height:1.5}
 .slide-cta{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--ink);font-weight:600;padding:13px 26px;border-radius:10px;font-size:1rem;transition:transform .2s,box-shadow .2s}
 .slide-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,168,76,.35)}
 .slide-cta .arw{transition:transform .2s}
@@ -148,7 +147,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
 @media(max-width:860px){
   .nav-links,.admin-link{display:none}
   .burger{display:flex}
-  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--ink);padding:18px 24px;gap:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(11,20,55,.08)}
   .prod-grid{grid-template-columns:1fr;gap:34px}
   .prod-visual{order:-1}
   .feat{grid-template-columns:1fr}
@@ -161,7 +160,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
 <body>
 <header>
   <div class="nav">
-    <a href="#top" class="brand"><img src="logo.webp" alt="MIKS&T"><span>MIKS<span class="amp">&amp;</span>T</span></a>
+    <a href="#top" class="brand"><img src="miks-logo.png" alt="MIKS — Move into K-Solutions"></a>
     <nav class="nav-links" id="navLinks">
       <a href="#about"><span class="lang-ko">회사소개</span><span class="lang-en hidden">About</span></a>
       <a href="#cloudbridge">CloudBridge</a>
@@ -319,14 +318,15 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
    · interval  : 자동 넘김 간격(밀리초)
    ========================================================= */
 const BANNER={interval:6000,slides:[
-  {img:"banner-ai.svg",tag:"",titleKo:"AI 전문 기업",titleEn:"AI specialists",subKo:"머신러닝과 컴퓨터비전으로 현장의 문제를 푸는 기술을 만듭니다.",subEn:"We build machine-learning and computer-vision technology that solves real-world problems.",ctaKo:"",ctaEn:"",link:"",visible:true},
-  {img:"banner-cloud.svg",tag:"",titleKo:"클라우드 솔루션 개발 전문",titleEn:"Cloud solution builders",subKo:"설계부터 운영까지, 확장 가능한 클라우드 인프라를 직접 구축합니다.",subEn:"From architecture to operations, we build scalable cloud infrastructure end to end.",ctaKo:"",ctaEn:"",link:"",visible:true},
+  {img:"banner-ai.svg",tag:"",titleKo:"AI 전문 기업",titleEn:"AI specialists",subKo:"머신러닝과 컴퓨터 비전으로\n현장의 문제를 푸는 기술을 만듭니다.\nAI 에이전트를 현장에 맞게 커스터마이징 합니다.",subEn:"Machine learning and computer vision\nto solve real-world problems.\nWe customize AI agents to fit each site.",ctaKo:"",ctaEn:"",link:"",visible:true},
+  {img:"banner-cloud.svg",tag:"",titleKo:"클라우드 솔루션 개발 전문",titleEn:"Cloud solution builders",subKo:"설계부터 운영까지, 확장 가능한 클라우드 인프라를 직접 구축합니다.\n영상 저장 및 보안, 비디오/오디오 스트리밍 개발 전문",subEn:"From architecture to operations, we build scalable cloud infrastructure end to end.\nVideo storage & security, and video/audio streaming development.",ctaKo:"",ctaEn:"",link:"",visible:true},
   {img:"banner-cloudbridge.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"CloudBridge",titleEn:"CloudBridge",subKo:"위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라.",subEn:"Verifiable cloud video infrastructure that detects tampering.",ctaKo:"CloudBridge 살펴보기",ctaEn:"Explore CloudBridge",link:"#cloudbridge",visible:true},
-  {img:"banner-veridash.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"VeriDash",titleEn:"VeriDash",subKo:"무결성 체인으로 봉인하는 블랙박스 — 검증 가능한 영상 증거.",subEn:"An integrity-sealed dashcam — verifiable video evidence.",ctaKo:"VeriDash 살펴보기",ctaEn:"Explore VeriDash",link:"#veridash",visible:true}
+  {img:"banner-veridash.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"VeriDash",titleEn:"VeriDash",subKo:"무결성 체인으로 봉인하는 블랙박스 — 검증 가능한 영상 증거.\n모바일 폰을 블랙박스, 바디캠, 액션캠으로!!",subEn:"An integrity-sealed dashcam — verifiable video evidence.\nTurn your phone into a dashcam, body cam, and action cam!!",ctaKo:"VeriDash 살펴보기",ctaEn:"Explore VeriDash",link:"#veridash",visible:true}
 ]};
 
 /* ---------- Language ---------- */
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function nl2br(s){return esc(s).replace(/\n/g,'<br>');}
 let LANG=(()=>{try{return localStorage.getItem('miks_lang')||'en'}catch(e){return'en'}})();
 function applyLang(){
   document.querySelectorAll('.lang-ko').forEach(el=>el.classList.toggle('hidden',LANG!=='ko'));
@@ -352,7 +352,7 @@ function slideHTML(s){
   return `<div class="slide"><img class="slide-bg" src="${esc(s.img)}" alt=""><div class="slide-inner"><div>
     ${tag}
     <h2 class="slide-title"><span class="lang-ko">${esc(s.titleKo)}</span><span class="lang-en hidden">${esc(s.titleEn)}</span></h2>
-    <p class="slide-sub"><span class="lang-ko">${esc(s.subKo)}</span><span class="lang-en hidden">${esc(s.subEn)}</span></p>
+    <p class="slide-sub"><span class="lang-ko">${nl2br(s.subKo)}</span><span class="lang-en hidden">${nl2br(s.subEn)}</span></p>
     ${cta}
   </div></div></div>`;
 }
