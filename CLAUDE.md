@@ -26,7 +26,9 @@ MIKS&T, INC — **AI·클라우드 솔루션 전문 기업** 홈페이지.
 ## 프로젝트 구조
 ```
 mikst-website/
-├── index.html          # www.miksnt.com — AI+Cloud 기업 (Solutions=CloudBridge/VeriDash) + admin CMS
+├── index.html          # www.miksnt.com — AI+Cloud 기업 (신규 디자인: 배너 캐러셀 + CloudBridge/VeriDash 상세)
+├── admin.html          # ★ 배너 관리 전용 페이지 (johnnie@miksnt.com 로그인 → siteContent/banner 편집)
+├── banner-ai.svg / banner-cloud.svg / banner-cloudbridge.svg / banner-veridash.svg  # 배너 슬라이드 아트워크(벡터)
 ├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반) — /axmos/에도 복제본
 ├── axmos/              # ★ axmos.miksnt.com 별도 사이트 (구 메인 콘텐츠 자립형 복사본)
 │   ├── index.html      #   구 AXMOS 주력 홈페이지 (그대로 보존)
