@@ -1,7 +1,13 @@
 # MIKS&T 홈페이지 — Development Guide
 
 ## 프로젝트 개요
-한국 기업의 미국 시장 진출 컨설팅 회사 MIKS&T, INC 홈페이지
+MIKS&T, INC — **AI·클라우드 솔루션 전문 기업** 홈페이지.
+루트 `www.miksnt.com`은 AI+Cloud 기업 이미지를 전면에 내세우고, 그 결과물로 두 제품을 소개한다:
+- **CloudBridge**(`cloudbridge.miksnt.com`) — 검증 가능한 클라우드 영상 인프라 (SHA-256 해시체인)
+- **VeriDash**(`veridash.miksnt.com`) — 무결성 블랙박스 앱 (iOS/Android)
+
+제조 AI 전환(AX) 대행 사업(구 메인 콘텐츠)은 `/axmos/` 폴더로 분리 → **`axmos.miksnt.com`** 별도 배포.
+공통 기술 = 무결성 체인(Integrity Chain).
 
 ## 기술 스택
 - **순수 HTML / CSS / JavaScript** (프레임워크 없음)
@@ -20,8 +26,12 @@
 ## 프로젝트 구조
 ```
 mikst-website/
-├── index.html          # 메인 (단일 페이지, AXMOS 섹션 + admin CMS 포함)
-├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반)
+├── index.html          # www.miksnt.com — AI+Cloud 기업 (Solutions=CloudBridge/VeriDash) + admin CMS
+├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반) — /axmos/에도 복제본
+├── axmos/              # ★ axmos.miksnt.com 별도 사이트 (구 메인 콘텐츠 자립형 복사본)
+│   ├── index.html      #   구 AXMOS 주력 홈페이지 (그대로 보존)
+│   ├── axmos.html, *.webp/jpg/png, _headers
+│   └── CNAME           #   axmos.miksnt.com
 ├── FIRESTORE_RULES.md  # CMS용 Firestore 보안규칙 + 관리자 지정 안내
 ├── netlify.toml        # Netlify 빌드 설정
 ├── CNAME               # 도메인 설정 (www.miksnt.com)
@@ -30,6 +40,8 @@ mikst-website/
 ├── *.png               # 로고, 배경 이미지
 └── README.md
 ```
+
+> **배포 구조**: 같은 repo, 두 Netlify 사이트. ① 기존 사이트=루트 → www.miksnt.com. ② 신규 사이트=base/publish `axmos/` → axmos.miksnt.com (DNS: axmos CNAME → Netlify).
 
 ## 이미지 관리 규칙
 - 모든 이미지는 **WebP + JPG 쌍**으로 유지
