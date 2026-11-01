@@ -72,6 +72,10 @@ mikst-website/
 - **Noto Sans KR** (한국어)
 - Google Fonts CDN 사용
 
+## VeriDash 섹션 (2026-11-01, 3개 사이트 공통)
+- 제품 비주얼 = **실제 앱 스크린샷**(`vd-map/record/saved/queue.jpg`, `.prod-visual.phone`+`.shots`). SVG `vd-visual`은 VeriDash에선 미사용(CloudBridge는 `cb-visual.svg` 유지).
+- 신규 기능 블록 `.vd-new` = 가족 위치 공유·SOS·라이브 영상(각 사이트 언어). 스크린샷 원본=VeriDash 앱 `design/screenshots/shot-0N.png`.
+
 ## 언어 구성 (2026-11-01)
 - 루트 `www.miksnt.com` = **EN / ES / KO** (기본 EN). `applyLang`은 `LANGS=['ko','en','es']` 루프, 배너 `slideHTML`은 ko/en/es 3스팬(titleEs/subEs/tagEs/ctaEs), 문의폼 상태는 `t(ko,en,es)`. 새 텍스트 추가 시 `.lang-ko/.lang-en/.lang-es` 3스팬을 모두 넣을 것.
 - `jp` = **JA / EN** (기본 JA), `katchdog` = **KO / EN** (기본 KO, 키 `katch_lang`).
