@@ -31,7 +31,7 @@ mikst-website/
 ├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반) — /axmos/에도 복제본
 ├── jp/                 # ★ www.miksnet.jp 별도 사이트 (JA/EN 포팅, AXMOS 전면 제거). 자립형(index.html + 로고 + 배너SVG 4종)
 │   └── CNAME=www.miksnet.jp · Noto Sans JP · 기본언어=JA · titleKo/subKo 키에 일본어 저장
-├── katchdog/           # ★ www.katchdog.com 별도 사이트 (레크미우/박성종, 사업자 568-21-02154). index.html을 그대로 포팅 + 회사정보만 교체. 자립형(index.html + 배너SVG 5종 + CNAME). KO 기본, 로고=텍스트 워드마크(katchdog), localStorage 키=katch_lang. ⚠️ 제품/배너는 아직 MIKS&T 콘텐츠(CloudBridge·VeriDash·AXMOS, *.miksnt.com 링크) 그대로 — 레크미우용 교체 여부 죠니 확인 대기
+├── katchdog/           # ★ www.katchdog.com 별도 사이트 (레크미우 LEQMIU/박성종, 사업자 568-21-02154). index.html 포팅 + 회사정보 교체. 자립형(index.html + 배너SVG 4종 + 로고PNG 4종 + CNAME). KO 기본, localStorage 키=katch_lang. AXMOS 전면 제거. 로고=KatchDog 공식(브랜드가이드 PDF에서 추출): katchdog-logo.png(헤더 가로락업), katchdog-logo-full.png(풀 세로락업+슬로건, 공식/앱용 마스터), katchdog-symbol.png, katchdog-favicon.png. 브랜드컬러 Trust Deep Blue #0F2537 / Smart Cyan #0284C7, 슬로건 "Always Katch, Never Miss". ⚠️ 제품 섹션(CloudBridge·VeriDash, *.miksnt.com 링크)은 아직 MIKS&T 그대로 + 사이트 팔레트도 아직 MIKS 골드 — 레크미우용 콘텐츠/브랜드컬러 교체는 죠니 확인 대기
 ├── axmos/              # ★ axmos.miksnt.com 별도 사이트 (구 메인 콘텐츠 자립형 복사본)
 │   ├── index.html      #   구 AXMOS 주력 홈페이지 (그대로 보존)
 │   ├── axmos.html, *.webp/jpg/png, _headers
