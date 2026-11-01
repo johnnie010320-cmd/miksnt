@@ -135,6 +135,19 @@ section{padding:96px 0}
 .c-mail{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-weight:600;padding:14px 28px;border-radius:10px;font-family:var(--mono)}
 .c-link{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);color:#fff;padding:14px 22px;border-radius:10px}
 .c-link:hover{border-color:var(--gold);color:var(--gold)}
+.c-form{max-width:640px;display:grid;gap:16px;margin-bottom:6px}
+.c-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.c-field label{display:block;font-size:.85rem;color:#aeb8d8;margin-bottom:6px}
+.c-form input,.c-form textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:12px 14px;color:#fff;font-family:inherit;font-size:.95rem}
+.c-form input:focus,.c-form textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(130,150,200,.22)}
+.c-form textarea{resize:vertical;min-height:120px}
+.c-send{justify-self:start;background:var(--gold);color:#fff;font-weight:600;padding:13px 32px;border:0;border-radius:10px;cursor:pointer;font-size:1rem;transition:transform .2s}
+.c-send:hover{transform:translateY(-2px)}
+.c-send:disabled{opacity:.6;cursor:default;transform:none}
+.c-status{font-size:.9rem;margin:2px 0 0;min-height:1.1em}
+.c-status.ok{color:var(--teal)}.c-status.err{color:#ff9a9a}
+@media(max-width:620px){.c-row{grid-template-columns:1fr}}
+
 footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
 .foot-main{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
 .foot-co .co-name{font-family:var(--disp);color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:8px}
@@ -278,8 +291,17 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
     <p class="eyebrow" style="color:var(--teal)"><span class="lang-ko">문의</span><span class="lang-en hidden">Contact</span></p>
     <h2><span class="lang-ko">함께 만들 솔루션이 있으신가요?</span><span class="lang-en hidden">Have a solution to build together?</span></h2>
     <p><span class="lang-ko">AI·클라우드 개발, CloudBridge·VeriDash 도입, 파트너십 문의를 환영합니다.</span><span class="lang-en hidden">We welcome inquiries on AI &amp; cloud development, adopting CloudBridge or VeriDash, and partnerships.</span></p>
-    <div class="c-actions">
-      <a class="c-mail" href="mailto:info@miksnt.com">info@miksnt.com</a>
+    <form class="c-form" id="cForm" novalidate>
+      <div class="c-row">
+        <div class="c-field"><label><span class="lang-ko">이름</span><span class="lang-en hidden">Name</span></label><input name="name" required></div>
+        <div class="c-field"><label><span class="lang-ko">이메일</span><span class="lang-en hidden">Email</span></label><input name="email" type="email" required></div>
+      </div>
+      <div class="c-field"><label><span class="lang-ko">제목</span><span class="lang-en hidden">Subject</span></label><input name="subject" required></div>
+      <div class="c-field"><label><span class="lang-ko">문의 내용</span><span class="lang-en hidden">Message</span></label><textarea name="message" rows="5" required></textarea></div>
+      <button type="submit" class="c-send"><span class="lang-ko">전송</span><span class="lang-en hidden">Send</span></button>
+      <p class="c-status" id="cStatus" role="status"></p>
+    </form>
+    <div class="c-actions" style="margin-top:24px">
       <a class="c-link" href="https://cloudbridge.miksnt.com" target="_blank" rel="noopener">CloudBridge &#8599;</a>
       <a class="c-link" href="https://veridash.miksnt.com" target="_blank" rel="noopener">VeriDash &#8599;</a>
       <a class="c-link" href="https://axmos.miksnt.com" target="_blank" rel="noopener">AXMOS &#8599;</a>
@@ -293,7 +315,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
       <div class="foot-co">
         <div class="co-name">MIKS&amp;T, INC</div>
         <div class="co-line">261 E Imperial Hwy, Ste 520, Fullerton, CA 92835, USA</div>
-        <div class="co-line"><a href="mailto:info@miksnt.com">info@miksnt.com</a></div>
+        <div class="co-line"><a href="#contact">info@miksnt.com</a></div>
       </div>
       <div class="foot-links">
         <a href="#cloudbridge">CloudBridge</a>
@@ -383,6 +405,25 @@ document.querySelector('.banner').addEventListener('mouseleave',start);
 /* ---------- Mobile menu ---------- */
 document.getElementById('burger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
 document.getElementById('navLinks').addEventListener('click',e=>{if(e.target.closest('a'))document.getElementById('navLinks').classList.remove('open');});
+
+
+/* ---------- Contact form (FormSubmit AJAX) ---------- */
+(function(){
+  var f=document.getElementById('cForm'); if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var st=document.getElementById('cStatus'), btn=f.querySelector('.c-send');
+    if(!f.checkValidity()){ st.className='c-status err'; st.textContent=(LANG==='ko')?'모든 항목을 입력해주세요.':'Please fill in all fields.'; return; }
+    st.className='c-status'; st.textContent=(LANG==='ko')?'전송 중...':'Sending...'; btn.disabled=true;
+    var d=Object.fromEntries(new FormData(f).entries());
+    d._subject='[MIKS&T 문의] '+(d.subject||''); d._captcha='false'; d._template='table';
+    fetch('https://formsubmit.co/ajax/info@miksnt.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});})
+      .then(function(res){ if(res.ok){ st.className='c-status ok'; st.textContent=(LANG==='ko')?'전송되었습니다. 감사합니다!':'Sent. Thank you!'; f.reset(); } else { throw new Error((res.j&&res.j.message)||'err'); } })
+      .catch(function(){ st.className='c-status err'; st.textContent=(LANG==='ko')?'전송에 실패했습니다. 잠시 후 다시 시도해주세요.':'Failed to send. Please try again later.'; })
+      .finally(function(){ btn.disabled=false; });
+  });
+})();
 
 /* ---------- Init ---------- */
 document.getElementById('yr').textContent=new Date().getFullYear();
