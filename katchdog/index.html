@@ -102,7 +102,7 @@ section{padding:96px 0}
 .product.dark{background:var(--ink);color:#cdd5ee}
 .product.dark h2,.product.dark h3{color:#fff}
 .product.dark .eyebrow{color:var(--gold)}
-.prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:stretch}
+.prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
 .prod-name{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:8px}
 .prod-kicker{color:var(--teal);font-family:var(--mono);font-size:.9rem;margin-bottom:20px}
 .product.light .prod-kicker{color:var(--blue)}
@@ -114,8 +114,8 @@ section{padding:96px 0}
 .product.light .feat h4{color:var(--ink)}
 .feat .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);flex:none}
 .feat p{font-size:.95rem;color:inherit;opacity:.82;margin:0}
-.prod-visual{min-height:440px;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.08)}
-.prod-visual img{width:100%;height:100%;object-fit:cover}
+.prod-visual{border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.08)}
+.prod-visual img{width:100%;height:auto;display:block}
 .flow{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
 .step{flex:1;min-width:150px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px}
 .product.light .step{background:var(--paper);border-color:var(--line)}
@@ -149,7 +149,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
   .burger{display:flex}
   .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(11,20,55,.08)}
   .prod-grid{grid-template-columns:1fr;gap:34px}
-  .prod-visual{order:-1;min-height:260px}
+  .prod-visual{order:-1}
   .feat{grid-template-columns:1fr}
   section{padding:66px 0}
   .intro .metrics{gap:30px}
@@ -193,7 +193,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
       <span class="hblock">a1f9&hairsp;7c2b</span><span class="hlink"></span>
       <span class="hblock">e04d&hairsp;bb81</span><span class="hlink"></span>
       <span class="hblock">9af2&hairsp;5d10</span>
-      <span class="hseal">&#10003; sha-256 verified</span>
+      <span class="hseal">&#10003; <span class="lang-ko">SHA-256 검증됨</span><span class="lang-en hidden">sha-256 verified</span></span>
     </div>
   </div>
 </div>
@@ -221,7 +221,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
     <div>
       <p class="eyebrow"><span class="lang-ko">우리 제품 · 클라우드 영상 인프라</span><span class="lang-en hidden">Our product · cloud video infrastructure</span></p>
       <h2 class="prod-name">KatchDog</h2>
-      <div class="prod-kicker mono">RTSP &#8594; HLS &#8594; R2 &#8594; hash&#8209;chain</div>
+      <div class="prod-kicker mono"><span class="lang-ko">RTSP &#8594; HLS &#8594; R2 &#8594; 해시체인</span><span class="lang-en hidden">RTSP &#8594; HLS &#8594; R2 &#8594; hash&#8209;chain</span></div>
       <p class="prod-lead">
         <span class="lang-ko">현장 CCTV·RTSP 영상을 클라우드에 안전하게 저장하는 검증 가능한 영상 인프라입니다. 녹화되는 모든 조각에 해시 체인을 걸어 위·변조를 즉시 탐지하고, 원격 라이브·다채널 재생, OEM 파트너 분배까지 하나의 시스템으로 운영합니다.</span>
         <span class="lang-en hidden">A verifiable video infrastructure that securely stores on-site CCTV and RTSP streams in the cloud. A hash chain is applied to every recorded segment so tampering is detected instantly, with remote live, multi-channel playback, and OEM partner distribution in one system.</span>
@@ -250,7 +250,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
     <div>
       <p class="eyebrow"><span class="lang-ko">우리 제품 · 무결성 블랙박스 (iOS / Android)</span><span class="lang-en hidden">Our product · integrity dashcam (iOS / Android)</span></p>
       <h2 class="prod-name">VeriDash</h2>
-      <div class="prod-kicker mono">record &#8594; seal &#8594; verifiable evidence</div>
+      <div class="prod-kicker mono"><span class="lang-ko">기록 &#8594; 봉인 &#8594; 검증 가능한 증거</span><span class="lang-en hidden">record &#8594; seal &#8594; verifiable evidence</span></div>
       <p class="prod-lead">
         <span class="lang-ko">운전자용 블랙박스 앱입니다. 주행 영상·GPS·충격 이벤트를 기록하고 SHA-256 해시 체인으로 봉인해 "검증 가능한 영상 증거"를 만듭니다. 오프라인 업로드 큐가 있어 네트워크가 끊겨도 영상은 안전하게 클라우드에 백업됩니다.</span>
         <span class="lang-en hidden">A dashcam app for drivers. It records driving video, GPS, and impact events, then seals them with a SHA-256 hash chain to produce "verifiable video evidence." An offline upload queue keeps footage safely backed up to the cloud even when the network drops.</span>
