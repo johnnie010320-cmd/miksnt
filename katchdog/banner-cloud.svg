@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 680" width="1600" height="680" role="img" aria-label="Cloud solutions">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1437"/><stop offset="1" stop-color="#122052"/>
+    </linearGradient>
+    <linearGradient id="scrim2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0B1437" stop-opacity="0.96"/>
+      <stop offset="0.55" stop-color="#0B1437" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#0B1437" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="0.7" cy="0.35" r="0.55">
+      <stop offset="0" stop-color="#3949AB" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#3949AB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="680" fill="url(#bg2)"/>
+  <rect width="1600" height="680" fill="url(#glow2)"/>
+  <!-- cloud -->
+  <g>
+    <path d="M1120 250
+             a92 92 0 0 1 178 -30
+             a70 70 0 0 1 96 66
+             a66 66 0 0 1 -16 130
+             H1150
+             a80 80 0 0 1 -30 -166 Z"
+          fill="none" stroke="#C9A84C" stroke-width="4"/>
+    <path d="M1120 250
+             a92 92 0 0 1 178 -30
+             a70 70 0 0 1 96 66
+             a66 66 0 0 1 -16 130
+             H1150
+             a80 80 0 0 1 -30 -166 Z"
+          fill="#2DD4BF" opacity="0.08"/>
+  </g>
+  <!-- data streams -->
+  <g stroke="#2DD4BF" stroke-width="3" stroke-dasharray="6 12" stroke-linecap="round" opacity="0.85">
+    <path d="M1170 420 V520"/><path d="M1270 420 V560"/><path d="M1370 420 V520"/>
+  </g>
+  <!-- storage blocks -->
+  <g>
+    <g fill="#141d47" stroke="#3949AB" stroke-width="2">
+      <rect x="1110" y="520" width="120" height="46" rx="8"/>
+      <rect x="1210" y="560" width="120" height="46" rx="8"/>
+      <rect x="1310" y="520" width="120" height="46" rx="8"/>
+    </g>
+    <g fill="#2DD4BF">
+      <circle cx="1128" cy="543" r="5"/><circle cx="1228" cy="583" r="5"/><circle cx="1328" cy="543" r="5"/>
+    </g>
+    <g fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.6">
+      <rect x="1110" y="520" width="120" height="46" rx="8"/>
+    </g>
+  </g>
+  <!-- upload arrow -->
+  <g stroke="#C9A84C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1250 300 V150 M1210 190 L1250 150 L1290 190"/>
+  </g>
+  <rect width="1000" height="680" fill="url(#scrim2)"/>
+</svg>

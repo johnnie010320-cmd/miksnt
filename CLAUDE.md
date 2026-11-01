@@ -31,6 +31,7 @@ mikst-website/
 ├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반) — /axmos/에도 복제본
 ├── jp/                 # ★ www.miksnet.jp 별도 사이트 (JA/EN 포팅, AXMOS 전면 제거). 자립형(index.html + 로고 + 배너SVG 4종)
 │   └── CNAME=www.miksnet.jp · Noto Sans JP · 기본언어=JA · titleKo/subKo 키에 일본어 저장
+├── katchdog/           # ★ www.katchdog.com 별도 사이트 (레크미우/박성종, 사업자 568-21-02154). index.html을 그대로 포팅 + 회사정보만 교체. 자립형(index.html + 배너SVG 5종 + CNAME). KO 기본, 로고=텍스트 워드마크(katchdog), localStorage 키=katch_lang. ⚠️ 제품/배너는 아직 MIKS&T 콘텐츠(CloudBridge·VeriDash·AXMOS, *.miksnt.com 링크) 그대로 — 레크미우용 교체 여부 죠니 확인 대기
 ├── axmos/              # ★ axmos.miksnt.com 별도 사이트 (구 메인 콘텐츠 자립형 복사본)
 │   ├── index.html      #   구 AXMOS 주력 홈페이지 (그대로 보존)
 │   ├── axmos.html, *.webp/jpg/png, _headers

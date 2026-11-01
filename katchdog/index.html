@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>katchdog — AI & Cloud Solutions</title>
+<meta name="description" content="katchdog — AI·클라우드 솔루션 개발 전문 기업. 위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라 CloudBridge와 무결성 블랙박스 VeriDash를 만듭니다.">
+<meta name="keywords" content="katchdog, AI, Cloud, CloudBridge, VeriDash, 클라우드 CCTV, 블랙박스, 무결성, dashcam, integrity">
+<meta property="og:title" content="katchdog — AI & Cloud Solutions">
+<meta property="og:description" content="검증 가능한 솔루션을 만드는 AI·클라우드 개발 기업 — CloudBridge · VeriDash">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1437; --panel:#141d47; --panel2:#0d1a3f; --panel3:#0a1330;
+  --gold:#C9A84C; --gold-soft:#E8D48B; --teal:#2DD4BF; --blue:#3949AB;
+  --paper:#F5F6FA; --paper2:#EDEFF6; --line:#e3e6ef;
+  --t-strong:#0B1437; --t-body:#3a4256; --t-mut:#6b7391;
+  --disp:'Space Grotesk','Noto Sans KR',sans-serif;
+  --body:'Inter','Noto Sans KR',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --wrap:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--t-body);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
+.hidden{display:none !important}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--disp);color:var(--t-strong);line-height:1.12;letter-spacing:-0.01em;word-break:keep-all}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+/* 라인브레이크 보정: 짧은 라벨·버튼은 줄바꿈 금지 */
+.brand,.nav-links a,.slide-tag,.slide-cta,.pcta,.c-mail,.c-link,.hblock,.hseal,.metric .n,.prod-kicker,.s-no,.step h5{white-space:nowrap}
+
+/* ===== Header ===== */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 1px 12px rgba(11,20,55,.05)}
+.nav{max-width:var(--wrap);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:40px;width:auto}
+.brand-text{font-family:var(--disp);font-weight:700;font-size:1.55rem;color:var(--ink);letter-spacing:-.02em}
+.brand-text span{color:var(--gold)}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{color:var(--t-body);font-size:.94rem;font-weight:500;padding:4px 0;position:relative}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--gold);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.nav-tools{display:flex;align-items:center;gap:14px}
+.lang{display:flex;border:1px solid #cfd5e6;border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;color:var(--t-mut);font-family:var(--body);font-size:.8rem;font-weight:600;padding:5px 12px;cursor:pointer}
+.lang button.on{background:var(--gold);color:var(--ink)}
+.admin-link{color:#8b93b3;font-size:.82rem}
+.admin-link:hover{color:var(--gold)}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
+.burger span{width:24px;height:2px;background:var(--ink);display:block}
+
+/* ===== Banner ===== */
+.banner{position:relative;background:var(--ink);overflow:hidden}
+.track{display:flex;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.slide{position:relative;min-width:100%;height:min(74vh,600px)}
+.slide-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide-inner{position:relative;max-width:var(--wrap);margin:0 auto;height:100%;padding:0 24px;display:flex;flex-direction:column;justify-content:center;max-width:min(var(--wrap),100%)}
+.slide-inner>div{max-width:820px}
+.slide-tag{display:inline-block;font-size:.8rem;font-weight:600;color:var(--ink);background:var(--gold);padding:5px 13px;border-radius:999px;margin-bottom:20px;width:fit-content}
+.slide-title{font-size:clamp(2.4rem,5.5vw,4rem);color:#fff;font-weight:700;margin-bottom:18px}
+.slide-sub{font-size:clamp(1.02rem,1.6vw,1.28rem);color:#cdd5ee;max-width:min(90vw,820px);margin-bottom:30px;line-height:1.5}
+.slide-cta{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--ink);font-weight:600;padding:13px 26px;border-radius:10px;font-size:1rem;transition:transform .2s,box-shadow .2s}
+.slide-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,168,76,.35)}
+.slide-cta .arw{transition:transform .2s}
+.slide-cta:hover .arw{transform:translateX(3px)}
+.b-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(11,20,55,.45);color:#fff;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background .2s}
+.b-arrow:hover{background:rgba(201,168,76,.9);color:var(--ink);border-color:transparent}
+.b-prev{left:18px}.b-next{right:18px}
+.dots{position:absolute;bottom:22px;left:0;right:0;z-index:5;display:flex;gap:10px;justify-content:center}
+.dots button{width:34px;height:4px;border:0;border-radius:2px;background:rgba(255,255,255,.35);cursor:pointer;padding:0;transition:background .3s}
+.dots button.on{background:var(--gold)}
+
+/* ===== Integrity strip ===== */
+.strip{background:var(--panel2);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.strip-in{max-width:var(--wrap);margin:0 auto;padding:22px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.strip-label{color:#fff;font-family:var(--disp);font-weight:600;font-size:1rem;white-space:nowrap}
+.strip-label b{color:var(--gold);font-weight:600}
+.chain{display:flex;align-items:center;gap:0;flex-wrap:wrap;overflow:hidden}
+.hblock{font-family:var(--mono);font-size:.82rem;color:var(--teal);background:#0a1533;border:1px solid rgba(45,212,191,.35);border-radius:7px;padding:7px 12px;white-space:nowrap}
+.hlink{width:22px;height:2px;background:var(--gold);flex:none}
+.hseal{display:inline-flex;align-items:center;gap:7px;color:var(--gold);font-family:var(--mono);font-size:.82rem;margin-left:6px;white-space:nowrap}
+
+/* ===== Sections ===== */
+section{padding:96px 0}
+.eyebrow{font-family:var(--disp);color:var(--teal);font-weight:600;font-size:.95rem;margin-bottom:14px}
+.intro{background:#fff;border-bottom:1px solid var(--line)}
+.intro h2{font-size:clamp(1.8rem,3.4vw,2.7rem);max-width:20ch;margin-bottom:20px}
+.intro p{font-size:1.15rem;max-width:60ch;color:var(--t-body)}
+.intro .metrics{display:flex;gap:48px;margin-top:44px;flex-wrap:wrap}
+.metric .n{font-family:var(--disp);font-size:2.4rem;font-weight:700;color:var(--ink)}
+.metric .n b{color:var(--gold);font-weight:700}
+.metric .l{color:var(--t-mut);font-size:.95rem}
+
+/* ===== Product ===== */
+.product{position:relative}
+.product.dark{background:var(--ink);color:#cdd5ee}
+.product.dark h2,.product.dark h3{color:#fff}
+.product.dark .eyebrow{color:var(--gold)}
+.prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.prod-name{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:8px}
+.prod-kicker{color:var(--teal);font-family:var(--mono);font-size:.9rem;margin-bottom:20px}
+.product.light .prod-kicker{color:var(--blue)}
+.prod-lead{font-size:1.15rem;margin-bottom:28px;max-width:52ch}
+.product.light .prod-lead{color:var(--t-body)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;margin-bottom:34px}
+.feat h4{font-family:var(--disp);font-size:1.05rem;margin-bottom:5px;display:flex;align-items:center;gap:9px}
+.product.dark .feat h4{color:#fff}
+.product.light .feat h4{color:var(--ink)}
+.feat .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);flex:none}
+.feat p{font-size:.95rem;color:inherit;opacity:.82;margin:0}
+.prod-visual{border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.08)}
+.prod-visual img{width:100%;height:100%;object-fit:cover}
+.flow{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
+.step{flex:1;min-width:150px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px}
+.product.light .step{background:var(--paper);border-color:var(--line)}
+.step .s-no{font-family:var(--mono);color:var(--gold);font-size:.85rem;margin-bottom:8px}
+.step h5{font-family:var(--disp);font-size:1rem;margin-bottom:5px}
+.product.dark .step h5{color:#fff}.product.light .step h5{color:var(--ink)}
+.step p{font-size:.88rem;opacity:.8;margin:0}
+.pcta{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:var(--ink);font-weight:600;padding:13px 26px;border-radius:10px;transition:transform .2s}
+.pcta:hover{transform:translateY(-2px)}
+.pcta.ghost{background:transparent;color:inherit;border:1px solid currentColor;margin-left:12px}
+
+/* ===== Contact / footer ===== */
+.contact{background:var(--panel);color:#cdd5ee}
+.contact h2{color:#fff;font-size:clamp(1.8rem,3.2vw,2.5rem);margin-bottom:16px;max-width:18ch}
+.contact p{max-width:52ch;margin-bottom:28px}
+.c-actions{display:flex;gap:14px;flex-wrap:wrap}
+.c-mail{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-weight:600;padding:14px 28px;border-radius:10px;font-family:var(--mono)}
+.c-link{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);color:#fff;padding:14px 22px;border-radius:10px}
+.c-link:hover{border-color:var(--gold);color:var(--gold)}
+footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px solid rgba(255,255,255,.06)}
+.foot-main{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.foot-co .co-name{font-family:var(--disp);color:#fff;font-weight:700;font-size:1.05rem;margin-bottom:8px}
+.foot-co .co-line{font-size:.9rem;color:#aab3d0;margin-bottom:3px}
+.foot-co .co-line a{color:#aab3d0}.foot-co .co-line a:hover{color:var(--gold)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;height:fit-content}
+.foot-links a{color:#aab3d0;font-size:.9rem}.foot-links a:hover{color:var(--gold)}
+.foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06);font-size:.82rem;color:#767e9c}
+
+@media(max-width:860px){
+  .nav-links,.admin-link{display:none}
+  .burger{display:flex}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(11,20,55,.08)}
+  .prod-grid{grid-template-columns:1fr;gap:34px}
+  .prod-visual{order:-1}
+  .feat{grid-template-columns:1fr}
+  section{padding:66px 0}
+  .intro .metrics{gap:30px}
+}
+@media(prefers-reduced-motion:reduce){.track{transition:none}*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="#top" class="brand brand-text">katch<span>dog</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about"><span class="lang-ko">회사소개</span><span class="lang-en hidden">About</span></a>
+      <a href="#cloudbridge">CloudBridge</a>
+      <a href="#veridash">VeriDash</a>
+      <a href="https://axmos.miksnt.com">AXMOS</a>
+      <a href="#contact"><span class="lang-ko">문의</span><span class="lang-en hidden">Contact</span></a>
+    </nav>
+    <div class="nav-tools">
+      <div class="lang" id="lang">
+        <button data-lang="ko" class="on">KO</button><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<a id="top"></a>
+<!-- ===== Banner carousel ===== -->
+<section class="banner" style="padding:0" aria-label="highlights">
+  <div class="track" id="track"><!-- slides injected --></div>
+  <button class="b-arrow b-prev" id="bPrev" aria-label="previous">&#8249;</button>
+  <button class="b-arrow b-next" id="bNext" aria-label="next">&#8250;</button>
+  <div class="dots" id="dots"></div>
+</section>
+
+<!-- ===== Integrity strip ===== -->
+<div class="strip">
+  <div class="strip-in">
+    <div class="strip-label"><span class="lang-ko">모든 기록에 <b>무결성 체인</b></span><span class="lang-en hidden">Every record on an <b>integrity chain</b></span></div>
+    <div class="chain" aria-hidden="true">
+      <span class="hblock">a1f9&hairsp;7c2b</span><span class="hlink"></span>
+      <span class="hblock">e04d&hairsp;bb81</span><span class="hlink"></span>
+      <span class="hblock">9af2&hairsp;5d10</span>
+      <span class="hseal">&#10003; sha-256 verified</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Intro ===== -->
+<section class="intro" id="about">
+  <div class="wrap">
+    <p class="eyebrow"><span class="lang-ko">AI · 클라우드 개발 전문 기업</span><span class="lang-en hidden">AI &amp; cloud engineering studio</span></p>
+    <h2><span class="lang-ko">신뢰할 수 있는 데이터를 만드는 기술 회사</span><span class="lang-en hidden">We build technology that makes data trustworthy</span></h2>
+    <p>
+      <span class="lang-ko"><strong>katchdog</strong>는 AI와 클라우드 기술을 직접 설계·개발하는 기업입니다. 저희 기술의 핵심은 <strong>모든 영상과 기록을 위·변조할 수 없게 만드는 것</strong> — SHA-256 해시 체인으로 데이터를 봉인하고, 클라우드 위에서 언제든 검증할 수 있게 보관합니다. 이 기술이 두 제품 CloudBridge와 VeriDash로 구현되어 있습니다.</span>
+      <span class="lang-en hidden"><strong>katchdog</strong> designs and builds AI and cloud technology in-house. At its core is a single idea — <strong>making every video and record tamper-evident</strong>. We seal data with SHA-256 hash chains and keep it verifiable on the cloud, anytime. That technology powers two products: CloudBridge and VeriDash.</span>
+    </p>
+    <div class="metrics">
+      <div class="metric"><div class="n">SHA&#8209;<b>256</b></div><div class="l"><span class="lang-ko">해시 체인 무결성</span><span class="lang-en hidden">Hash-chain integrity</span></div></div>
+      <div class="metric"><div class="n"><b>2</b></div><div class="l"><span class="lang-ko">주력 클라우드 제품</span><span class="lang-en hidden">Flagship cloud products</span></div></div>
+      <div class="metric"><div class="n"><b>4</b></div><div class="l"><span class="lang-ko">지원 언어 (KO·EN·JA·ES)</span><span class="lang-en hidden">Languages (KO·EN·JA·ES)</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CloudBridge ===== -->
+<section class="product dark" id="cloudbridge">
+  <div class="wrap prod-grid">
+    <div>
+      <p class="eyebrow"><span class="lang-ko">우리 제품 · 클라우드 영상 인프라</span><span class="lang-en hidden">Our product · cloud video infrastructure</span></p>
+      <h2 class="prod-name">CloudBridge</h2>
+      <div class="prod-kicker mono">RTSP &#8594; HLS &#8594; R2 &#8594; hash&#8209;chain</div>
+      <p class="prod-lead">
+        <span class="lang-ko">현장 CCTV·RTSP 영상을 클라우드에 안전하게 저장하는 검증 가능한 영상 인프라입니다. 녹화되는 모든 조각에 해시 체인을 걸어 위·변조를 즉시 탐지하고, 원격 라이브·다채널 재생, OEM 파트너 분배까지 하나의 시스템으로 운영합니다.</span>
+        <span class="lang-en hidden">A verifiable video infrastructure that securely stores on-site CCTV and RTSP streams in the cloud. A hash chain is applied to every recorded segment so tampering is detected instantly, with remote live, multi-channel playback, and OEM partner distribution in one system.</span>
+      </p>
+      <div class="feat">
+        <div><h4><span class="dot"></span><span class="lang-ko">해시 체인 무결성</span><span class="lang-en hidden">Hash-chain integrity</span></h4><p><span class="lang-ko">조각마다 이전 해시를 연결해 한 프레임만 바뀌어도 드러남</span><span class="lang-en hidden">Each segment links the previous hash — one altered frame shows</span></p></div>
+        <div><h4><span class="dot"></span><span class="lang-ko">클라우드 녹화·저장</span><span class="lang-en hidden">Cloud recording &amp; storage</span></h4><p><span class="lang-ko">R2에 자동 업로드, 네트워크가 끊겨도 큐에 보관 후 재전송</span><span class="lang-en hidden">Auto-upload to R2; queued and resumed if the network drops</span></p></div>
+        <div><h4><span class="dot"></span><span class="lang-ko">원격 라이브 &amp; 재생</span><span class="lang-en hidden">Remote live &amp; playback</span></h4><p><span class="lang-ko">어디서나 다채널 실시간 시청과 과거 영상 재생</span><span class="lang-en hidden">Multi-channel live viewing and playback from anywhere</span></p></div>
+        <div><h4><span class="dot"></span><span class="lang-ko">OEM 파트너 관리</span><span class="lang-en hidden">OEM partner management</span></h4><p><span class="lang-ko">스토리지를 구독 플랜으로 분배·모니터링</span><span class="lang-en hidden">Distribute and monitor storage as subscription plans</span></p></div>
+      </div>
+      <div class="flow">
+        <div class="step"><div class="s-no mono">01</div><h5><span class="lang-ko">카메라</span><span class="lang-en hidden">Camera</span></h5><p><span class="lang-ko">RTSP 영상 수신</span><span class="lang-en hidden">Ingest RTSP streams</span></p></div>
+        <div class="step"><div class="s-no mono">02</div><h5><span class="lang-ko">클라우드</span><span class="lang-en hidden">Cloud</span></h5><p><span class="lang-ko">HLS 분할 · R2 저장</span><span class="lang-en hidden">Chunk to HLS · store on R2</span></p></div>
+        <div class="step"><div class="s-no mono">03</div><h5><span class="lang-ko">검증</span><span class="lang-en hidden">Verify</span></h5><p><span class="lang-ko">해시 체인으로 무결성 확인</span><span class="lang-en hidden">Confirm integrity via hash chain</span></p></div>
+      </div>
+      <a class="pcta" href="https://cloudbridge.miksnt.com" target="_blank" rel="noopener"><span class="lang-ko">CloudBridge 살펴보기</span><span class="lang-en hidden">Explore CloudBridge</span> <span class="arw">&#8594;</span></a>
+    </div>
+    <div class="prod-visual"><img src="banner-cloudbridge.svg" alt="CloudBridge" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ===== VeriDash ===== -->
+<section class="product light" id="veridash">
+  <div class="wrap prod-grid">
+    <div class="prod-visual"><img src="banner-veridash.svg" alt="VeriDash" loading="lazy"></div>
+    <div>
+      <p class="eyebrow"><span class="lang-ko">우리 제품 · 무결성 블랙박스 (iOS / Android)</span><span class="lang-en hidden">Our product · integrity dashcam (iOS / Android)</span></p>
+      <h2 class="prod-name">VeriDash</h2>
+      <div class="prod-kicker mono">record &#8594; seal &#8594; verifiable evidence</div>
+      <p class="prod-lead">
+        <span class="lang-ko">운전자용 블랙박스 앱입니다. 주행 영상·GPS·충격 이벤트를 기록하고 SHA-256 해시 체인으로 봉인해 "검증 가능한 영상 증거"를 만듭니다. 오프라인 업로드 큐가 있어 네트워크가 끊겨도 영상은 안전하게 클라우드에 백업됩니다.</span>
+        <span class="lang-en hidden">A dashcam app for drivers. It records driving video, GPS, and impact events, then seals them with a SHA-256 hash chain to produce "verifiable video evidence." An offline upload queue keeps footage safely backed up to the cloud even when the network drops.</span>
+      </p>
+      <div class="feat">
+        <div><h4><span class="dot"></span><span class="lang-ko">루프 녹화 &amp; GPS 트랙</span><span class="lang-en hidden">Loop recording &amp; GPS track</span></h4><p><span class="lang-ko">60초 분할 연속 녹화, 1초 간격 위치 기록</span><span class="lang-en hidden">Continuous 60s segments with per-second location</span></p></div>
+        <div><h4><span class="dot"></span><span class="lang-ko">충격 감지 자동 잠금</span><span class="lang-en hidden">Auto-lock on impact</span></h4><p><span class="lang-ko">사고 순간 클립을 잠가 덮어쓰기 방지</span><span class="lang-en hidden">Locks the clip at impact so it is never overwritten</span></p></div>
+        <div><h4><span class="dot"></span><span class="lang-ko">무결성 증거 리포트</span><span class="lang-en hidden">Integrity evidence report</span></h4><p><span class="lang-ko">해시·서명이 담긴 검증 리포트 발급</span><span class="lang-en hidden">Issues a verification report with hashes and signature</span></p></div>
+        <div><h4><span class="dot"></span><span class="lang-ko">4개 언어 지원</span><span class="lang-en hidden">4 languages</span></h4><p><span class="lang-ko">KO · EN · JA · ES 실시간 전환</span><span class="lang-en hidden">KO · EN · JA · ES, switch at runtime</span></p></div>
+      </div>
+      <div class="flow">
+        <div class="step"><div class="s-no mono">01</div><h5><span class="lang-ko">기록</span><span class="lang-en hidden">Record</span></h5><p><span class="lang-ko">영상 · GPS · 충격</span><span class="lang-en hidden">Video · GPS · impact</span></p></div>
+        <div class="step"><div class="s-no mono">02</div><h5><span class="lang-ko">봉인</span><span class="lang-en hidden">Seal</span></h5><p><span class="lang-ko">해시 체인으로 잠금</span><span class="lang-en hidden">Locked by hash chain</span></p></div>
+        <div class="step"><div class="s-no mono">03</div><h5><span class="lang-ko">증거</span><span class="lang-en hidden">Evidence</span></h5><p><span class="lang-ko">검증 가능한 리포트</span><span class="lang-en hidden">Verifiable report</span></p></div>
+      </div>
+      <a class="pcta" href="https://veridash.miksnt.com" target="_blank" rel="noopener"><span class="lang-ko">VeriDash 살펴보기</span><span class="lang-en hidden">Explore VeriDash</span> <span class="arw">&#8594;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--teal)"><span class="lang-ko">문의</span><span class="lang-en hidden">Contact</span></p>
+    <h2><span class="lang-ko">함께 만들 솔루션이 있으신가요?</span><span class="lang-en hidden">Have a solution to build together?</span></h2>
+    <p><span class="lang-ko">AI·클라우드 개발, CloudBridge·VeriDash 도입, 파트너십 문의를 환영합니다.</span><span class="lang-en hidden">We welcome inquiries on AI &amp; cloud development, adopting CloudBridge or VeriDash, and partnerships.</span></p>
+    <div class="c-actions">
+      <a class="c-mail" href="mailto:info@katchdog.com">info@katchdog.com</a>
+      <a class="c-link" href="https://cloudbridge.miksnt.com" target="_blank" rel="noopener">CloudBridge &#8599;</a>
+      <a class="c-link" href="https://veridash.miksnt.com" target="_blank" rel="noopener">VeriDash &#8599;</a>
+      <a class="c-link" href="https://axmos.miksnt.com" target="_blank" rel="noopener">AXMOS &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-main">
+      <div class="foot-co">
+        <div class="co-name">레크미우 <span style="color:var(--gold);font-weight:600">katchdog</span></div>
+        <div class="co-line"><span class="lang-ko">대표 박성종 · 사업자등록번호 568-21-02154</span><span class="lang-en hidden">CEO Park Seong-jong · Biz. Reg. 568-21-02154</span></div>
+        <div class="co-line">경기도 용인시 수지구 용구대로 2720, 204동 1204호<span class="lang-ko"> (죽전동, 현암마을 동성2차아파트)</span></div>
+        <div class="co-line">Tel. 010-8629-1404 · <a href="mailto:info@katchdog.com">info@katchdog.com</a></div>
+      </div>
+      <div class="foot-links">
+        <a href="#cloudbridge">CloudBridge</a>
+        <a href="#veridash">VeriDash</a>
+        <a href="https://axmos.miksnt.com">AXMOS</a>
+        <a href="#contact"><span class="lang-ko">문의</span><span class="lang-en hidden">Contact</span></a>
+      </div>
+    </div>
+    <div class="foot-bottom">&copy; <span id="yr"></span> 레크미우 (katchdog)</div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   배너 편집 = 여기 slides 배열만 고치면 됩니다.
+   (지니에게 "배너 이렇게 바꿔줘"라고 하시면 1분 내 반영·배포)
+   · img       : 파일명(banner-*.svg) 또는 이미지 URL
+   · titleKo/En, subKo/En : 제목 / 설명
+   · tagKo/En  : 상단 작은 태그 (선택, 없으면 빈 문자열)
+   · ctaKo/En + link : 버튼 (선택, link 있어야 버튼 표시)
+   · visible:false : 해당 슬라이드 숨김
+   · interval  : 자동 넘김 간격(밀리초)
+   ========================================================= */
+const BANNER={interval:6000,slides:[
+  {img:"banner-ai.svg",tag:"",titleKo:"AI 전문 기업",titleEn:"AI specialists",subKo:"머신러닝과 컴퓨터 비전으로\n현장의 문제를 푸는 기술을 만듭니다.\nAI 에이전트를 현장에 맞게 커스터마이징 합니다.",subEn:"Machine learning and computer vision\nto solve real-world problems.\nWe customize AI agents to fit each site.",ctaKo:"",ctaEn:"",link:"",visible:true},
+  {img:"banner-cloud.svg",tag:"",titleKo:"클라우드 솔루션 개발 전문",titleEn:"Cloud solution builders",subKo:"설계부터 운영까지, 확장 가능한 클라우드 인프라를 직접 구축합니다.\n영상 저장 및 보안, 비디오/오디오 스트리밍 개발 전문",subEn:"From architecture to operations, we build scalable cloud infrastructure end to end.\nVideo storage & security, and video/audio streaming development.",ctaKo:"",ctaEn:"",link:"",visible:true},
+  {img:"banner-cloudbridge.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"CloudBridge",titleEn:"CloudBridge",subKo:"위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라.",subEn:"Verifiable cloud video infrastructure that detects tampering.",ctaKo:"CloudBridge 살펴보기",ctaEn:"Explore CloudBridge",link:"#cloudbridge",visible:true},
+  {img:"banner-veridash.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"VeriDash",titleEn:"VeriDash",subKo:"무결성 체인으로 봉인하는 블랙박스 — 검증 가능한 영상 증거.\n모바일 폰을 블랙박스, 바디캠, 액션캠으로!!",subEn:"An integrity-sealed dashcam — verifiable video evidence.\nTurn your phone into a dashcam, body cam, and action cam!!",ctaKo:"VeriDash 살펴보기",ctaEn:"Explore VeriDash",link:"#veridash",visible:true},
+  {img:"banner-axmos.svg?v=1",tagKo:"AXMOS · 미국 사업 대행",tagEn:"AXMOS · US agency",titleKo:"AXMOS",titleEn:"AXMOS",subKo:"제조 AI 전환(AX) 컨소시엄 AXMOS의 미국 사업을 대행합니다.\n한국의 제조 역량과 미국의 AI·자본을 잇습니다.",subEn:"We run US operations for AXMOS, the manufacturing AI-transformation (AX) consortium.\nConnecting Korea's manufacturing strength with US AI and capital.",ctaKo:"AXMOS 바로가기",ctaEn:"Go to AXMOS",link:"https://axmos.miksnt.com",visible:true}
+]};
+
+/* ---------- Language ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function nl2br(s){return esc(s).replace(/\n/g,'<br>');}
+let LANG=(()=>{try{return localStorage.getItem('katch_lang')||'ko'}catch(e){return'ko'}})();
+function applyLang(){
+  document.querySelectorAll('.lang-ko').forEach(el=>el.classList.toggle('hidden',LANG!=='ko'));
+  document.querySelectorAll('.lang-en').forEach(el=>el.classList.toggle('hidden',LANG!=='en'));
+  document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===LANG));
+  document.documentElement.lang=LANG;
+}
+document.getElementById('lang').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return; LANG=b.dataset.lang;
+  try{localStorage.setItem('katch_lang',LANG)}catch(_){}
+  applyLang();
+});
+
+/* ---------- Banner render + carousel ---------- */
+const track=document.getElementById('track'), dotsEl=document.getElementById('dots');
+let idx=0, timer=null, interval=BANNER.interval, count=0;
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+function slideHTML(s){
+  const tagKo=s.tagKo||s.tag||'', tagEn=s.tagEn||s.tag||'';
+  const tag=(tagKo||tagEn)?`<span class="slide-tag"><span class="lang-ko">${esc(tagKo)}</span><span class="lang-en hidden">${esc(tagEn)}</span></span>`:'';
+  const isExt=/^https?:/i.test(s.link||'');
+  const icon=isExt?'&#8599;':'&#8594;';   // 외부 링크=바로가기 아이콘(↗), 내부 앵커=화살표(→)
+  const tgt=isExt?' target="_blank" rel="noopener"':'';
+  const cta=(s.link&&(s.ctaKo||s.ctaEn))?`<a class="slide-cta" href="${esc(s.link)}"${tgt}><span class="lang-ko">${esc(s.ctaKo||s.ctaEn)}</span><span class="lang-en hidden">${esc(s.ctaEn||s.ctaKo)}</span> <span class="arw">${icon}</span></a>`:'';
+  return `<div class="slide"><img class="slide-bg" src="${esc(s.img)}" alt=""><div class="slide-inner"><div>
+    ${tag}
+    <h2 class="slide-title"><span class="lang-ko">${esc(s.titleKo)}</span><span class="lang-en hidden">${esc(s.titleEn)}</span></h2>
+    <p class="slide-sub"><span class="lang-ko">${nl2br(s.subKo)}</span><span class="lang-en hidden">${nl2br(s.subEn)}</span></p>
+    ${cta}
+  </div></div></div>`;
+}
+function renderBanner(data){
+  const slides=(data.slides||[]).filter(s=>s&&s.visible!==false&&s.img);
+  if(!slides.length)return;
+  interval=Number(data.interval)||6000;
+  track.innerHTML=slides.map(slideHTML).join('');
+  dotsEl.innerHTML=slides.map((_,i)=>`<button data-i="${i}" aria-label="slide ${i+1}"></button>`).join('');
+  count=slides.length; idx=0;
+  applyLang(); go(0); start();
+}
+function go(i){ idx=(i+count)%count; track.style.transform=`translateX(-${idx*100}%)`;
+  dotsEl.querySelectorAll('button').forEach((d,k)=>d.classList.toggle('on',k===idx)); }
+function next(){go(idx+1)} function prev(){go(idx-1)}
+function start(){ if(reduce||count<2)return; stop(); timer=setInterval(next,interval); }
+function stop(){ if(timer){clearInterval(timer);timer=null;} }
+document.getElementById('bNext').addEventListener('click',()=>{next();start();});
+document.getElementById('bPrev').addEventListener('click',()=>{prev();start();});
+dotsEl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;go(+b.dataset.i);start();});
+document.querySelector('.banner').addEventListener('mouseenter',stop);
+document.querySelector('.banner').addEventListener('mouseleave',start);
+
+/* ---------- Mobile menu ---------- */
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.getElementById('navLinks').addEventListener('click',e=>{if(e.target.closest('a'))document.getElementById('navLinks').classList.remove('open');});
+
+/* ---------- Init ---------- */
+document.getElementById('yr').textContent=new Date().getFullYear();
+applyLang();
+renderBanner(BANNER);
+</script>
+</body>
+</html>
