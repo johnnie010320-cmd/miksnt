@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 1120" width="560" height="1120" role="img" aria-label="VeriDash live family location sharing">
+  <defs>
+    <linearGradient id="loc-screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1736"/><stop offset="1" stop-color="#0a1330"/>
+    </linearGradient>
+    <radialGradient id="loc-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2DD4BF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="loc-soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <clipPath id="loc-map"><rect x="26" y="150" width="508" height="560" rx="26"/></clipPath>
+  </defs>
+
+  <!-- phone body -->
+  <rect x="6" y="6" width="548" height="1108" rx="62" fill="#060c22" stroke="#2a3a6e" stroke-width="3"/>
+  <rect x="20" y="20" width="520" height="1080" rx="50" fill="url(#loc-screen)"/>
+  <!-- notch -->
+  <rect x="210.0" y="36" width="140" height="26" rx="13" fill="#060c22"/>
+
+  <!-- status bar -->
+  <text x="54" y="92" font-family="Inter,Arial,sans-serif" font-weight="600" font-size="20" fill="#eef2fb">9:41</text>
+  <g transform="translate(440 78)" fill="#eef2fb">
+    <rect x="0" y="4" width="22" height="13" rx="3"/><rect x="28" y="0" width="30" height="17" rx="3"/><circle cx="74" cy="9" r="3"/>
+  </g>
+
+  <!-- header -->
+  <text x="54" y="135" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="30" fill="#eef2fb">Family Circle</text>
+  <g transform="translate(432 112)">
+    <rect x="0" y="0" width="74" height="30" rx="15" fill="#2DD4BF" opacity="0.18"/>
+    <circle cx="18" cy="15" r="5" fill="#2DD4BF"/>
+    <text x="30" y="20" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="14" fill="#2DD4BF">LIVE</text>
+  </g>
+
+  <!-- MAP -->
+  <g clip-path="url(#loc-map)">
+    <rect x="26" y="150" width="508" height="560" fill="#0e1733"/>
+    <!-- subtle map grid / blocks -->
+    <g stroke="#223157" stroke-width="2" opacity="0.8">
+      <path d="M26 250 H534 M26 360 H534 M26 470 H534 M26 580 H534 M26 670 H534"/>
+      <path d="M130 150 V710 M240 150 V710 M350 150 V710 M450 150 V710"/>
+    </g>
+    <!-- roads (brighter) -->
+    <g stroke="#2a3c70" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.9">
+      <path d="M26 420 H534"/><path d="M300 150 V710"/>
+    </g>
+    <!-- route path -->
+    <path d="M120 640 C 180 560 160 470 260 440 C 360 410 340 300 440 250" fill="none" stroke="#2DD4BF" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 18" opacity="0.95"/>
+    <!-- accuracy glow under self -->
+    <circle cx="260" cy="440" r="90" fill="url(#loc-glow)" opacity="0.45"/>
+    <!-- pins -->
+    <g transform="translate(260 452)">
+    <ellipse cx="0" cy="6" rx="16" ry="5" fill="#000" opacity=".25"/>
+    <path d="M0 2 C-18 2 -26 -14 -26 -26 C-26 -44 -12 -56 0 -56 C12 -56 26 -44 26 -26 C26 -14 18 2 0 2 Z" fill="#2DD4BF"/>
+    <circle cx="0" cy="-28" r="15" fill="#0B1437"/>
+    <text x="0" y="-23" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="16" fill="#2DD4BF">You</text>
+  </g>
+    <g transform="translate(150 610)">
+    <ellipse cx="0" cy="6" rx="16" ry="5" fill="#000" opacity=".25"/>
+    <path d="M0 2 C-18 2 -26 -14 -26 -26 C-26 -44 -12 -56 0 -56 C12 -56 26 -44 26 -26 C26 -14 18 2 0 2 Z" fill="#C9A84C"/>
+    <circle cx="0" cy="-28" r="15" fill="#0B1437"/>
+    <text x="0" y="-23" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="16" fill="#C9A84C">D</text>
+  </g>
+    <g transform="translate(432 262)">
+    <ellipse cx="0" cy="6" rx="16" ry="5" fill="#000" opacity=".25"/>
+    <path d="M0 2 C-18 2 -26 -14 -26 -26 C-26 -44 -12 -56 0 -56 C12 -56 26 -44 26 -26 C26 -14 18 2 0 2 Z" fill="#7aa2ff"/>
+    <circle cx="0" cy="-28" r="15" fill="#0B1437"/>
+    <text x="0" y="-23" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="16" fill="#7aa2ff">M</text>
+  </g>
+  </g>
+  <rect x="26" y="150" width="508" height="560" rx="26" fill="none" stroke="#223157" stroke-width="2"/>
+
+  <!-- bottom sheet: member list -->
+  <g transform="translate(26 726)">
+    <rect x="0" y="0" width="508" height="360" rx="30" fill="url(#loc-screen)" stroke="#223157" stroke-width="2"/>
+    <rect x="224" y="16" width="60" height="6" rx="3" fill="#8ea2c9" opacity="0.5"/>
+    <text x="34" y="66" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="22" fill="#eef2fb">Sharing with 3 people</text>
+    <text x="34" y="94" font-family="Inter,Arial,sans-serif" font-size="16" fill="#8ea2c9">Updated just now · location on</text>
+
+    <!-- rows -->
+    <g font-family="Inter,Arial,sans-serif">
+      <!-- row 1 -->
+      <g transform="translate(34 118)">
+        <circle cx="22" cy="22" r="22" fill="#2DD4BF" opacity="0.2"/><text x="22" y="29" text-anchor="middle" font-weight="700" font-size="18" fill="#2DD4BF">Y</text>
+        <text x="58" y="20" font-weight="700" font-size="18" fill="#eef2fb">You</text>
+        <text x="58" y="42" font-size="14" fill="#8ea2c9">Sharing live · moving</text>
+        <circle cx="430" cy="22" r="6" fill="#2DD4BF"/>
+      </g>
+      <!-- row 2 -->
+      <g transform="translate(34 192)">
+        <circle cx="22" cy="22" r="22" fill="#C9A84C" opacity="0.2"/><text x="22" y="29" text-anchor="middle" font-weight="700" font-size="18" fill="#C9A84C">D</text>
+        <text x="58" y="20" font-weight="700" font-size="18" fill="#eef2fb">Dad</text>
+        <text x="58" y="42" font-size="14" fill="#8ea2c9">2 min ago · home</text>
+        <circle cx="430" cy="22" r="6" fill="#C9A84C"/>
+      </g>
+      <!-- row 3 -->
+      <g transform="translate(34 266)">
+        <circle cx="22" cy="22" r="22" fill="#7aa2ff" opacity="0.2"/><text x="22" y="29" text-anchor="middle" font-weight="700" font-size="18" fill="#7aa2ff">M</text>
+        <text x="58" y="20" font-weight="700" font-size="18" fill="#eef2fb">Mom</text>
+        <text x="58" y="42" font-size="14" fill="#8ea2c9">Live · on the way</text>
+        <circle cx="430" cy="22" r="6" fill="#7aa2ff"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- SOS floating button -->
+  <g transform="translate(428 870)">
+    <circle cx="44" cy="44" r="46" fill="#e5484d" opacity="0.18"/>
+    <circle cx="44" cy="44" r="34" fill="#e5484d"/>
+    <text x="44" y="51" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="20" fill="#fff">SOS</text>
+  </g>
+</svg>

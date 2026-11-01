@@ -209,9 +209,26 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
 .shots figcaption{margin-top:9px;font-size:.82rem;font-weight:600;font-family:var(--disp)}
 .product.dark .shots figcaption{color:#fff}.product.light .shots figcaption{color:var(--ink)}
 .shots figcaption .sub{display:block;font-weight:400;font-size:.74rem;opacity:.7;margin-top:2px}
-.prod-visual.phone{background:transparent;border:0;box-shadow:none;overflow:visible;display:flex;justify-content:center;align-items:flex-start}
+.prod-visual.phone{background:transparent;border:0;box-shadow:none;overflow:visible;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;gap:34px}
 .prod-visual.phone img{width:auto;height:auto;max-height:560px;max-width:100%;border-radius:26px;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.1)}
 @media(max-width:860px){.shots{grid-template-columns:repeat(2,1fr)}.prod-visual.phone img{max-height:470px}}
+/* ===== VeriDash: location image + app download ===== */
+.vd-loc{margin:0;text-align:center}
+.vd-loc figcaption{margin-top:12px;font-family:var(--disp);font-weight:600;font-size:.9rem}
+.product.light .vd-loc figcaption{color:var(--ink)}.product.dark .vd-loc figcaption{color:#fff}
+.vd-get{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.vd-get-h{font-family:var(--disp);font-weight:700;font-size:1.05rem;margin-bottom:16px}
+.product.light .vd-get-h{color:var(--ink)}.product.dark .vd-get-h{color:#fff}
+.vd-stores{display:flex;flex-wrap:wrap;gap:26px}
+.vd-store{display:flex;flex-direction:column;align-items:center;gap:11px}
+.vd-store .badge{height:50px;width:auto;display:block;transition:transform .2s}
+.vd-store a:hover .badge{transform:translateY(-2px)}
+.vd-store .qr{width:106px;height:106px;border-radius:12px;background:#fff;padding:7px;box-shadow:0 8px 22px rgba(11,20,55,.16)}
+.vd-store .qcap{font-size:.78rem;font-weight:600;font-family:var(--body);opacity:.78}
+.product.light .vd-store .qcap{color:var(--ink)}.product.dark .vd-store .qcap{color:#cdd8ef}
+.vd-get .pcta{margin-top:22px}
+@media(max-width:560px){.vd-stores{gap:20px}.vd-store .qr{width:92px;height:92px}}
+
 
 @media(max-width:860px){
   .nav-links,.admin-link{display:none}
@@ -316,7 +333,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
 <!-- ===== VeriDash ===== -->
 <section class="product light" id="veridash">
   <div class="wrap prod-grid">
-    <div class="prod-visual phone"><img src="vd-map.jpg" alt="VeriDash app — clip detail with location map" loading="lazy"></div>
+    <div class="prod-visual phone"><img src="vd-map.jpg" alt="VeriDash app — clip detail with location map" loading="lazy"><figure class="vd-loc"><img src="vd-location.svg?v=1" alt="VeriDash — live family location sharing" loading="lazy"><figcaption><span class="lang-ko">실시간 가족 위치 공유 (영문 화면)</span><span class="lang-en hidden">Live family location sharing</span></figcaption></figure></div>
     <div>
       <p class="eyebrow"><span class="lang-ko">우리 제품 · 무결성 블랙박스 (iOS / Android)</span><span class="lang-en hidden">Our product · integrity dashcam (iOS / Android)</span></p>
       <h2 class="prod-name">VeriDash</h2>
@@ -337,6 +354,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
         <div class="step"><div class="s-no mono">03</div><h5><span class="lang-ko">증거</span><span class="lang-en hidden">Evidence</span></h5><p><span class="lang-ko">검증 가능한 리포트</span><span class="lang-en hidden">Verifiable report</span></p></div>
       </div>
             <div class="vd-new"><p class="vd-nh"><span class="lang-ko">가족 안전 · 실시간 기능</span><span class="lang-en hidden">Family safety · live features</span> <span class="tagnew">NEW</span></p><div class="feat"><div><h4><span class="dot"></span><span class="lang-ko">실시간 가족 위치 공유</span><span class="lang-en hidden">Live family location</span></h4><p><span class="lang-ko">지도에서 가족의 실시간 위치 확인 — 열 때만 전송해 배터리 절약</span><span class="lang-en hidden">See your family on a live map — sent only when opened, to save battery</span></p></div><div><h4><span class="dot"></span><span class="lang-ko">SOS 긴급 알림</span><span class="lang-en hidden">SOS emergency alert</span></h4><p><span class="lang-ko">한 번의 탭으로 위치·라이브와 함께 서클 전체에 알림, 충돌 자동 감지</span><span class="lang-en hidden">One tap alerts your circle with location and live video; auto crash detection</span></p></div><div><h4><span class="dot"></span><span class="lang-ko">라이브 영상 송수신</span><span class="lang-en hidden">Live video streaming</span></h4><p><span class="lang-ko">가족이 실시간으로 카메라를 시청 — 약한 망에서 화질 자동 조절</span><span class="lang-en hidden">Family watches your camera live — quality adapts on weak networks</span></p></div></div><div class="shots"><figure><img src="vd-record.jpg" alt="" loading="lazy"><figcaption><span class="lang-ko">녹화</span><span class="lang-en hidden">Record</span><span class="sub"><span class="lang-ko">전·후면·오디오</span><span class="lang-en hidden">Front · rear · audio</span></span></figcaption></figure><figure><img src="vd-map.jpg" alt="" loading="lazy"><figcaption><span class="lang-ko">위치·경로 지도</span><span class="lang-en hidden">Location & route</span><span class="sub"><span class="lang-ko">클립마다 GPS·속도</span><span class="lang-en hidden">GPS & speed per clip</span></span></figcaption></figure><figure><img src="vd-saved.jpg" alt="" loading="lazy"><figcaption><span class="lang-ko">저장·검증</span><span class="lang-en hidden">Saved & verified</span><span class="sub"><span class="lang-ko">무결성 100%</span><span class="lang-en hidden">100% integrity</span></span></figcaption></figure><figure><img src="vd-queue.jpg" alt="" loading="lazy"><figcaption><span class="lang-ko">클라우드 백업</span><span class="lang-en hidden">Cloud backup</span><span class="sub"><span class="lang-ko">변조 방지</span><span class="lang-en hidden">Tamper-proof</span></span></figcaption></figure></div></div>
+      <div class="vd-get"><p class="vd-get-h"><span class="lang-ko">앱 다운로드</span><span class="lang-en hidden">Download the app</span></p><div class="vd-stores"><div class="vd-store"><a href="https://apps.apple.com/app/id6788936465" target="_blank" rel="noopener"><img class="badge" src="badge-appstore.svg?v=1" alt="Download on the App Store"></a><img class="qr" src="vd-qr-ios.png?v=1" alt="App Store QR" loading="lazy"><span class="qcap"><span class="lang-ko">스캔 · iPhone</span><span class="lang-en hidden">Scan · iPhone</span></span></div><div class="vd-store"><a href="https://play.google.com/store/apps/details?id=com.veridash.app" target="_blank" rel="noopener"><img class="badge" src="badge-googleplay.png?v=1" alt="Get it on Google Play"></a><img class="qr" src="vd-qr-android.png?v=1" alt="Google Play QR" loading="lazy"><span class="qcap"><span class="lang-ko">스캔 · Android</span><span class="lang-en hidden">Scan · Android</span></span></div></div></div>
       <a class="pcta" href="#veridash-more"><span class="lang-ko">VeriDash 살펴보기</span><span class="lang-en hidden">Explore VeriDash</span> <span class="arw">&#8594;</span></a>
     </div>
   </div>
@@ -393,10 +411,10 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
    · interval  : 자동 넘김 간격(밀리초)
    ========================================================= */
 const BANNER={interval:6000,slides:[
-  {img:"banner-ai.svg",tag:"",titleKo:"AI 전문 기업",titleEn:"AI specialists",subKo:"머신러닝과 컴퓨터 비전으로\n현장의 문제를 푸는 기술을 만듭니다.\nAI 에이전트를 현장에 맞게 커스터마이징 합니다.",subEn:"Machine learning and computer vision\nto solve real-world problems.\nWe customize AI agents to fit each site.",ctaKo:"",ctaEn:"",link:"",visible:true},
-  {img:"banner-cloud.svg",tag:"",titleKo:"클라우드 솔루션 개발 전문",titleEn:"Cloud solution builders",subKo:"설계부터 운영까지, 확장 가능한 클라우드 인프라를 직접 구축합니다.\n영상 저장 및 보안, 비디오/오디오 스트리밍 개발 전문",subEn:"From architecture to operations, we build scalable cloud infrastructure end to end.\nVideo storage & security, and video/audio streaming development.",ctaKo:"",ctaEn:"",link:"",visible:true},
-  {img:"banner-cloudbridge.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"KatchDog",titleEn:"KatchDog",subKo:"위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라.",subEn:"Verifiable cloud video infrastructure that detects tampering.",ctaKo:"KatchDog 살펴보기",ctaEn:"Explore KatchDog",link:"#katchdog",visible:true},
-  {img:"banner-veridash.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"VeriDash",titleEn:"VeriDash",subKo:"무결성 체인으로 봉인하는 블랙박스 — 검증 가능한 영상 증거.\n모바일 폰을 블랙박스, 바디캠, 액션캠으로!!",subEn:"An integrity-sealed dashcam — verifiable video evidence.\nTurn your phone into a dashcam, body cam, and action cam!!",ctaKo:"VeriDash 살펴보기",ctaEn:"Explore VeriDash",link:"#veridash",visible:true}
+  {img:"banner-ai.svg?v=2",tag:"",titleKo:"AI 전문 기업",titleEn:"AI specialists",subKo:"머신러닝과 컴퓨터 비전으로\n현장의 문제를 푸는 기술을 만듭니다.\nAI 에이전트를 현장에 맞게 커스터마이징 합니다.",subEn:"Machine learning and computer vision\nto solve real-world problems.\nWe customize AI agents to fit each site.",ctaKo:"",ctaEn:"",link:"",visible:true},
+  {img:"banner-cloud.svg?v=2",tag:"",titleKo:"클라우드 솔루션 개발 전문",titleEn:"Cloud solution builders",subKo:"설계부터 운영까지, 확장 가능한 클라우드 인프라를 직접 구축합니다.\n영상 저장 및 보안, 비디오/오디오 스트리밍 개발 전문",subEn:"From architecture to operations, we build scalable cloud infrastructure end to end.\nVideo storage & security, and video/audio streaming development.",ctaKo:"",ctaEn:"",link:"",visible:true},
+  {img:"banner-cloudbridge.svg?v=2",tagKo:"우리 제품",tagEn:"Our product",titleKo:"KatchDog",titleEn:"KatchDog",subKo:"위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라.",subEn:"Verifiable cloud video infrastructure that detects tampering.",ctaKo:"KatchDog 살펴보기",ctaEn:"Explore KatchDog",link:"#katchdog",visible:true},
+  {img:"banner-veridash.svg?v=2",tagKo:"우리 제품",tagEn:"Our product",titleKo:"VeriDash",titleEn:"VeriDash",subKo:"무결성 체인으로 봉인하는 블랙박스 — 검증 가능한 영상 증거.\n모바일 폰을 블랙박스, 바디캠, 액션캠으로!!",subEn:"An integrity-sealed dashcam — verifiable video evidence.\nTurn your phone into a dashcam, body cam, and action cam!!",ctaKo:"VeriDash 살펴보기",ctaEn:"Explore VeriDash",link:"#veridash",visible:true}
 ]};
 
 /* ---------- Language ---------- */
