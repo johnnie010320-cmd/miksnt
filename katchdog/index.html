@@ -227,6 +227,10 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
 .vd-store .qcap{font-size:.78rem;font-weight:600;font-family:var(--body);opacity:.78}
 .product.light .vd-store .qcap{color:var(--ink)}.product.dark .vd-store .qcap{color:#cdd8ef}
 .vd-get .pcta{margin-top:22px}
+.pcta-soon{background:transparent;border:1.5px solid rgba(255,255,255,.26);color:rgba(255,255,255,.74);cursor:not-allowed;padding:12px 24px;margin-left:14px}
+.pcta-soon:hover{transform:none;box-shadow:none}
+.pcta-soon .soon-tag{font-size:.66rem;font-weight:700;letter-spacing:.03em;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.15);color:rgba(255,255,255,.88)}
+@media(max-width:560px){.pcta-soon{margin-left:0}}
 @media(max-width:560px){.vd-stores{gap:20px}.vd-store .qr{width:92px;height:92px}}
 
 
@@ -323,7 +327,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
         <div class="step"><div class="s-no mono">02</div><h5><span class="lang-ko">클라우드</span><span class="lang-en hidden">Cloud</span></h5><p><span class="lang-ko">HLS 분할 · R2 저장</span><span class="lang-en hidden">Chunk to HLS · store on R2</span></p></div>
         <div class="step"><div class="s-no mono">03</div><h5><span class="lang-ko">검증</span><span class="lang-en hidden">Verify</span></h5><p><span class="lang-ko">해시 체인으로 무결성 확인</span><span class="lang-en hidden">Confirm integrity via hash chain</span></p></div>
       </div>
-      <a class="pcta" href="#katchdog-more"><span class="lang-ko">KatchDog 살펴보기</span><span class="lang-en hidden">Explore KatchDog</span> <span class="arw">&#8594;</span></a>
+      <a class="pcta" href="#katchdog-more"><span class="lang-ko">KatchDog 살펴보기</span><span class="lang-en hidden">Explore KatchDog</span> <span class="arw">&#8594;</span></a><span class="pcta pcta-soon" role="button" aria-disabled="true" title="준비 중"><span class="lang-ko">SW 다운로드</span><span class="lang-en hidden">Download SW</span> <span class="soon-tag"><span class="lang-ko">준비 중</span><span class="lang-en hidden">Coming soon</span></span></span>
     </div>
     <div class="prod-visual"><img src="cb-visual.svg?v=1" alt="KatchDog" loading="lazy"></div>
   </div>
