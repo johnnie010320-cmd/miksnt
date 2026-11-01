@@ -157,6 +157,24 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
 .foot-links a{color:#aab3d0;font-size:.9rem}.foot-links a:hover{color:var(--gold)}
 .foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06);font-size:.82rem;color:#767e9c}
 
+/* ===== VeriDash: new features + real app screenshots ===== */
+.vd-new{margin-top:30px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+.product.light .vd-new{border-top-color:var(--line)}
+.vd-nh{font-family:var(--disp);font-weight:700;font-size:1.1rem;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.product.dark .vd-nh{color:#fff}.product.light .vd-nh{color:var(--ink)}
+.vd-nh .tagnew{font-family:var(--body);font-size:.66rem;font-weight:700;letter-spacing:.05em;background:var(--teal);color:var(--ink);padding:3px 9px;border-radius:999px}
+.vd-new .feat{margin-top:18px}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+.shots figure{margin:0;text-align:center}
+.shots img{width:100%;height:auto;border-radius:14px;box-shadow:0 14px 34px rgba(11,20,55,.24);border:1px solid rgba(255,255,255,.1);background:var(--ink)}
+.product.light .shots img{border-color:var(--line)}
+.shots figcaption{margin-top:9px;font-size:.82rem;font-weight:600;font-family:var(--disp)}
+.product.dark .shots figcaption{color:#fff}.product.light .shots figcaption{color:var(--ink)}
+.shots figcaption .sub{display:block;font-weight:400;font-size:.74rem;opacity:.7;margin-top:2px}
+.prod-visual.phone{background:transparent;border:0;box-shadow:none;overflow:visible;display:flex;justify-content:center;align-items:flex-start}
+.prod-visual.phone img{width:auto;height:auto;max-height:560px;max-width:100%;border-radius:26px;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.1)}
+@media(max-width:860px){.shots{grid-template-columns:repeat(2,1fr)}.prod-visual.phone img{max-height:470px}}
+
 @media(max-width:860px){
   .nav-links,.admin-link{display:none}
   .burger{display:flex}
@@ -262,7 +280,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
 <!-- ===== VeriDash ===== -->
 <section class="product light" id="veridash">
   <div class="wrap prod-grid">
-    <div class="prod-visual"><img src="vd-visual.svg?v=1" alt="VeriDash" loading="lazy"></div>
+    <div class="prod-visual phone"><img src="vd-map.jpg" alt="VeriDash app — clip detail with location map" loading="lazy"></div>
     <div>
       <p class="eyebrow"><span class="lang-ko hidden">우리 제품 · 무결성 블랙박스 (iOS / Android)</span><span class="lang-en">Our product · integrity dashcam (iOS / Android)</span><span class="lang-es hidden">Nuestro producto · dashcam con integridad (iOS / Android)</span></p>
       <h2 class="prod-name">VeriDash</h2>
@@ -283,6 +301,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
         <div class="step"><div class="s-no mono">02</div><h5><span class="lang-ko hidden">봉인</span><span class="lang-en">Seal</span><span class="lang-es hidden">Sellar</span></h5><p><span class="lang-ko hidden">해시 체인으로 잠금</span><span class="lang-en">Locked by hash chain</span><span class="lang-es hidden">Bloqueado por cadena de hash</span></p></div>
         <div class="step"><div class="s-no mono">03</div><h5><span class="lang-ko hidden">증거</span><span class="lang-en">Evidence</span><span class="lang-es hidden">Evidencia</span></h5><p><span class="lang-ko hidden">검증 가능한 리포트</span><span class="lang-en">Verifiable report</span><span class="lang-es hidden">Informe verificable</span></p></div>
       </div>
+            <div class="vd-new"><p class="vd-nh"><span class="lang-ko hidden">가족 안전 · 실시간 기능</span><span class="lang-en">Family safety · live features</span><span class="lang-es hidden">Seguridad familiar · funciones en vivo</span> <span class="tagnew">NEW</span></p><div class="feat"><div><h4><span class="dot"></span><span class="lang-ko hidden">실시간 가족 위치 공유</span><span class="lang-en">Live family location</span><span class="lang-es hidden">Ubicación familiar en tiempo real</span></h4><p><span class="lang-ko hidden">지도에서 가족의 실시간 위치 확인 — 열 때만 전송해 배터리 절약</span><span class="lang-en">See your family on a live map — sent only when opened, to save battery</span><span class="lang-es hidden">Mira a tu familia en un mapa en vivo; se envía solo al abrirlo para ahorrar batería</span></p></div><div><h4><span class="dot"></span><span class="lang-ko hidden">SOS 긴급 알림</span><span class="lang-en">SOS emergency alert</span><span class="lang-es hidden">Alerta SOS de emergencia</span></h4><p><span class="lang-ko hidden">한 번의 탭으로 위치·라이브와 함께 서클 전체에 알림, 충돌 자동 감지</span><span class="lang-en">One tap alerts your circle with location and live video; auto crash detection</span><span class="lang-es hidden">Un toque avisa a tu círculo con ubicación y video en vivo; detección automática de choques</span></p></div><div><h4><span class="dot"></span><span class="lang-ko hidden">라이브 영상 송수신</span><span class="lang-en">Live video streaming</span><span class="lang-es hidden">Transmisión de video en vivo</span></h4><p><span class="lang-ko hidden">가족이 실시간으로 카메라를 시청 — 약한 망에서 화질 자동 조절</span><span class="lang-en">Family watches your camera live — quality adapts on weak networks</span><span class="lang-es hidden">Tu familia ve tu cámara en vivo; la calidad se adapta en redes débiles</span></p></div></div><div class="shots"><figure><img src="vd-record.jpg" alt="" loading="lazy"><figcaption><span class="lang-ko hidden">녹화</span><span class="lang-en">Record</span><span class="lang-es hidden">Grabar</span><span class="sub"><span class="lang-ko hidden">전·후면·오디오</span><span class="lang-en">Front · rear · audio</span><span class="lang-es hidden">Frontal · trasera · audio</span></span></figcaption></figure><figure><img src="vd-map.jpg" alt="" loading="lazy"><figcaption><span class="lang-ko hidden">위치·경로 지도</span><span class="lang-en">Location & route</span><span class="lang-es hidden">Ubicación y ruta</span><span class="sub"><span class="lang-ko hidden">클립마다 GPS·속도</span><span class="lang-en">GPS & speed per clip</span><span class="lang-es hidden">GPS y velocidad por clip</span></span></figcaption></figure><figure><img src="vd-saved.jpg" alt="" loading="lazy"><figcaption><span class="lang-ko hidden">저장·검증</span><span class="lang-en">Saved & verified</span><span class="lang-es hidden">Guardado y verificado</span><span class="sub"><span class="lang-ko hidden">무결성 100%</span><span class="lang-en">100% integrity</span><span class="lang-es hidden">Integridad 100%</span></span></figcaption></figure><figure><img src="vd-queue.jpg" alt="" loading="lazy"><figcaption><span class="lang-ko hidden">클라우드 백업</span><span class="lang-en">Cloud backup</span><span class="lang-es hidden">Respaldo en la nube</span><span class="sub"><span class="lang-ko hidden">변조 방지</span><span class="lang-en">Tamper-proof</span><span class="lang-es hidden">A prueba de manipulaciones</span></span></figcaption></figure></div></div>
       <a class="pcta" href="https://veridash.miksnt.com" target="_blank" rel="noopener"><span class="lang-ko hidden">VeriDash 살펴보기</span><span class="lang-en">Explore VeriDash</span><span class="lang-es hidden">Explorar VeriDash</span> <span class="arw">&#8594;</span></a>
     </div>
   </div>
