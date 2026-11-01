@@ -31,7 +31,7 @@ mikst-website/
 ├── cb-visual.svg / vd-visual.svg  # 제품 섹션용 비주얼(배너SVG에서 스크림 제거 + viewBox 타이트 = 그래픽 꽉 채움). prod-visual은 이걸 사용(?v=1)
 ├── axmos.html          # AXMOS 상세페이지 (이중언어, 20장 브로슈어 기반) — /axmos/에도 복제본
 ├── jp/                 # ★ www.miksnet.jp 별도 사이트 (JA/EN 포팅, AXMOS 전면 제거). 자립형(index.html + 로고 + 배너SVG 4종)
-│   └── CNAME=www.miksnet.jp · Noto Sans JP · 기본언어=JA · titleKo/subKo 키에 일본어 저장
+│   └── CNAME=www.miksnet.jp · Noto Sans JP · 기본언어=JA · titleKo/subKo 키에 일본어 저장 · **CloudBridge/VeriDash 인페이지 상세 섹션(#cloudbridge-more/#veridash-more, JA/EN)** · 제품 이미지=cb-visual/vd-visual.svg(height:auto)
 ├── katchdog/           # ★ www.katchdog.com 별도 사이트 (레크미우 LEQMIU/박성종, 사업자 568-21-02154). index.html 포팅 + 회사정보 교체. 자립형(index.html + 배너SVG 4종 + 로고PNG 4종 + CNAME). KO 기본, localStorage 키=katch_lang. AXMOS 전면 제거. 로고=KatchDog 공식(브랜드가이드 PDF에서 추출): katchdog-logo.png(헤더 가로락업), katchdog-logo-full.png(풀 세로락업+슬로건, 공식/앱용 마스터), katchdog-symbol.png, katchdog-favicon.png. 브랜드컬러 Trust Deep Blue #0F2537 / Smart Cyan #0284C7, 슬로건 "Always Katch, Never Miss". 제품=**KatchDog**(구 CloudBridge, CVR 영상보안·관제) + VeriDash. 외부 *.miksnt.com 링크 전부 제거·내부 앵커(#katchdog/#veridash)만, 완전 자립형. **브랜드컬러 적용**(2026-11-01): Trust Deep Blue `#0F2537` + Smart Cyan `#0284C7`(구 gold 토큰값 교체), Montserrat 헤드라인, SVG 6종도 재채색(골드→시안). miksnt(root)는 기존 네이비+골드 유지
 ├── axmos/              # ★ axmos.miksnt.com 별도 사이트 (구 메인 콘텐츠 자립형 복사본)
 │   ├── index.html      #   구 AXMOS 주력 홈페이지 (그대로 보존)
@@ -71,6 +71,10 @@ mikst-website/
 - **Montserrat** (영문 제목)
 - **Noto Sans KR** (한국어)
 - Google Fonts CDN 사용
+
+## 언어 구성 (2026-11-01)
+- 루트 `www.miksnt.com` = **EN / ES / KO** (기본 EN). `applyLang`은 `LANGS=['ko','en','es']` 루프, 배너 `slideHTML`은 ko/en/es 3스팬(titleEs/subEs/tagEs/ctaEs), 문의폼 상태는 `t(ko,en,es)`. 새 텍스트 추가 시 `.lang-ko/.lang-en/.lang-es` 3스팬을 모두 넣을 것.
+- `jp` = **JA / EN** (기본 JA), `katchdog` = **KO / EN** (기본 KO, 키 `katch_lang`).
 
 ## 성능 최적화 (기존 적용)
 - WebP 이미지 + lazy loading
