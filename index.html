@@ -102,7 +102,7 @@ section{padding:96px 0}
 .product.dark{background:var(--ink);color:#cdd5ee}
 .product.dark h2,.product.dark h3{color:#fff}
 .product.dark .eyebrow{color:var(--gold)}
-.prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:stretch}
 .prod-name{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:8px}
 .prod-kicker{color:var(--teal);font-family:var(--mono);font-size:.9rem;margin-bottom:20px}
 .product.light .prod-kicker{color:var(--blue)}
@@ -114,7 +114,7 @@ section{padding:96px 0}
 .product.light .feat h4{color:var(--ink)}
 .feat .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);flex:none}
 .feat p{font-size:.95rem;color:inherit;opacity:.82;margin:0}
-.prod-visual{border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.08)}
+.prod-visual{min-height:440px;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.08)}
 .prod-visual img{width:100%;height:100%;object-fit:cover}
 .flow{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
 .step{flex:1;min-width:150px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px}
@@ -149,7 +149,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
   .burger{display:flex}
   .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(11,20,55,.08)}
   .prod-grid{grid-template-columns:1fr;gap:34px}
-  .prod-visual{order:-1}
+  .prod-visual{order:-1;min-height:260px}
   .feat{grid-template-columns:1fr}
   section{padding:66px 0}
   .intro .metrics{gap:30px}
@@ -240,14 +240,14 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
       </div>
       <a class="pcta" href="https://cloudbridge.miksnt.com" target="_blank" rel="noopener"><span class="lang-ko">CloudBridge 살펴보기</span><span class="lang-en hidden">Explore CloudBridge</span> <span class="arw">&#8594;</span></a>
     </div>
-    <div class="prod-visual"><img src="banner-cloudbridge.svg" alt="CloudBridge" loading="lazy"></div>
+    <div class="prod-visual"><img src="cb-visual.svg?v=1" alt="CloudBridge" loading="lazy"></div>
   </div>
 </section>
 
 <!-- ===== VeriDash ===== -->
 <section class="product light" id="veridash">
   <div class="wrap prod-grid">
-    <div class="prod-visual"><img src="banner-veridash.svg" alt="VeriDash" loading="lazy"></div>
+    <div class="prod-visual"><img src="vd-visual.svg?v=1" alt="VeriDash" loading="lazy"></div>
     <div>
       <p class="eyebrow"><span class="lang-ko">우리 제품 · 무결성 블랙박스 (iOS / Android)</span><span class="lang-en hidden">Our product · integrity dashcam (iOS / Android)</span></p>
       <h2 class="prod-name">VeriDash</h2>

@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="katchdog-favicon.png?v=1">
 <title>katchdog — AI & Cloud Solutions</title>
-<meta name="description" content="katchdog — AI·클라우드 솔루션 개발 전문 기업. 위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라 CloudBridge와 무결성 블랙박스 VeriDash를 만듭니다.">
-<meta name="keywords" content="katchdog, AI, Cloud, CloudBridge, VeriDash, 클라우드 CCTV, 블랙박스, 무결성, dashcam, integrity">
+<meta name="description" content="katchdog — AI·클라우드 솔루션 개발 전문 기업. 위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라 KatchDog와 무결성 블랙박스 VeriDash를 만듭니다.">
+<meta name="keywords" content="katchdog, AI, Cloud, KatchDog, VeriDash, 클라우드 CCTV, 블랙박스, 무결성, dashcam, integrity">
 <meta property="og:title" content="katchdog — AI & Cloud Solutions">
-<meta property="og:description" content="검증 가능한 솔루션을 만드는 AI·클라우드 개발 기업 — CloudBridge · VeriDash">
+<meta property="og:description" content="검증 가능한 솔루션을 만드는 AI·클라우드 개발 기업 — KatchDog · VeriDash">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +102,7 @@ section{padding:96px 0}
 .product.dark{background:var(--ink);color:#cdd5ee}
 .product.dark h2,.product.dark h3{color:#fff}
 .product.dark .eyebrow{color:var(--gold)}
-.prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.prod-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:stretch}
 .prod-name{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:8px}
 .prod-kicker{color:var(--teal);font-family:var(--mono);font-size:.9rem;margin-bottom:20px}
 .product.light .prod-kicker{color:var(--blue)}
@@ -114,7 +114,7 @@ section{padding:96px 0}
 .product.light .feat h4{color:var(--ink)}
 .feat .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);flex:none}
 .feat p{font-size:.95rem;color:inherit;opacity:.82;margin:0}
-.prod-visual{border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.08)}
+.prod-visual{min-height:440px;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(11,20,55,.35);border:1px solid rgba(255,255,255,.08)}
 .prod-visual img{width:100%;height:100%;object-fit:cover}
 .flow{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:32px}
 .step{flex:1;min-width:150px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px}
@@ -149,7 +149,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
   .burger{display:flex}
   .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#fff;padding:18px 24px;gap:16px;border-bottom:1px solid var(--line);box-shadow:0 8px 20px rgba(11,20,55,.08)}
   .prod-grid{grid-template-columns:1fr;gap:34px}
-  .prod-visual{order:-1}
+  .prod-visual{order:-1;min-height:260px}
   .feat{grid-template-columns:1fr}
   section{padding:66px 0}
   .intro .metrics{gap:30px}
@@ -163,7 +163,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
     <a href="#top" class="brand"><img src="katchdog-logo.png?v=1" alt="KatchDog — Always Katch, Never Miss"></a>
     <nav class="nav-links" id="navLinks">
       <a href="#about"><span class="lang-ko">회사소개</span><span class="lang-en hidden">About</span></a>
-      <a href="#cloudbridge">CloudBridge</a>
+      <a href="#katchdog">KatchDog</a>
       <a href="#veridash">VeriDash</a>
       <a href="#contact"><span class="lang-ko">문의</span><span class="lang-en hidden">Contact</span></a>
     </nav>
@@ -204,8 +204,8 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
     <p class="eyebrow"><span class="lang-ko">AI · 클라우드 개발 전문 기업</span><span class="lang-en hidden">AI &amp; cloud engineering studio</span></p>
     <h2><span class="lang-ko">신뢰할 수 있는 데이터를 만드는 기술 회사</span><span class="lang-en hidden">We build technology that makes data trustworthy</span></h2>
     <p>
-      <span class="lang-ko"><strong>katchdog</strong>는 AI와 클라우드 기술을 직접 설계·개발하는 기업입니다. 저희 기술의 핵심은 <strong>모든 영상과 기록을 위·변조할 수 없게 만드는 것</strong> — SHA-256 해시 체인으로 데이터를 봉인하고, 클라우드 위에서 언제든 검증할 수 있게 보관합니다. 이 기술이 두 제품 CloudBridge와 VeriDash로 구현되어 있습니다.</span>
-      <span class="lang-en hidden"><strong>katchdog</strong> designs and builds AI and cloud technology in-house. At its core is a single idea — <strong>making every video and record tamper-evident</strong>. We seal data with SHA-256 hash chains and keep it verifiable on the cloud, anytime. That technology powers two products: CloudBridge and VeriDash.</span>
+      <span class="lang-ko"><strong>katchdog</strong>는 AI와 클라우드 기술을 직접 설계·개발하는 기업입니다. 저희 기술의 핵심은 <strong>모든 영상과 기록을 위·변조할 수 없게 만드는 것</strong> — SHA-256 해시 체인으로 데이터를 봉인하고, 클라우드 위에서 언제든 검증할 수 있게 보관합니다. 이 기술이 두 제품 KatchDog와 VeriDash로 구현되어 있습니다.</span>
+      <span class="lang-en hidden"><strong>katchdog</strong> designs and builds AI and cloud technology in-house. At its core is a single idea — <strong>making every video and record tamper-evident</strong>. We seal data with SHA-256 hash chains and keep it verifiable on the cloud, anytime. That technology powers two products: KatchDog and VeriDash.</span>
     </p>
     <div class="metrics">
       <div class="metric"><div class="n">SHA&#8209;<b>256</b></div><div class="l"><span class="lang-ko">해시 체인 무결성</span><span class="lang-en hidden">Hash-chain integrity</span></div></div>
@@ -215,12 +215,12 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
   </div>
 </section>
 
-<!-- ===== CloudBridge ===== -->
-<section class="product dark" id="cloudbridge">
+<!-- ===== KatchDog ===== -->
+<section class="product dark" id="katchdog">
   <div class="wrap prod-grid">
     <div>
       <p class="eyebrow"><span class="lang-ko">우리 제품 · 클라우드 영상 인프라</span><span class="lang-en hidden">Our product · cloud video infrastructure</span></p>
-      <h2 class="prod-name">CloudBridge</h2>
+      <h2 class="prod-name">KatchDog</h2>
       <div class="prod-kicker mono">RTSP &#8594; HLS &#8594; R2 &#8594; hash&#8209;chain</div>
       <p class="prod-lead">
         <span class="lang-ko">현장 CCTV·RTSP 영상을 클라우드에 안전하게 저장하는 검증 가능한 영상 인프라입니다. 녹화되는 모든 조각에 해시 체인을 걸어 위·변조를 즉시 탐지하고, 원격 라이브·다채널 재생, OEM 파트너 분배까지 하나의 시스템으로 운영합니다.</span>
@@ -237,16 +237,16 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
         <div class="step"><div class="s-no mono">02</div><h5><span class="lang-ko">클라우드</span><span class="lang-en hidden">Cloud</span></h5><p><span class="lang-ko">HLS 분할 · R2 저장</span><span class="lang-en hidden">Chunk to HLS · store on R2</span></p></div>
         <div class="step"><div class="s-no mono">03</div><h5><span class="lang-ko">검증</span><span class="lang-en hidden">Verify</span></h5><p><span class="lang-ko">해시 체인으로 무결성 확인</span><span class="lang-en hidden">Confirm integrity via hash chain</span></p></div>
       </div>
-      <a class="pcta" href="https://cloudbridge.miksnt.com" target="_blank" rel="noopener"><span class="lang-ko">CloudBridge 살펴보기</span><span class="lang-en hidden">Explore CloudBridge</span> <span class="arw">&#8594;</span></a>
+      <a class="pcta" href="#katchdog"><span class="lang-ko">KatchDog 살펴보기</span><span class="lang-en hidden">Explore KatchDog</span> <span class="arw">&#8594;</span></a>
     </div>
-    <div class="prod-visual"><img src="banner-cloudbridge.svg" alt="CloudBridge" loading="lazy"></div>
+    <div class="prod-visual"><img src="cb-visual.svg?v=1" alt="KatchDog" loading="lazy"></div>
   </div>
 </section>
 
 <!-- ===== VeriDash ===== -->
 <section class="product light" id="veridash">
   <div class="wrap prod-grid">
-    <div class="prod-visual"><img src="banner-veridash.svg" alt="VeriDash" loading="lazy"></div>
+    <div class="prod-visual"><img src="vd-visual.svg?v=1" alt="VeriDash" loading="lazy"></div>
     <div>
       <p class="eyebrow"><span class="lang-ko">우리 제품 · 무결성 블랙박스 (iOS / Android)</span><span class="lang-en hidden">Our product · integrity dashcam (iOS / Android)</span></p>
       <h2 class="prod-name">VeriDash</h2>
@@ -266,7 +266,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
         <div class="step"><div class="s-no mono">02</div><h5><span class="lang-ko">봉인</span><span class="lang-en hidden">Seal</span></h5><p><span class="lang-ko">해시 체인으로 잠금</span><span class="lang-en hidden">Locked by hash chain</span></p></div>
         <div class="step"><div class="s-no mono">03</div><h5><span class="lang-ko">증거</span><span class="lang-en hidden">Evidence</span></h5><p><span class="lang-ko">검증 가능한 리포트</span><span class="lang-en hidden">Verifiable report</span></p></div>
       </div>
-      <a class="pcta" href="https://veridash.miksnt.com" target="_blank" rel="noopener"><span class="lang-ko">VeriDash 살펴보기</span><span class="lang-en hidden">Explore VeriDash</span> <span class="arw">&#8594;</span></a>
+      <a class="pcta" href="#veridash"><span class="lang-ko">VeriDash 살펴보기</span><span class="lang-en hidden">Explore VeriDash</span> <span class="arw">&#8594;</span></a>
     </div>
   </div>
 </section>
@@ -276,11 +276,9 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
   <div class="wrap">
     <p class="eyebrow" style="color:var(--teal)"><span class="lang-ko">문의</span><span class="lang-en hidden">Contact</span></p>
     <h2><span class="lang-ko">함께 만들 솔루션이 있으신가요?</span><span class="lang-en hidden">Have a solution to build together?</span></h2>
-    <p><span class="lang-ko">AI·클라우드 개발, CloudBridge·VeriDash 도입, 파트너십 문의를 환영합니다.</span><span class="lang-en hidden">We welcome inquiries on AI &amp; cloud development, adopting CloudBridge or VeriDash, and partnerships.</span></p>
+    <p><span class="lang-ko">AI·클라우드 개발, KatchDog·VeriDash 도입, 파트너십 문의를 환영합니다.</span><span class="lang-en hidden">We welcome inquiries on AI &amp; cloud development, adopting KatchDog or VeriDash, and partnerships.</span></p>
     <div class="c-actions">
       <a class="c-mail" href="mailto:info@katchdog.com">info@katchdog.com</a>
-      <a class="c-link" href="https://cloudbridge.miksnt.com" target="_blank" rel="noopener">CloudBridge &#8599;</a>
-      <a class="c-link" href="https://veridash.miksnt.com" target="_blank" rel="noopener">VeriDash &#8599;</a>
     </div>
   </div>
 </section>
@@ -295,7 +293,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
         <div class="co-line">Tel. 010-8629-1404 · <a href="mailto:info@katchdog.com">info@katchdog.com</a></div>
       </div>
       <div class="foot-links">
-        <a href="#cloudbridge">CloudBridge</a>
+        <a href="#katchdog">KatchDog</a>
         <a href="#veridash">VeriDash</a>
         <a href="#contact"><span class="lang-ko">문의</span><span class="lang-en hidden">Contact</span></a>
       </div>
@@ -318,7 +316,7 @@ footer{background:var(--ink);color:#8b93b3;padding:40px 0 30px;border-top:1px so
 const BANNER={interval:6000,slides:[
   {img:"banner-ai.svg",tag:"",titleKo:"AI 전문 기업",titleEn:"AI specialists",subKo:"머신러닝과 컴퓨터 비전으로\n현장의 문제를 푸는 기술을 만듭니다.\nAI 에이전트를 현장에 맞게 커스터마이징 합니다.",subEn:"Machine learning and computer vision\nto solve real-world problems.\nWe customize AI agents to fit each site.",ctaKo:"",ctaEn:"",link:"",visible:true},
   {img:"banner-cloud.svg",tag:"",titleKo:"클라우드 솔루션 개발 전문",titleEn:"Cloud solution builders",subKo:"설계부터 운영까지, 확장 가능한 클라우드 인프라를 직접 구축합니다.\n영상 저장 및 보안, 비디오/오디오 스트리밍 개발 전문",subEn:"From architecture to operations, we build scalable cloud infrastructure end to end.\nVideo storage & security, and video/audio streaming development.",ctaKo:"",ctaEn:"",link:"",visible:true},
-  {img:"banner-cloudbridge.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"CloudBridge",titleEn:"CloudBridge",subKo:"위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라.",subEn:"Verifiable cloud video infrastructure that detects tampering.",ctaKo:"CloudBridge 살펴보기",ctaEn:"Explore CloudBridge",link:"#cloudbridge",visible:true},
+  {img:"banner-cloudbridge.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"KatchDog",titleEn:"KatchDog",subKo:"위·변조를 탐지하는 검증 가능한 클라우드 영상 인프라.",subEn:"Verifiable cloud video infrastructure that detects tampering.",ctaKo:"KatchDog 살펴보기",ctaEn:"Explore KatchDog",link:"#katchdog",visible:true},
   {img:"banner-veridash.svg",tagKo:"우리 제품",tagEn:"Our product",titleKo:"VeriDash",titleEn:"VeriDash",subKo:"무결성 체인으로 봉인하는 블랙박스 — 검증 가능한 영상 증거.\n모바일 폰을 블랙박스, 바디캠, 액션캠으로!!",subEn:"An integrity-sealed dashcam — verifiable video evidence.\nTurn your phone into a dashcam, body cam, and action cam!!",ctaKo:"VeriDash 살펴보기",ctaEn:"Explore VeriDash",link:"#veridash",visible:true}
 ]};
 
